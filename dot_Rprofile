@@ -1,0 +1,47 @@
+local({
+  r <- getOption("repos")
+  r["CRAN"] <- "https://cloud.r-project.org/"
+  options(repos = r)
+})
+
+
+if (interactive()) {
+  options(
+    max.print = 200,
+    show.signif.stars = FALSE,
+    browser = "qutebrowser"
+  )
+
+  q <- function(save="no", ...) {
+    quit(save = save, ...)
+  }
+
+ # might cause problems with renv
+ .View <- function(x)
+ {
+   x %>%
+     dplyr::mutate_if(is.character, factor) %>%
+     DT::datatable(filter = "top", options = list(paging = F, fixedHeader = T))
+ }
+
+  # tab-complete package names for use in “library()” or “require()”
+  utils::rc.settings(ipck = TRUE)
+
+  if(require(colorout, quietly = TRUE)) {
+    # colors for light background
+    setOutputColors(
+      normal = c(0, 0, 18),
+      number = c(0, 0, 90),
+      negnum = c(0, 0, 88),
+      date = c(0, 0, 53),
+      string = c(0, 0, 22),
+      const = c(0, 0, 94),
+      stderror = 52,
+      verbose = FALSE
+    )
+  } else {
+    message("*** Package `colorout` not available ***")
+  }
+
+  message("*** Successfully loaded user's .Rprofile ***")
+}
