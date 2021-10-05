@@ -2,7 +2,7 @@
 
 paru
 
-paru -S \
+paru -S --needed \
     man-db \
     man-pages \
     ttf-hack \
@@ -51,5 +51,3 @@ paru -S \
     r \
     openblas
 
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
