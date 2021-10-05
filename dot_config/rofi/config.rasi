@@ -1,0 +1,16 @@
+configuration {
+ modi: "combi,run";
+ theme: "gruvbox-dark-soft";
+ font: "Hack 11";
+ combi-modi: "run,ssh,window";
+ location: 2;
+ yoffset: 24;
+ kb-remove-char-back: "BackSpace,Shift+BackSpace,Control+H";
+ kb-remove-to-eol:"Control+K";
+ kb-accept-entry:"Control+m,Return,KP_Enter";
+ kb-mode-next:"Control+l,Shift+Right,Control+Tab";
+ kb-mode-previous: "Control+h,Shift+Left,Control+ISO_Left_Tab";
+ kb-row-up: "Up,Control+p,ISO_Left_Tab,Control+k";
+ kb-row-down: "Down,Control+n,Control+j";
+ kb-mode-complete: "Control+Shift+h";
+}
