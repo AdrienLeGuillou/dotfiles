@@ -1,0 +1,24 @@
+Host github.com
+HostName github.com
+    IdentityFile ~/.ssh/gh_rsa
+    User AdrienLeGuillou
+    AddKeysToAgent yes
+Host gitlab.com
+HostName gitlab.com
+    IdentityFile ~/.ssh/gh_rsa
+    User AdrienLeGuillou
+    AddKeysToAgent yes
+Host hyak_ikt ikt.hyak.uw.edu
+    User aleguil
+    HostName ikt.hyak.uw.edu
+    ControlPath ~/.ssh/master-%r@%h:%p
+    ControlMaster auto
+    ControlPersist yes
+Host hyak_mox mox.hyak.uw.edu
+    User aleguil
+    HostName mox.hyak.uw.edu
+    ControlPath ~/.ssh/master-%r@%h:%p
+    ControlMaster auto
+    ControlPersist yes
+    
+Compression yes
