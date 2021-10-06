@@ -13,6 +13,9 @@ paru -S --needed \
     sway \
     alacritty \
     foot \
+    zsh-completions \
+    hunspell-en_us \
+    hunspell-fr \
     mako \
     slurp \
     grim \
@@ -43,12 +46,19 @@ paru -S --needed \
     qutebrowser \
     featherpad \
     firefox \
+    zathura-pdf-mupdf \
+    vlc \
+    megasync-bin \
+    pamixer \ 
+    feh \
     gvfs-mtp \
     adwaita-icon-theme \
     pulseaudio \
     pavucontrol \
     playerctl-git \
     r \
-    openblas
+    openblas \
+    gcc-fortran \
+    tk
 
 sudo systemctl enable reflector.service
