@@ -104,6 +104,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias wayland_screen_share=" /usr/lib/xdg-desktop-portal -r & /usr/lib/xdg-desktop-portal-wlr"
 alias tmux="TERM=xterm-256color tmux"
+alias cm="chezmoi"
+alias cma="chezmoi apply -x encrypted,scripts"
 # alias R="radian"
 
 # Keybindings
