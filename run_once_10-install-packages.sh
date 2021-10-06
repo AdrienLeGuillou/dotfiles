@@ -49,7 +49,7 @@ paru -S --needed \
     zathura-pdf-mupdf \
     vlc \
     megasync-bin \
-    pamixer \ 
+    pamixer \
     feh \
     gvfs-mtp \
     adwaita-icon-theme \

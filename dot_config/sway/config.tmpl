@@ -265,7 +265,6 @@ client.focused #5f676a #5f676a #ffffff #af3a03 #d65d0e
 smart_borders on
 default_border pixel 4
 focus_follows_mouse no
-#for_window [title="MEGAsync"] floating enable
 
 #
 # Utilities
@@ -284,15 +283,16 @@ for_window [title="shotman"] move position 30 30, floating enable
 
 include /etc/sway/config.d/*
 
-# swayr window swithcher
 exec swayrd > /tmp/swayrd.log 2&>1
-
-# exec foot --server
 exec kanshi # display profiles
-# exec blueman-applet # bluetooth
 exec mako # notification deamon
-# exec firefox
-exec megasync_sway
 
-# xdg-desktop-portal-wlr
+{{- if eq .chezmoi.hostname "Gallarus" }}
+exec firefox
+exec megasync_sway
+# exec blueman-applet # bluetooth
+{{- else if eq .chezmoi.hostname "GallarusC720"}}
+
+{{ end -}}
+
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
