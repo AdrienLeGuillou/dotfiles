@@ -50,3 +50,4 @@ paru -S --needed \
     r \
     openblas
 
+sudo systemctl enable reflector.service
