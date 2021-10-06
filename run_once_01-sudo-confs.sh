@@ -17,4 +17,3 @@ case "$2" in
 esac' | sudo tee /etc/NetworkManager/dispatcher.d/09-timezone
 
 sudo timedatectl set-ntp true
-sudo systemctl enable reflector
