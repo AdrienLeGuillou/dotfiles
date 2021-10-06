@@ -3,6 +3,7 @@
 paru
 
 paru -S --needed \
+    reflector \
     man-db \
     man-pages \
     ttf-hack \
