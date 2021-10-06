@@ -1,0 +1,9 @@
+    <layout>
+      <configItem>
+        <name>enfr</name>
+        <shortDescription>enfr</shortDescription>
+	    <description>my enfr</description>
+        <languageList><iso639Id>eng</iso639Id></languageList>
+      </configItem>
+      <variantList/>
+    </layout>

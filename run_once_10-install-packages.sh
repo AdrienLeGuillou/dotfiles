@@ -47,7 +47,6 @@ paru -S --needed \
     pulseaudio \
     pavucontrol \
     playerctl-git \
-    spotify \
     r \
     openblas
 
