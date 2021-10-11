@@ -53,7 +53,7 @@ paru -S --needed \
     feh \
     gvfs-mtp \
     adwaita-icon-theme \
-    pulseaudio \
+    pipewire-pulse \
     pavucontrol \
     playerctl-git \
     r \

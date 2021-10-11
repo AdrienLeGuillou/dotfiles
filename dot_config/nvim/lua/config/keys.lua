@@ -82,6 +82,7 @@ wk.register({
     f = {
       name = '+file',
       f = {'<cmd>Telescope find_files<CR>', 'Open file'},
+      F = {'<cmd>lua require("telescope.builtin").find_files({hidden = true})<CR>', 'Open file (Show hidden)'},
       t = {'<cmd>NvimTreeToggle<CR>', 'Toggle file tree'},
       s = {'<cmd>w<CR>', 'Save file'},
       c = {[[<cmd>lua require('util').cleanup()<CR>]], 'Cleanup file'},
