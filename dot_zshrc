@@ -66,6 +66,10 @@ ZSH_CUSTOM="$HOME/.config/oh-my-zsh"
 # Use vi mode. Must be set before plugins (for fzf)
 set -o vi
 
+export FZF_DEFAULT_COMMAND="fd . -t file -H"
+export FZF_ALT_C_COMMAND="fd . -t directory -H"
+export FZF_CTRL_T_COMMAND="fd . -H"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/

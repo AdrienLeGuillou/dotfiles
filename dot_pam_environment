@@ -13,7 +13,4 @@ DIFFPROG="nvim -d"
 MANPAGER='nvim +Man!'
 MANWIDTH=999
 LC_CTYPE=en_US.UTF-8
-FZF_DEFAULT_COMMAND="fd . -t file -H"
-FZF_ALT_C_COMMAND="fd . -t directory -H"
-FZF_CTRL_T_COMMAND="fd . -H"
 BAT_THEME=gruvbox-light
