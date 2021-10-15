@@ -56,6 +56,7 @@ paru -S --needed \
     pipewire-pulse \
     pavucontrol \
     playerctl-git \
+    ccls \
     r \
     openblas \
     gcc-fortran \
