@@ -209,8 +209,13 @@ return require('packer').startup(function()
   -- Git
   use 'mhinz/vim-signify'
   use 'tpope/vim-fugitive'
---  -- use 'TimUntersberger/neogit'
---
+  use({ 
+    'TimUntersberger/neogit',
+    config = function() 
+      require'neogit'.setup()
+    end,
+  })
+
 --  use 'preservim/nerdtree'
 --  use 'kyazdani42/nvim-tree.lua'
   use({ 
