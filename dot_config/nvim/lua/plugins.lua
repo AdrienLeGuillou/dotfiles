@@ -169,7 +169,13 @@ return require('packer').startup(function()
 --  use 'SirVer/ultisnips'
 --
 --  -- -- Utilites
-  use 'tpope/vim-commentary'
+  use({
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  })
+  -- use 'tpope/vim-commentary'
   use 'easymotion/vim-easymotion'
 --  use 'editorconfig/editorconfig-vim'
   use({
@@ -232,6 +238,13 @@ return require('packer').startup(function()
   -- Lua dev
   use 'folke/lua-dev.nvim'
   use 'bfredl/nvim-luadev'
+
+  -- use({
+  --   "luukvbaal/stabilize.nvim",
+  --   config = function()
+  --     require("stabilize").setup() 
+  --   end,
+  -- })
 --
 --  -- -- Docs
 --  use 'nanotee/luv-vimdocs'
