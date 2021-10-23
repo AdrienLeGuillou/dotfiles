@@ -44,6 +44,7 @@ paru -S --needed \
     swayr \
     qt5-wayland \
     pcmanfm-qt \
+    pam_mount \
     qutebrowser \
     featherpad \
     firefox \
