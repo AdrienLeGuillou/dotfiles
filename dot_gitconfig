@@ -1,0 +1,13 @@
+[user]
+	name = Adrien Le Guillou
+	email = git@aleguillou.org
+[push]
+	default = simple
+[core]
+	editor = nvim
+[pull]
+	ff = only
+[credential]
+	helper = cache
+[init]
+	defaultBranch = main
