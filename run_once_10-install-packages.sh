@@ -51,6 +51,7 @@ paru -S --needed \
     megasync-bin \
     pamixer \
     feh \
+    lximage-qt \
     gvfs-mtp \
     adwaita-icon-theme \
     pipewire-pulse \

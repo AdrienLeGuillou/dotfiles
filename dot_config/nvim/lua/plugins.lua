@@ -1,10 +1,6 @@
-vim.cmd [[packadd packer.nvim]]
-
--- lsp capabilities
-
 return require('packer').startup(function()
   -- Packer can manage itself as an optional plugin
-  use({'wbthomason/packer.nvim', opt = true})
+  use'wbthomason/packer.nvim'
 
 --  -- Simple plugins can be specified as strings
 --  use 'nvim-lua/popup.nvim'
@@ -83,6 +79,8 @@ return require('packer').startup(function()
         mapping = {
           ['<C-d>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-j>'] = cmp.mapping.select_next_item(),
+          ['<C-k>'] = cmp.mapping.select_prev_item(),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.close(),
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
@@ -189,7 +187,7 @@ return require('packer').startup(function()
     config = function ()
       require('toggleterm').setup({
         size = 20,
-        open_mapping = [[<C-\>]],
+        open_mapping = [[<C-;>]],
         shade_filetypes = {},
         persist_size = true,
         direction = 'horizontal',
@@ -217,7 +215,11 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use({ 
     'TimUntersberger/neogit',
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
     config = function() 
+      require'plenary'
       require'neogit'.setup()
     end,
   })
