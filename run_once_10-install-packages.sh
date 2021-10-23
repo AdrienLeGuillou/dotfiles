@@ -17,6 +17,7 @@ paru -S --needed \
     hunspell-en_us \
     hunspell-fr \
     mako \
+    libnotify \
     slurp \
     grim \
     swayidle \

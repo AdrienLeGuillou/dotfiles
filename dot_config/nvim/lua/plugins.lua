@@ -159,7 +159,12 @@ return require('packer').startup(function()
   use 'christoomey/vim-tmux-navigator'
 
   -- -- MarkDown
-  use 'vim-pandoc/vim-pandoc'
+  use({
+    'vim-pandoc/vim-pandoc',
+    config = function()
+      vim.g['pandoc#syntax#conceal#use'] = 0
+    end,
+  })
   use 'vim-pandoc/vim-pandoc-syntax'
   use 'vim-pandoc/vim-rmarkdown'
 
@@ -187,13 +192,15 @@ return require('packer').startup(function()
     config = function ()
       require('toggleterm').setup({
         size = 20,
-        open_mapping = [[<C-;>]],
+        open_mapping = [[<C-\>]],
+        insert_mappings = true,
         shade_filetypes = {},
         persist_size = true,
         direction = 'horizontal',
         shade_terminals = false,
       })
     end,
+    after = 'which-key.nvim'
   })
   use 'tpope/vim-surround'
   use 'godlygeek/tabular'
