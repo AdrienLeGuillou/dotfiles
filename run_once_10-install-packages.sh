@@ -31,6 +31,11 @@ paru -S --needed \
     wl-clipboard \
     oh-my-zsh-git \
     ranger \
+    atool \
+    trash-cli \
+    p7zip \
+    unrar \
+    file-roller \
     bat \
     fd \
     ripgrep \
@@ -63,6 +68,7 @@ paru -S --needed \
     r \
     openblas \
     gcc-fortran \
+    libgit2 \
     tk
 
 sudo systemctl enable reflector.service
