@@ -47,11 +47,13 @@ return require('packer').startup(function()
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzy-native.nvim",
+      {"nvim-telescope/telescope-fzf-native.nvim", run = 'make'},
     },
     config = function()
       local telescope = require('telescope')
       local actions = require('telescope.actions')
-      telescope.load_extension('fzy_native')
+      -- telescope.load_extension('fzy_native')
+      telescope.load_extension('fzf')
       telescope.setup({
         defaults = {
           mappings = {
