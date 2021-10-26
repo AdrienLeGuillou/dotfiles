@@ -57,6 +57,11 @@ function! s:customNvimRMappings()
     map  <silent><buffer> <localleader>pT :call g:SendCmdToR("devtools::check()")<CR>
     map  <silent><buffer> <localleader>pt :call g:SendCmdToR("devtools::test()")<CR>
     map  <silent><buffer> <localleader>pl :call g:SendCmdToR("devtools::load_all()")<CR>
+
+    " Replace x$y$z by x[["y"]][["z"]]
+    nmap <silent><buffer> <localleader>ss :s/\$\([a-zA-Z._0-9]*\)/[["\1"]]/ge<CR>
+    vmap <silent><buffer> <localleader>ss :'<,'>s/\$\([a-zA-Z._0-9]*\)/[["\1"]]/ge<CR>
+
 endfunction
 
 augroup myNvimR
