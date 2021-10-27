@@ -83,9 +83,11 @@ return require('packer').startup(function()
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-j>'] = cmp.mapping.select_next_item(),
           ['<C-k>'] = cmp.mapping.select_prev_item(),
+          ['<Tab>'] = cmp.mapping.select_next_item(),
+          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.close(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+          ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         },
         sources = {
           { name = 'nvim_lsp' },
