@@ -1,6 +1,5 @@
 configuration {
  modi: "combi,run";
- theme: "gruvbox-dark-soft";
  font: "Hack 11";
  combi-modi: "run,ssh,window";
  location: 2;
@@ -14,3 +13,4 @@ configuration {
  kb-row-down: "Down,Control+n,Control+j";
  kb-mode-complete: "Control+Shift+h";
 }
+@theme "gruvbox-dark-soft"
