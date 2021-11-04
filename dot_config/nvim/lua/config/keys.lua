@@ -100,6 +100,10 @@ wk.register({
       h = {'<cmd>Telescope help_tags<CR>', 'Search vim help'},
       s = {'<Plug>(easymotion-overwin-f2)', 'EasyMotion (2 chars)', noremap = false},
     },
+    S = {
+      name = '+Spell',
+      S = {'<cmd>Telescope spell_suggest<CR>', 'Spelling suggestion'},
+    },
     t = {
       name = '+toggles',
       m = {'<cmd>MinimapToggle<CR>', 'Toggle minimap'},

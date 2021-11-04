@@ -4,6 +4,7 @@ paru
 
 paru -S --needed \
     reflector \
+    auto-cpufreq \
     man-db \
     man-pages \
     ttf-hack \
@@ -72,3 +73,4 @@ paru -S --needed \
     tk
 
 sudo systemctl enable reflector.service
+sudo systemctl enable auto-cpufreq.service
