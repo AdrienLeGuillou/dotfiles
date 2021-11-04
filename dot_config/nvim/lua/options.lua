@@ -50,3 +50,10 @@ vim.o.number = true                   -- Print line number
 -- vim.o.signcolumn = 'yes'              -- Show sign column
 vim.o.wrap = false                    -- Disable line wrap
 
+
+--------------------- AUTOCMD ------------------------------
+-- Cleanup file on save
+vim.cmd [[ au BufWritePre * lua require('util').cleanup() ]]
+-- Comment strings
+-- vim.cmd [[ au FileType cpp setlocal commentstring=//\ %s ]]
+-- vim.cmd [[ au FileType abc setlocal commentstring=%\ %s ]]
