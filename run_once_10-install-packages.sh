@@ -65,6 +65,7 @@ paru -S --needed \
     pipewire-pulse \
     pavucontrol \
     playerctl-git \
+    pacman-contrib \
     ccls \
     r \
     openblas \
@@ -74,3 +75,4 @@ paru -S --needed \
 
 sudo systemctl enable reflector.service
 sudo systemctl enable auto-cpufreq.service
+sudo systemctl enable fstrim.timer
