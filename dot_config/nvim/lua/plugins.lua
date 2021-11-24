@@ -114,7 +114,7 @@ return require('packer').startup(function()
   use({
     'neovim/nvim-lspconfig',
     config = function()
-      local capabilities = vim.lsp.protocol.make_client_capabilities() 
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
       vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -130,7 +130,7 @@ return require('packer').startup(function()
 
       lspconfig.bashls.setup({ capabilities = capabilities })
 
-      lspconfig.sumneko_lua.setup({ 
+      lspconfig.sumneko_lua.setup({
         capabilities = capabilities,
         lua = {
           path = "/usr/bin/lua-language-server",
@@ -142,7 +142,7 @@ return require('packer').startup(function()
   })
 
   use({
-    'nvim-treesitter/nvim-treesitter', 
+    'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
       require'nvim-treesitter.configs'.setup {
@@ -209,6 +209,8 @@ return require('packer').startup(function()
       require('toggleterm').setup({
         size = 20,
         open_mapping = [[<C-\>]],
+        hide_nubers = true,
+        start_in_insert = true,
         insert_mappings = true,
         shade_filetypes = {},
         persist_size = true,
@@ -236,12 +238,12 @@ return require('packer').startup(function()
   -- Git
   use 'mhinz/vim-signify'
   use 'tpope/vim-fugitive'
-  use({ 
+  use({
     'TimUntersberger/neogit',
     requires = {
       "nvim-lua/plenary.nvim",
     },
-    config = function() 
+    config = function()
       require'plenary'
       require'neogit'.setup()
     end,
@@ -249,10 +251,10 @@ return require('packer').startup(function()
 
 --  use 'preservim/nerdtree'
 --  use 'kyazdani42/nvim-tree.lua'
-  use({ 
+  use({
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function() 
+    config = function()
       require'nvim-tree'.setup()
     end,
   })
@@ -267,7 +269,7 @@ return require('packer').startup(function()
   -- use({
   --   "luukvbaal/stabilize.nvim",
   --   config = function()
-  --     require("stabilize").setup() 
+  --     require("stabilize").setup()
   --   end,
   -- })
 --
