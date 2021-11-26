@@ -41,9 +41,9 @@ util.map('i', '<C-j>',   [[ pumvisible() ? "\<C-n>" : "\<C-j>"]],  {expr = true 
 util.map('i', '<C-k>',   [[ pumvisible() ? "\<C-p>" : "\<C-k>"]],  {expr = true })
 util.map('i', '<C-l>',   [[ pumvisible() ? "\<C-y>" : "\<C-l>"]],  {expr = true })
 
--- EasyMotion
-util.map('n', 's', '<Plug>(easymotion-s)', {noremap = false})
-util.map('v', 's', '<Plug>(easymotion-s)', {noremap = false})
+-- hop.nvim
+util.map('n', 's', '<cmd>HopChar1<CR>', {noremap = false})
+util.map('v', 's', '<cmd>HopChar1<CR>', {noremap = false})
 
 wk.register({
   ['<leader>:'] = {'q:', 'Command-line window'},
@@ -83,12 +83,12 @@ wk.register({
       name = '+file',
       b = {'<cmd>Telescope file_browser<CR>', 'File Browser'},
       B = {
-        '<cmd>lua require("telescope.builtin").file_browser({hidden = true, no_ignore = true})<CR>', 
+        '<cmd>lua require("telescope.builtin").file_browser({hidden = true, no_ignore = true})<CR>',
         'File Browser (Show All)'
       },
       f = {'<cmd>Telescope find_files<CR>', 'Open file'},
       F = {
-        '<cmd>lua require("telescope.builtin").find_files({hidden = true, no_ignore = true})<CR>', 
+        '<cmd>lua require("telescope.builtin").find_files({hidden = true, no_ignore = true})<CR>',
         'Open file (Show All)'
       },
       t = {'<cmd>NvimTreeToggle<CR>', 'Toggle file tree'},

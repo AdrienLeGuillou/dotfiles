@@ -194,8 +194,14 @@ return require('packer').startup(function()
       require("Comment").setup()
     end,
   })
-  -- use 'tpope/vim-commentary'
-  use 'easymotion/vim-easymotion'
+  use({
+    'phaazon/hop.nvim',
+    branch = 'v1', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  })
 --  use 'editorconfig/editorconfig-vim'
   use({
     'windwp/nvim-autopairs',
