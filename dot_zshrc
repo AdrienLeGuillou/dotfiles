@@ -1,14 +1,6 @@
 # Environment Variables
 export PATH=$HOME/.local/bin:$PATH
 
-export MOZ_ENABLE_WAYLAND=1
-export QT_QPA_PLATFORM=wayland
-export QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/qt/plugins
-export XDG_CURRENT_DESKTOP=sway
-export XDG_SESSION_TYPE=wayland
-export TERMINAL="foot"
-export TERMCMD="foot"
- 
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 export VISUAL=nvim
@@ -75,7 +67,6 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias wayland_screen_share=" /usr/lib/xdg-desktop-portal -r & /usr/lib/xdg-desktop-portal-wlr"
 alias tmux="TERM=xterm-256color tmux"
 alias cm="chezmoi"
 alias cma="chezmoi apply -x encrypted,scripts"

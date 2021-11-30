@@ -283,7 +283,7 @@ for_window [title="shotman"] move position 30 30, floating enable
 
 include /etc/sway/config.d/*
 
-exec swayrd 
+exec swayrd
 exec kanshi # display profiles
 exec mako # notification deamon
 
@@ -296,3 +296,4 @@ exec megasync_wayland
 {{ end -}}
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec lxqt-policykit-agent

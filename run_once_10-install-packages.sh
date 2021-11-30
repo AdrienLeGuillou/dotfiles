@@ -27,6 +27,8 @@ paru -S --needed \
     xorg-xwayland \
     xdg-user-dirs \
     xdg-desktop-portal-wlr \
+    lxqt-policykit \
+    xorg-xhost \
     htop \
     rofi-lbonn-wayland-git \
     wl-clipboard \
@@ -52,6 +54,7 @@ paru -S --needed \
     pcmanfm-qt \
     pam_mount \
     qutebrowser \
+    python-adblock \
     featherpad \
     firefox \
     zathura-pdf-mupdf \
