@@ -69,6 +69,8 @@ paru -S --needed \
     pavucontrol \
     playerctl-git \
     pacman-contrib \
+    transmission-cli \
+    transmission-qt \
     ccls \
     r \
     openblas \
@@ -79,3 +81,6 @@ paru -S --needed \
 sudo systemctl enable reflector.service
 sudo systemctl enable auto-cpufreq.service
 sudo systemctl enable fstrim.timer
+sudo systemctl enable ufw.service
+sudo ufw enable
+sudo ufw allow Transmission
