@@ -78,7 +78,6 @@ paru -S --needed \
     libgit2 \
     tk
 
-sudo systemctl enable reflector.service
 sudo systemctl enable auto-cpufreq.service
 sudo systemctl enable fstrim.timer
 sudo systemctl enable ufw.service
