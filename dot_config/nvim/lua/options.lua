@@ -47,7 +47,7 @@ vim.o.cursorline = true               -- Highlight cursor line
 -- vim.o.list = true                     -- Show some invisible characters
 vim.o.relativenumber = true           -- Relative line numbers
 vim.o.number = true                   -- Print line number
--- vim.o.signcolumn = 'yes'              -- Show sign column
+vim.o.signcolumn = 'yes'              -- Show sign column
 vim.o.wrap = false                    -- Disable line wrap
 
 
