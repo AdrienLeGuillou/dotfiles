@@ -44,6 +44,7 @@ paru -S --needed \
     ripgrep \
     fzf \
     tmux \
+    tmuxp \
     openssh \
     autojump \
     light \
