@@ -176,8 +176,8 @@ use({
   config = function()
     require('nvim-biscuits').setup({
       toggle_keybind = "<leader>cb",
-      cursor_line_only = true,
-      show_on_start = true -- defaults to false
+      cursor_line_only = false,
+      show_on_start = true, -- defaults to false
     })
   end
 })
