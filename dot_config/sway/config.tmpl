@@ -52,14 +52,14 @@ exec swayidle -w \
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-bindsym Ctrl+$mod+l exec swayidle -w \
+bindsym Ctrl+$mod+s exec swayidle -w \
          timeout 1 'swaylock -f -c 404040' \
          timeout 2 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"; pkill -nx swayidle' \
          before-sleep 'swaylock -f -c 404040'
 
 
-bindsym Ctrl+$mod+Shift+l exec systemctl suspend
+bindsym Ctrl+$mod+Shift+s exec systemctl suspend
 
 ### Input configuration
 input $touchpad {
@@ -166,6 +166,11 @@ seat * hide_cursor when-typing enable
     bindsym $mod+Alt+Shift+$up    move to output up
     bindsym $mod+Alt+Shift+$right move to output right
     bindsym $mod+Alt+Shift+$down  move to output down
+
+    bindsym $mod+Ctrl+Shift+$left  move workspace to output left
+    bindsym $mod+Ctrl+Shift+$up    move workspace to output up
+    bindsym $mod+Ctrl+Shift+$right move workspace to output right
+    bindsym $mod+Ctrl+Shift+$down  move workspace to output down
 
 #
 # Layout stuff:
