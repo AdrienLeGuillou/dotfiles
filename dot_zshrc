@@ -36,7 +36,7 @@ export FZF_CTRL_T_COMMAND="fd . -H"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf autojump)
+plugins=(git fzf)
 
 source $ZSH/oh-my-zsh.sh
 
