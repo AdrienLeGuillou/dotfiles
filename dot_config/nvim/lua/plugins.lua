@@ -253,7 +253,17 @@ use({
   })
 --
   -- Git
-  use 'mhinz/vim-signify'
+  use({
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('gitsigns').setup()
+    end
+  })
+
+  -- use 'mhinz/vim-signify'
   use 'tpope/vim-fugitive'
   use({
     'TimUntersberger/neogit',

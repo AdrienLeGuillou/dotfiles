@@ -8,6 +8,7 @@ paru -S --needed \
     man-db \
     man-pages \
     ttf-hack \
+    nerd-fonts-hack \
     ttf-unifont \
     otf-font-awesome \
     noto-fonts \
