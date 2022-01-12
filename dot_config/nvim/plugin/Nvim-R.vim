@@ -57,8 +57,13 @@ function! s:customNvimRMappings()
     map  <silent><buffer> <localleader>pT :call g:SendCmdToR("devtools::check()")<CR>
     map  <silent><buffer> <localleader>pt :call g:SendCmdToR("devtools::test()")<CR>
     map  <silent><buffer> <localleader>pl :call g:SendCmdToR("devtools::load_all()")<CR>
-    map  <silent><buffer> <localleader>pri :call g:SendCmdToR("renv::init()")<CR>
-    map  <silent><buffer> <localleader>pre :call g:SendCmdToR("renv::install(c('languageserver', 'devtools'))")<CR>
+
+    " Renv
+    map  <silent><buffer> <localleader>ri :call g:SendCmdToR("renv::init()")<CR>
+    map  <silent><buffer> <localleader>re :call g:SendCmdToR("renv::install(c('languageserver', 'devtools'))")<CR>
+    map  <silent><buffer> <localleader>ru :call g:SendCmdToR("renv::update(prompt=F)")<CR>
+    map  <silent><buffer> <localleader>rs :call g:SendCmdToR("renv::snapshot(prompt=F)")<CR>
+    map  <silent><buffer> <localleader>rr :call g:SendCmdToR("renv::restore(prompt=F)")<CR>
 
     " Replace x$y$z by x[["y"]][["z"]]
     nmap <silent><buffer> <localleader>ss :s/\$\([a-zA-Z._0-9]*\)/[["\1"]]/ge<CR>

@@ -62,65 +62,6 @@ wk.register({
       -- ["1"] = "which_key_ignore",  -- special label to hide it in the popup
       -- b = { function() print("bar") end, "Foobar" } -- you can also pass functions!
     },
-    w = {
-      name = '+windows',
-      ['/'] = {'<cmd>vs<CR>', 'Vertical split'},
-      ['-'] = {'<cmd>sv<CR>', 'Horizontal split'},
-      ['='] = {'<C-w>=', 'Equalize windows'},
-      d = {'<C-w>q', 'Close window'},
-      w = {'<cmd>Windows<CR>', 'List windows'},
-      o = {'<cmd>only<CR>', 'Only window'}
-    },
-    p = {
-      name = '+panes (tabs)',
-      c = {'<cmd>tabnew<CR>', 'Create new tab'},
-      ['<tab>'] = {'g<Tab>', 'Alternate tab'},
-      x = {'<cmd>tabclose<CR>', 'Delete tab'},
-      l = {'<cmd>tabnext<CR>', 'Next tab'},
-      h = {'<cmd>tabprev<CR>', 'Previous tab'},
-    },
-    f = {
-      name = '+file',
-      b = {'<cmd>Telescope file_browser<CR>', 'File Browser'},
-      B = {
-        '<cmd>lua require("telescope.builtin").file_browser({hidden = true, no_ignore = true})<CR>',
-        'File Browser (Show All)'
-      },
-      f = {'<cmd>Telescope find_files<CR>', 'Open file'},
-      F = {
-        '<cmd>lua require("telescope.builtin").find_files({hidden = true, no_ignore = true})<CR>',
-        'Open file (Show All)'
-      },
-      t = {'<cmd>NvimTreeToggle<CR>', 'Toggle file tree'},
-      s = {'<cmd>w<CR>', 'Save file'},
-      c = {[[<cmd>lua require('util').cleanup()<CR>]], 'Cleanup file'},
-    },
-    s = {
-      name = '+search',
-      c = {'<cmd>nohl<CR>', 'Clear highlight'},
-      l = {'<cmd>Telescope current_buffer_fuzzy_find<CR>', 'Search line in buffer'},
-      f = {'<cmd>Telescope live_grep<CR>', 'Search line in files'},
-      e = {'<cmd>Telescope command_history:<CR>', 'Search command history'},
-      h = {'<cmd>Telescope help_tags<CR>', 'Search vim help'},
-      s = {'<Plug>(easymotion-overwin-f2)', 'EasyMotion (2 chars)', noremap = false},
-    },
-    S = {
-      name = '+Spell',
-      S = {'<cmd>Telescope spell_suggest<CR>', 'Spelling suggestion'},
-    },
-    t = {
-      name = '+toggles',
-      m = {'<cmd>MinimapToggle<CR>', 'Toggle minimap'},
-      w = {'<cmd>set wrap!<CR>', 'Toggle line wrap'},
-      s = {'<cmd>set spell!<CR>', 'Toggle spell checking'},
-      u = {'<cmd>UndotreeToggle<CR>', 'Toggle Undotree'},
-      t = {'<cmd>ToggleTerm<CR>', 'Toggle Term'},
-    },
-    i = {
-      name = '+insert',
-      s = {'<cmd>Telescope symbols<CR>', 'Insert symbol'},
-      T = {'<cmd>read !date<CR>', 'Insert timestamp'},
-    },
     c = {
       name = '+code (LSP)',
       d = {'<cmd>lua vim.lsp.buf.definition()<CR>', 'Definition'},
@@ -137,6 +78,80 @@ wk.register({
       R = {'<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename'},
       n = {'<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', 'Next diagnostic'},
       p = {'<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', 'Previous diagnostic'},
+    },
+    f = {
+      name = '+file',
+      b = {
+        '<cmd>lua require("telescope").extensions.file_browser.file_browser()<CR>',
+        'File Browser (Show All)'
+      },
+      B = {
+        '<cmd>lua require("telescope").extensions.file_browser.file_browser({hidden = true, no_ignore = true})<CR>',
+        'File Browser (Show All)'
+      },
+      f = {'<cmd>Telescope find_files<CR>', 'Open file'},
+      F = {
+        '<cmd>lua require("telescope.builtin").find_files({hidden = true, no_ignore = true})<CR>',
+        'Open file (Show All)'
+      },
+      t = {'<cmd>NvimTreeToggle<CR>', 'Toggle file tree'},
+      s = {'<cmd>w<CR>', 'Save file'},
+      c = {[[<cmd>lua require('util').cleanup()<CR>]], 'Cleanup file'},
+    },
+    g = {
+      name = '+goto (Harpoon)',
+      q = { '<cmd>lua require("harpoon.mark").add_file()<CR>', 'Add mark' },
+      a = {'<cmd>lua require("harpoon.ui").nav_file(1)<CR>', 'Go to file 1'},
+      s = {'<cmd>lua require("harpoon.ui").nav_file(2)<CR>', 'Go to file 2'},
+      d = {'<cmd>lua require("harpoon.ui").nav_file(3)<CR>', 'Go to file 3'},
+      f = {'<cmd>lua require("harpoon.ui").nav_file(4)<CR>', 'Go to file 4'},
+      g = {
+        '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>',
+        'Harpoon quick menu'
+      },
+    },
+    i = {
+      name = '+insert',
+      s = {'<cmd>Telescope symbols<CR>', 'Insert symbol'},
+      T = {'<cmd>read !date<CR>', 'Insert timestamp'},
+    },
+    p = {
+      name = '+panes (tabs)',
+      c = {'<cmd>tabnew<CR>', 'Create new tab'},
+      ['<tab>'] = {'g<Tab>', 'Alternate tab'},
+      x = {'<cmd>tabclose<CR>', 'Delete tab'},
+      l = {'<cmd>tabnext<CR>', 'Next tab'},
+      h = {'<cmd>tabprev<CR>', 'Previous tab'},
+    },
+    s = {
+      name = '+search',
+      c = {'<cmd>nohl<CR>', 'Clear highlight'},
+      l = {'<cmd>Telescope current_buffer_fuzzy_find<CR>', 'Search line in buffer'},
+      f = {'<cmd>Telescope live_grep<CR>', 'Search line in files'},
+      e = {'<cmd>Telescope command_history:<CR>', 'Search command history'},
+      h = {'<cmd>Telescope help_tags<CR>', 'Search vim help'},
+      s = {'<Plug>(easymotion-overwin-f2)', 'EasyMotion (2 chars)', noremap = false},
+    },
+    t = {
+      name = '+toggles',
+      m = {'<cmd>MinimapToggle<CR>', 'Toggle minimap'},
+      w = {'<cmd>set wrap!<CR>', 'Toggle line wrap'},
+      s = {'<cmd>set spell!<CR>', 'Toggle spell checking'},
+      u = {'<cmd>UndotreeToggle<CR>', 'Toggle Undotree'},
+      t = {'<cmd>ToggleTerm<CR>', 'Toggle Term'},
+    },
+    w = {
+      name = '+windows',
+      ['/'] = {'<cmd>vs<CR>', 'Vertical split'},
+      ['-'] = {'<cmd>sv<CR>', 'Horizontal split'},
+      ['='] = {'<C-w>=', 'Equalize windows'},
+      d = {'<C-w>q', 'Close window'},
+      w = {'<cmd>Windows<CR>', 'List windows'},
+      o = {'<cmd>only<CR>', 'Only window'}
+    },
+    S = {
+      name = '+Spell',
+      S = {'<cmd>Telescope spell_suggest<CR>', 'Spelling suggestion'},
     },
     P = {
       name = '+Packer',

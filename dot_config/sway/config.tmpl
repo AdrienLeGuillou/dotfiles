@@ -44,8 +44,8 @@ output * bg ~/Pictures/wallpaper fill
 #
 exec swayidle -w \
          timeout 300 'swaylock -f -c 404040' \
-         timeout 305 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
+         timeout 305 'swaymsg "output eDP-1 dpms off"' \
+              resume 'swaymsg "output eDP-1 dpms on"' \
          before-sleep 'swaylock -f -c 404040'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -54,8 +54,8 @@ exec swayidle -w \
 
 bindsym Ctrl+$mod+s exec swayidle -w \
          timeout 1 'swaylock -f -c 404040' \
-         timeout 2 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"; pkill -nx swayidle' \
+         timeout 2 'swaymsg "output eDP-1 dpms off"' \
+              resume 'swaymsg "output eDP-1 dpms on"; pkill -nx swayidle' \
          before-sleep 'swaylock -f -c 404040'
 
 

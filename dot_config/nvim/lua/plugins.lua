@@ -48,12 +48,16 @@ return require('packer').startup(function()
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzy-native.nvim",
       {"nvim-telescope/telescope-fzf-native.nvim", run = 'make'},
+      "nvim-telescope/telescope-file-browser.nvim",
+      "ThePrimeagen/harpoon",
     },
     config = function()
       local telescope = require('telescope')
       local actions = require('telescope.actions')
       -- telescope.load_extension('fzy_native')
       telescope.load_extension('fzf')
+      telescope.load_extension('file_browser')
+      telescope.load_extension('harpoon')
       telescope.setup({
         defaults = {
           mappings = {
@@ -138,6 +142,8 @@ return require('packer').startup(function()
       })
 
       lspconfig.r_language_server.setup({ capabilities = capabilities })
+
+      lspconfig.julials.setup({ capabilities = capabilities })
     end,
   })
 
@@ -182,6 +188,13 @@ use({
   end
 })
 
+use({
+  'ThePrimeagen/harpoon',
+  config = function()
+    require("harpoon").setup()
+  end
+})
+
 --  -- -- Tmux
   use 'christoomey/vim-tmux-navigator'
 
@@ -217,7 +230,7 @@ use({
   use({
     'windwp/nvim-autopairs',
     config = function ()
-      require('nvim-autopairs').setup()
+      require('nvim-autopairs').setup({ enable_check_bracket_line = false })
     end,
   })
   use({
@@ -288,6 +301,7 @@ use({
 --
   -- R
   use 'jalvesaq/Nvim-R'
+  use 'bfredl/nvim-ipy'
 --
   -- Lua dev
   use 'folke/lua-dev.nvim'
