@@ -112,6 +112,7 @@ wk.register({
     },
     i = {
       name = '+insert',
+      d = {'<cmd>lua require("util").fill_dash() <CR>', 'Insert dashes'},
       s = {'<cmd>Telescope symbols<CR>', 'Insert symbol'},
       T = {'<cmd>read !date<CR>', 'Insert timestamp'},
     },
