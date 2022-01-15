@@ -65,6 +65,9 @@ paru -S --needed \
     pamixer \
     feh \
     lximage-qt \
+    darktable \
+    intel-compute-runtime \
+    clinfo \
     gvfs-mtp \
     adwaita-icon-theme \
     pipewire-pulse \
@@ -85,3 +88,4 @@ sudo systemctl enable fstrim.timer
 sudo systemctl enable ufw.service
 sudo ufw enable
 sudo ufw allow Transmission
+lensfun-update-data
