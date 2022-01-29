@@ -36,12 +36,12 @@ vim.o.termguicolors = true            -- True color support
 vim.o.updatetime = 100                -- Delay before swap file is saved
 vim.o.wildmode = 'longest:full,full'  -- Command-line completion mode
 vim.o.title = true                    -- File name as terminal title
-vim.o.scrolloff = 10                  -- Make it so there are always ten lines below my cursor
+-- vim.o.scrolloff = 10                  -- Make it so there are always ten lines below my cursor
+vim.o.scrolloff = 0
 vim.o.textwidth = 80                  -- Size of a line
 vim.o.foldlevelstart = 99             -- Start with all folds open
 vim.o.cmdheight = 1                   -- Height of the command bar
 -- vim.o.shell = '/bin/bash'             -- Shell used by :term
-vim.o.foldmethod = 'marker'           -- Use markers to fold
 vim.o.colorcolumn = '81'              -- Margin is on column AFTER the max width (no text is allowed ON the margin
 vim.o.cursorline = true               -- Highlight cursor line
 -- vim.o.list = true                     -- Show some invisible characters
@@ -50,6 +50,9 @@ vim.o.number = true                   -- Print line number
 vim.o.signcolumn = 'yes'              -- Show sign column
 vim.o.wrap = false                    -- Disable line wrap
 
+-- bug with telescope, needs `:e` for folds to kick in see https://github.com/nvim-treesitter/nvim-treesitter/issues/1337
+-- vim.o.foldmethod = 'expr'             -- Use treesitter to fold
+-- vim.o.foldexpr = 'nvim_treesitrer#foldexpr()'
 
 --------------------- AUTOCMD ------------------------------
 -- Cleanup file on save

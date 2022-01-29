@@ -218,6 +218,7 @@ use({
       require("Comment").setup()
     end,
   })
+
   use({
     'phaazon/hop.nvim',
     branch = 'v1', -- optional but strongly recommended
@@ -226,6 +227,9 @@ use({
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   })
+
+  use ({'mfussenegger/nvim-treehopper'})
+
 --  use 'editorconfig/editorconfig-vim'
   use({
     'windwp/nvim-autopairs',
@@ -301,7 +305,6 @@ use({
 --
   -- R
   use 'jalvesaq/Nvim-R'
-  use 'bfredl/nvim-ipy'
 --
   -- Lua dev
   use 'folke/lua-dev.nvim'

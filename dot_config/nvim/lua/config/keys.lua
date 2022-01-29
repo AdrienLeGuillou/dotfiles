@@ -45,6 +45,12 @@ util.map('i', '<C-l>',   [[ pumvisible() ? "\<C-y>" : "\<C-l>"]],  {expr = true 
 util.map('n', 's', '<cmd>HopChar1<CR>', {noremap = false})
 util.map('v', 's', '<cmd>HopChar1<CR>', {noremap = false})
 
+-- nvim-treehopper
+-- do not try to replace `:` with `<cmd>` here. does not work
+util.map('o', 'm', ':<C-U>lua require("tsht").nodes()<CR>', {noremap = false})
+util.map('v', 'm', ':lua require("tsht").nodes()<CR>')
+
+-- which-key
 wk.register({
   ['<leader>:'] = {'q:', 'Command-line window'},
   ['<leader>:'] = {'q:', 'Command-line window', mode = 'v'},
