@@ -302,7 +302,15 @@ use({
       require'nvim-tree'.setup()
     end,
   })
---
+
+-- mkdir
+use {
+  'jghauser/mkdir.nvim',
+  config = function()
+    require('mkdir')
+  end
+}
+
   -- R
   use 'jalvesaq/Nvim-R'
 --
