@@ -209,7 +209,15 @@ use({
   use 'vim-pandoc/vim-rmarkdown'
 
 --  -- -- Completion
+  -- use({
+  --   'L3MON4D3/LuaSnip',
+  --   config = function()
+  --     require("luasnip").config.set_config{}
+  --   end,
+  --
+  -- })
 --  use 'SirVer/ultisnips'
+
 --
 --  -- -- Utilites
   use({
