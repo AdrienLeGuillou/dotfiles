@@ -144,6 +144,8 @@ return require('packer').startup(function()
       lspconfig.r_language_server.setup({ capabilities = capabilities })
 
       lspconfig.julials.setup({ capabilities = capabilities })
+
+      lspconfig.clangd.setup({ capabilities = capabilities })
     end,
   })
 
