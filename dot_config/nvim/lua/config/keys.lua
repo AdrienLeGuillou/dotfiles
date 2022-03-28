@@ -50,6 +50,9 @@ util.map('v', 's', '<cmd>HopChar1<CR>', {noremap = false})
 util.map('o', 'm', ':<C-U>lua require("tsht").nodes()<CR>', {noremap = false})
 util.map('v', 'm', ':lua require("tsht").nodes()<CR>')
 
+-- Alt-- to insert <-
+util.map('i', '<A-->', '<esc>bea <- ')
+
 -- which-key
 wk.register({
   ['<leader>:'] = {'q:', 'Command-line window'},
