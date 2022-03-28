@@ -357,7 +357,38 @@ use {
 }
 
   -- R
-  use 'jalvesaq/Nvim-R'
+  -- use 'jalvesaq/Nvim-R'
+  use({
+    'hkupty/iron.nvim',
+    config = function()
+      local iron = require('iron')
+      iron.core.set_config {
+        repl_open_cmd = 'vertical 85 split',
+        highlight_last = false,
+      }
+      -- iron.core.add_repl_definitions {
+      --   python = {
+      --     mycustom = {
+      --       command = {"mycmd"}
+      --     }
+      --   },
+      --   clojure = {
+      --     lein_connect = {
+      --       command = {"lein", "repl", ":connect"}
+      --     }
+      --   }
+      -- }
+      --
+      -- iron.core.set_config {
+      --   preferred = {
+      --     python = "ipython",
+      --     clojure = "lein"
+      --   }
+      -- }
+    end,
+  })
+
+
 --
   -- Lua dev
   use 'folke/lua-dev.nvim'

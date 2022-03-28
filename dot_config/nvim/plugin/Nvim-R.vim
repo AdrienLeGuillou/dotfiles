@@ -71,7 +71,7 @@ function! s:customNvimRMappings()
 
 endfunction
 
-augroup myNvimR
-    au!
-    autocmd filetype r call s:customNvimRMappings()
-augroup end
+" augroup myNvimR
+"     au!
+"     autocmd filetype r call s:customNvimRMappings()
+" augroup end

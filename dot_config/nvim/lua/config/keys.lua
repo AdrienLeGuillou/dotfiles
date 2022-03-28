@@ -165,4 +165,30 @@ wk.register({
       s = {'<cmd>PackerSync<CR>', 'Sync'},
     },
   },
+
+
+  ['<localleader>'] = {
+    ['<localleader>'] = {
+      '<cmd>lua require("iron").core.send_line()<CR>j',
+      'Send Line',
+    },
+    x = {
+      name = '+REPL',
+      x = {'<cmd>IronRepl<CR>', 'IronRepl'},
+      i = {'<Cmd>IronSend! \03<CR>', 'Interrupt REPL'},
+      r = {
+        '<cmd>lua require("iron").core.repl_restart()<CR>',
+        'Restart REPL'
+      },
+      k = {'<Cmd>IronSend! \04<CR>', 'Exit REPL'},
+      l = {'<Cmd>IronSend! \12<CR>', 'Clear REPL'},
+      s = {
+        '<esc><cmd>lua require("iron").core.visual_send()<CR>',
+        'Send Visual',
+        mode = 'v',
+      },
+    },
+  },
 })
+
+util.map('v', '<localleader><localleader>', '<esc><cmd>lua require("iron").core.visual_send()<CR>')

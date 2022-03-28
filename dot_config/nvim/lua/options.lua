@@ -1,5 +1,8 @@
 local indent = 4
 
+vim.g.iron_map_defaults = 0
+vim.g.iron_map_extended = 0
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
@@ -59,3 +62,6 @@ vim.cmd [[ au BufWritePre * lua require('util').cleanup() ]]
 -- Comment strings
 -- vim.cmd [[ au FileType cpp setlocal commentstring=//\ %s ]]
 -- vim.cmd [[ au FileType abc setlocal commentstring=%\ %s ]]
+--
+
+
