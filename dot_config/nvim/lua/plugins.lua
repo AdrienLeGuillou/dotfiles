@@ -372,7 +372,7 @@ use {
       }
 
       iron.core.set_config {
-        repl_open_cmd = 'vertical 85 split',
+        repl_open_cmd = 'vertical 90 split',
         highlight_last = false,
         preferred = {
           r = "radian",
