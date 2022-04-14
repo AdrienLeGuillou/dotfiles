@@ -7,6 +7,9 @@ vim.o.timeoutlen = 500
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
+-- prevent Q from triggering ex mode
+util.map('n', 'Q', '<Nop>')
+
 -- -- if tmux navigator
 util.map('n', '<A-h>', '<cmd>TmuxNavigateLeft<CR>')
 util.map('n', '<A-j>', '<cmd>TmuxNavigateDown<CR>')
