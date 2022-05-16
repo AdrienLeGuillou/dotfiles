@@ -17,12 +17,25 @@ return require('packer').startup(function()
       vim.cmd([[colorscheme gruvbox]])
     end,
   })
+  -- use({
+  --   'ellisonleao/gruvbox.nvim',
+  --   config = function()
+  --     vim.o.termguicolors = true
+  --     vim.o.background = 'light'
+  --     vim.g.gruvbox_contrast_dark  = 'medium'
+  --     vim.g.gruvbox_contrast_light = 'medium'
+  --     vim.cmd([[colorscheme gruvbox]])
+  --   end,
+  -- })
 
   use({
     'hoob3rt/lualine.nvim',
     config = function()
       require('lualine').setup{
-        options = {theme = 'gruvbox_light'}
+        options = {
+          theme = 'gruvbox_light',
+          globalstatus = true,
+        },
       }
     end,
   })

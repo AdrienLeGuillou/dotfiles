@@ -58,7 +58,13 @@ vim.o.wrap = false                    -- Disable line wrap
 
 --------------------- AUTOCMD ------------------------------
 -- Cleanup file on save
-vim.cmd [[ au BufWritePre * lua require('util').cleanup() ]]
+-- vim.cmd [[ au BufWritePre * lua require('util').cleanup() ]]
+local group = vim.api.nvim_create_augroup("AutoCleanup", {clear = true})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = require('util').cleanup,
+  group = group
+})
 -- Comment strings
 -- vim.cmd [[ au FileType cpp setlocal commentstring=//\ %s ]]
 -- vim.cmd [[ au FileType abc setlocal commentstring=%\ %s ]]

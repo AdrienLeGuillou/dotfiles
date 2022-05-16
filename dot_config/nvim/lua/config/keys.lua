@@ -54,7 +54,8 @@ util.map('o', 'm', ':<C-U>lua require("tsht").nodes()<CR>', {noremap = false})
 util.map('v', 'm', ':lua require("tsht").nodes()<CR>')
 
 -- Alt-- to insert <-
-util.map('i', '<A-->', '<esc>bea <- ')
+-- util.map('i', '<A-->', '<esc>bea <- ')
+util.map('i', '<A-->', '<-')
 
 -- which-key
 wk.register({
