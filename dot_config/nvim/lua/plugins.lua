@@ -374,22 +374,39 @@ use {
   use({
     'hkupty/iron.nvim',
     config = function()
-      local iron = require('iron')
+      local iron = require('iron.core')
 
-      iron.core.add_repl_definitions {
-        r = {
-          radian = {
-            command = {"radian"}
-          }
+      iron.setup {
+        config = {
+          -- highlight_last = false,
+          repl_open_cmd = require("iron.view").curry.right(95),
+          scratch_repl = false,
+          -- should_map_plug = false,
+          visibility = require("iron.visibility").toggle, -- toggle, focus, single
+          close_window_on_exit = true,
+          repl_definition = {
+            sh = {
+              command = {"zsh"}
+            },
+            r = {
+              command = { "radian" },
+              format = require("iron.fts.common").bracketed_paste
+            },
+            -- r = require("iron.fts.r").radian,
+          },
         },
-      }
-
-      iron.core.set_config {
-        repl_open_cmd = 'vertical 95 split',
-        highlight_last = false,
-        preferred = {
-          r = "radian",
-        },
+        -- Iron doesn't set keymaps by default anymore. Set them here
+        -- or use `should_map_plug = true` and map from you vim files
+        keymaps = {
+          -- send_motion = "<localleader>sc",
+          visual_send = "<localleader><localleader>",
+          send_line = "<localleader><localleader>",
+          -- repeat_cmd = "<localleader>s.",
+          -- cr = "<localleader>s<cr>",
+          interrupt = "<localleader>xi",
+          exit = "<localleader>xk",
+          clear = "<localleader>xl",
+        }
       }
     end,
   })

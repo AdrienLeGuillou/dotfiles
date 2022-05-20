@@ -70,21 +70,21 @@ function! s:customNvimRMappings()
     vmap <silent><buffer> <localleader>ss :'<,'>s/\$\([a-zA-Z._0-9]*\)/[["\1"]]/ge<CR>
 
     " Iron.nvim keys
-    map  <silent><buffer> <localleader>mm <Cmd>IronSend! drake::r_make() <CR>
-    map  <silent><buffer> <localleader>mc <Cmd>IronSend! drake::clear() <CR>
+    map  <silent><buffer> <localleader>mm <Cmd>lua require("iron.core").send("r", {[[drake::r_make()]]})<CR>
+    map  <silent><buffer> <localleader>mc <Cmd>lua require("iron.core").send("r", {[[drake::clear()]]})<CR>
 
-    map  <silent><buffer> <localleader>pd <Cmd>IronSend! devtools::document() <CR>
-    map  <silent><buffer> <localleader>pv <Cmd>IronSend! devtools::build_vignettes() <CR>
-    map  <silent><buffer> <localleader>pT <Cmd>IronSend! devtools::check() <CR>
-    map  <silent><buffer> <localleader>pt <Cmd>IronSend! devtools::test() <CR>
-    map  <silent><buffer> <localleader>pl <Cmd>IronSend! devtools::load_all() <CR>
+    map  <silent><buffer> <localleader>pd <Cmd>lua require("iron.core").send("r", {[[devtools::document()]]})<CR>
+    map  <silent><buffer> <localleader>pv <Cmd>lua require("iron.core").send("r", {[[devtools::build_vignettes()]]})<CR>
+    map  <silent><buffer> <localleader>pT <Cmd>lua require("iron.core").send("r", {[[devtools::check()]]})<CR>
+    map  <silent><buffer> <localleader>pt <Cmd>lua require("iron.core").send("r", {[[devtools::test()]]})<CR>
+    map  <silent><buffer> <localleader>pl <Cmd>lua require("iron.core").send("r", {[[devtools::load_all()]]})<CR>
 
     " Renv
-    map  <silent><buffer> <localleader>ri <Cmd>IronSend! renv::init() <CR>
-    map  <silent><buffer> <localleader>re <Cmd>IronSend! renv::install(c('languageserver', 'devtools')) <CR>
-    map  <silent><buffer> <localleader>ru <Cmd>IronSend! renv::update(prompt=F) <CR>
-    map  <silent><buffer> <localleader>rs <Cmd>IronSend! renv::snapshot(prompt=F) <CR>
-    map  <silent><buffer> <localleader>rr <Cmd>IronSend! renv::restore(prompt=F) <CR>
+    map  <silent><buffer> <localleader>ri <Cmd>lua require("iron.core").send("r", {[[renv::init()]]})<CR>
+    map  <silent><buffer> <localleader>re <Cmd>lua require("iron.core").send("r", {[[renv::install(c('languageserver', 'devtools'))]]})<CR>
+    map  <silent><buffer> <localleader>ru <Cmd>lua require("iron.core").send("r", {[[renv::update(prompt=F)]]})<CR>
+    map  <silent><buffer> <localleader>rs <Cmd>lua require("iron.core").send("r", {[[renv::snapshot(prompt=F)]]})<CR>
+    map  <silent><buffer> <localleader>rr <Cmd>lua require("iron.core").send("r", {[[renv::restore(prompt=F)]]})<CR>
 
 endfunction
 
