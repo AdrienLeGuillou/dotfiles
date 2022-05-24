@@ -378,7 +378,7 @@ use {
 
       iron.setup {
         config = {
-          -- highlight_last = false,
+          highlight_last = false,
           repl_open_cmd = require("iron.view").curry.right(95),
           scratch_repl = false,
           -- should_map_plug = false,
