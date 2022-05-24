@@ -51,9 +51,8 @@ paru -S --needed \
     light \
     kanshi \
     wdisplays \
-    swayr \
     qt5-wayland \
-    pcmanfm-qt \
+    thunar \
     pam_mount \
     qutebrowser \
     python-adblock \
@@ -63,7 +62,6 @@ paru -S --needed \
     vlc \
     megasync-bin \
     pamixer \
-    feh \
     lximage-qt \
     darktable \
     intel-compute-runtime \
