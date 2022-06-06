@@ -388,11 +388,7 @@ use {
             sh = {
               command = {"zsh"}
             },
-            r = {
-              command = { "radian" },
-              format = require("iron.fts.common").bracketed_paste
-            },
-            -- r = require("iron.fts.r").radian,
+            r = require("iron.fts.r").radian,
           },
         },
         -- Iron doesn't set keymaps by default anymore. Set them here
