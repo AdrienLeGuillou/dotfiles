@@ -81,6 +81,7 @@ wk.register({
       f = {'<cmd>lua vim.lsp.buf.format({async = true})<CR>', 'Format'},
       h = {'<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover'},
       i = {'<cmd>lua vim.lsp.buf.implementation()<CR>', 'Go to implementation'},
+      o = {'<cmd>lua vim.diagnostic.open_float()<CR>', 'View diagnostic'},
       s = {'<cmd>lua vim.lsp.buf.signature_help()<CR>', 'Signature help'},
       t = {'<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Implementation'},
       r = {'<cmd>lua vim.lsp.buf.references()<CR>', 'References'},

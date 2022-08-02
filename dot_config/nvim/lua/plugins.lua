@@ -145,7 +145,6 @@ return require('packer').startup(function()
 
       local lspconfig = require'lspconfig'
 
-
       lspconfig.sumneko_lua.setup({
         capabilities = capabilities,
         lua = {
