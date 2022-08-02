@@ -78,7 +78,7 @@ wk.register({
     c = {
       name = '+code (LSP)',
       d = {'<cmd>lua vim.lsp.buf.definition()<CR>', 'Definition'},
-      f = {'<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format'},
+      f = {'<cmd>lua vim.lsp.buf.format({async = true})<CR>', 'Format'},
       h = {'<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover'},
       i = {'<cmd>lua vim.lsp.buf.implementation()<CR>', 'Go to implementation'},
       s = {'<cmd>lua vim.lsp.buf.signature_help()<CR>', 'Signature help'},
@@ -89,8 +89,8 @@ wk.register({
       e = {'<cmd>lua vim.lsp.buf.declaration()<CR>', 'Declaration'},
       a = {'<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code action'},
       R = {'<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename'},
-      n = {'<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', 'Next diagnostic'},
-      p = {'<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', 'Previous diagnostic'},
+      n = {'<cmd>lua vim.diagnostic.goto_next()<CR>', 'Next diagnostic'},
+      p = {'<cmd>lua vim.diagnostic.goto_prev()<CR>', 'Previous diagnostic'},
     },
     f = {
       name = '+file',

@@ -70,8 +70,10 @@ function! s:customNvimRMappings()
     vmap <silent><buffer> <localleader>ss :'<,'>s/\$\([a-zA-Z._0-9]*\)/[["\1"]]/ge<CR>
 
     " Iron.nvim keys
-    map  <silent><buffer> <localleader>mm <Cmd>lua require("iron.core").send("r", {[[drake::r_make()]]})<CR>
-    map  <silent><buffer> <localleader>mc <Cmd>lua require("iron.core").send("r", {[[drake::clear()]]})<CR>
+    " map  <silent><buffer> <localleader>mm <Cmd>lua require("iron.core").send("r", {[[drake::r_make()]]})<CR>
+    " map  <silent><buffer> <localleader>mc <Cmd>lua require("iron.core").send("r", {[[drake::clear()]]})<CR>
+    map  <silent><buffer> <localleader>mm <Cmd>lua require("iron.core").send("r", {[[targets::tar_make_future()]]})<CR>
+    map  <silent><buffer> <localleader>mc <Cmd>lua require("iron.core").send("r", {[[targets::tar_destroy()]]})<CR>
 
     map  <silent><buffer> <localleader>pd <Cmd>lua require("iron.core").send("r", {[[devtools::document()]]})<CR>
     map  <silent><buffer> <localleader>pv <Cmd>lua require("iron.core").send("r", {[[devtools::build_vignettes()]]})<CR>

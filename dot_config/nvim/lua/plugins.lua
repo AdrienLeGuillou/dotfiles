@@ -145,7 +145,6 @@ return require('packer').startup(function()
 
       local lspconfig = require'lspconfig'
 
-      lspconfig.bashls.setup({ capabilities = capabilities })
 
       lspconfig.sumneko_lua.setup({
         capabilities = capabilities,
@@ -154,13 +153,60 @@ return require('packer').startup(function()
         }
       })
 
+      lspconfig.bashls.setup({ capabilities = capabilities })
       lspconfig.r_language_server.setup({ capabilities = capabilities })
-
       lspconfig.julials.setup({ capabilities = capabilities })
-
       lspconfig.clangd.setup({ capabilities = capabilities })
+      lspconfig.rust_analyzer.setup({ capabilities = capabilities })
     end,
   })
+
+  use({
+    'mfussenegger/nvim-dap',
+    config = function ()
+      local dap = require('dap')
+
+      dap.adapters.lldb = {
+        type = 'executable',
+        command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
+        name = 'lldb'
+      }
+
+      dap.configurations.cpp = {
+        {
+          name = 'Launch',
+          type = 'lldb',
+          request = 'launch',
+          program = function()
+            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+          end,
+          cwd = '${workspaceFolder}',
+          stopOnEntry = false,
+          args = {},
+
+          -- 💀
+          -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+          --
+          --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+          --
+          -- Otherwise you might get the following error:
+          --
+          --    Error on launch: Failed to attach to the target process
+          --
+          -- But you should be aware of the implications:
+          -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+          -- runInTerminal = false,
+        },
+      }
+
+      -- If you want to use this for Rust and C, add something like this:
+
+      dap.configurations.c = dap.configurations.cpp
+      dap.configurations.rust = dap.configurations.cpp
+    end,
+  })
+
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
   use({
     'nvim-treesitter/nvim-treesitter',
@@ -192,16 +238,16 @@ return require('packer').startup(function()
     end,
   })
 
-use({
-  'code-biscuits/nvim-biscuits',
-  config = function()
-    require('nvim-biscuits').setup({
-      toggle_keybind = "<leader>cb",
-      cursor_line_only = false,
-      show_on_start = false, -- defaults to false
-    })
-  end
-})
+-- use({
+--   'code-biscuits/nvim-biscuits',
+--   config = function()
+--     require('nvim-biscuits').setup({
+--       toggle_keybind = "<leader>cb",
+--       cursor_line_only = false,
+--       show_on_start = false, -- defaults to false
+--     })
+--   end
+-- })
 
 use({
   'ThePrimeagen/harpoon',
@@ -266,9 +312,7 @@ use({
 
     end,
   })
---  use 'SirVer/ultisnips'
 
---
 --  -- -- Utilites
   use({
     "numToStr/Comment.nvim",
@@ -296,7 +340,7 @@ use({
     end,
   })
   use({
-    'akinsho/nvim-toggleterm.lua',
+    'akinsho/nvim-toggleterm.lua', tag = 'v1.*',
     config = function ()
       require('toggleterm').setup({
         size = 20,
