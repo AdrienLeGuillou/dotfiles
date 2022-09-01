@@ -34,7 +34,7 @@ return require('packer').startup(function()
       require('lualine').setup{
         options = {
           theme = 'gruvbox_light',
-          globalstatus = true,
+          globalstatus = false,
         },
       }
     end,
@@ -118,6 +118,7 @@ return require('packer').startup(function()
             end
           end,
         },
+        preselect = cmp.PreselectMode.None,
         sources = {
           { name = 'nvim_lsp' },
           { name = 'buffer' },
@@ -156,7 +157,14 @@ return require('packer').startup(function()
       lspconfig.r_language_server.setup({ capabilities = capabilities })
       lspconfig.julials.setup({ capabilities = capabilities })
       lspconfig.clangd.setup({ capabilities = capabilities })
-      lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+      -- lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+    end,
+  })
+
+  use({
+    'simrat39/rust-tools.nvim',
+    config = function()
+      require('rust-tools').setup({})
     end,
   })
 
@@ -206,6 +214,15 @@ return require('packer').startup(function()
   })
 
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+
+  use({
+    'mickael-menu/zk-nvim',
+    config = function()
+      require('zk').setup({
+        picker = 'telescope',
+      })
+    end,
+  })
 
   use({
     'nvim-treesitter/nvim-treesitter',
@@ -422,7 +439,7 @@ use {
       iron.setup {
         config = {
           highlight_last = false,
-          repl_open_cmd = require("iron.view").curry.right(95),
+          repl_open_cmd = require("iron.view").right(95),
           scratch_repl = false,
           -- should_map_plug = false,
           visibility = require("iron.visibility").toggle, -- toggle, focus, single

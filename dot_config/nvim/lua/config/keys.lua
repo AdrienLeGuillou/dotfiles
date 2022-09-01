@@ -141,10 +141,11 @@ wk.register({
     s = {
       name = '+search',
       c = {'<cmd>nohl<CR>', 'Clear highlight'},
-      l = {'<cmd>Telescope current_buffer_fuzzy_find<CR>', 'Search line in buffer'},
-      f = {'<cmd>Telescope live_grep<CR>', 'Search line in files'},
       e = {'<cmd>Telescope command_history:<CR>', 'Search command history'},
+      f = {'<cmd>Telescope live_grep<CR>', 'Search line in files'},
       h = {'<cmd>Telescope help_tags<CR>', 'Search vim help'},
+      l = {'<cmd>Telescope current_buffer_fuzzy_find<CR>', 'Search line in buffer'},
+      o = {'<cmd>Telescope quickfix<CR>', 'Search the quickfix list'},
       s = {'<Plug>(easymotion-overwin-f2)', 'EasyMotion (2 chars)', noremap = false},
     },
     t = {
@@ -163,6 +164,13 @@ wk.register({
       d = {'<C-w>q', 'Close window'},
       w = {'<cmd>Windows<CR>', 'List windows'},
       o = {'<cmd>only<CR>', 'Only window'}
+    },
+    z = {
+      name = '+Zettelkasten',
+      n = {'<Cmd>ZkNew { title = vim.fn.input("Title: ") }<CR>', 'New Note'},
+      o = {"<Cmd>ZkNotes { sort = { 'modified' } }<CR>", 'Search Notes'},
+      t = {"<Cmd>ZkTags<CR>", 'Search Tag'},
+      f = {"<Cmd>'<,'>ZkMatch<CR>", 'Search Selected', mode = 'v'},
     },
     S = {
       name = '+Spell',
@@ -193,3 +201,4 @@ wk.register({
     },
   },
 })
+
