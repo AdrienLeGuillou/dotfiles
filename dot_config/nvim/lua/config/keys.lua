@@ -57,6 +57,8 @@ util.map('v', 'm', ':lua require("tsht").nodes()<CR>')
 -- util.map('i', '<A-->', '<esc>bea <- ')
 util.map('i', '<A-->', '<-')
 
+util.map('x', '<A-p>', '"_dP')
+
 -- which-key
 wk.register({
   ['<leader>:'] = {'q:', 'Command-line window'},

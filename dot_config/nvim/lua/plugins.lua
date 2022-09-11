@@ -225,6 +225,13 @@ return require('packer').startup(function()
   })
 
   use({
+    'nvim-treesitter/nvim-treesitter-context',
+    config = function()
+      require'treesitter-context'.setup()
+    end,
+  })
+
+  use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
@@ -366,7 +373,7 @@ use({
         insert_mappings = true,
         shade_filetypes = {},
         persist_size = true,
-        direction = 'horizontal',
+        direction = 'float', -- 'horizontal'
         shade_terminals = false,
       })
     end,
