@@ -44,9 +44,9 @@ util.map('i', '<C-j>',   [[ pumvisible() ? "\<C-n>" : "\<C-j>"]],  {expr = true 
 util.map('i', '<C-k>',   [[ pumvisible() ? "\<C-p>" : "\<C-k>"]],  {expr = true })
 util.map('i', '<C-l>',   [[ pumvisible() ? "\<C-y>" : "\<C-l>"]],  {expr = true })
 
--- hop.nvim
-util.map('n', 's', '<cmd>HopChar1<CR>', {noremap = false})
-util.map('v', 's', '<cmd>HopChar1<CR>', {noremap = false})
+-- -- hop.nvim
+-- util.map('n', 's', '<cmd>HopChar1<CR>', {noremap = false})
+-- util.map('v', 's', '<cmd>HopChar1<CR>', {noremap = false})
 
 -- nvim-treehopper
 -- do not try to replace `:` with `<cmd>` here. does not work

@@ -17,16 +17,6 @@ return require('packer').startup(function()
       vim.cmd([[colorscheme gruvbox]])
     end,
   })
-  -- use({
-  --   'ellisonleao/gruvbox.nvim',
-  --   config = function()
-  --     vim.o.termguicolors = true
-  --     vim.o.background = 'light'
-  --     vim.g.gruvbox_contrast_dark  = 'medium'
-  --     vim.g.gruvbox_contrast_light = 'medium'
-  --     vim.cmd([[colorscheme gruvbox]])
-  --   end,
-  -- })
 
   use({
     'hoob3rt/lualine.nvim',
@@ -344,14 +334,14 @@ use({
     end,
   })
 
-  use({
-    'phaazon/hop.nvim',
-    branch = 'v1', -- optional but strongly recommended
-    config = function()
-      -- you can configure Hop the way you like here; see :h hop-config
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end
-  })
+  -- use({
+  --   'phaazon/hop.nvim',
+  --   branch = 'v1', -- optional but strongly recommended
+  --   config = function()
+  --     -- you can configure Hop the way you like here; see :h hop-config
+  --     require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  --   end
+  -- })
 
   use ({'mfussenegger/nvim-treehopper'})
 
