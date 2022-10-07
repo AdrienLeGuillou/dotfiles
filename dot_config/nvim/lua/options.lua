@@ -51,6 +51,8 @@ vim.o.relativenumber = true           -- Relative line numbers
 vim.o.number = true                   -- Print line number
 vim.o.signcolumn = 'yes'              -- Show sign column
 vim.o.wrap = false                    -- Disable line wrap
+vim.o.ls = 0                          -- Last status height
+vim.o.ch = 0                          -- Command height
 
 -- bug with telescope, needs `:e` for folds to kick in see https://github.com/nvim-treesitter/nvim-treesitter/issues/1337
 -- vim.o.foldmethod = 'expr'             -- Use treesitter to fold
