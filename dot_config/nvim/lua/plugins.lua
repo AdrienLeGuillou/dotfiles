@@ -353,12 +353,12 @@ use({
     end,
   })
   use({
-    'akinsho/nvim-toggleterm.lua', tag = 'v1.*',
+    'akinsho/nvim-toggleterm.lua', tag = '*',
     config = function ()
       require('toggleterm').setup({
         size = 20,
         open_mapping = [[<C-\>]],
-        hide_nubers = true,
+        hide_numbers = true,
         start_in_insert = true,
         insert_mappings = true,
         shade_filetypes = {},
