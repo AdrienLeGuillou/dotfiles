@@ -3,9 +3,6 @@ return require('packer').startup(function()
   use'wbthomason/packer.nvim'
 
 --  -- Simple plugins can be specified as strings
---  use 'nvim-lua/popup.nvim'
---  use 'kyazdani42/nvim-web-devicons'
---
 -- Theme
   use({
     'gruvbox-community/gruvbox',
@@ -136,16 +133,16 @@ return require('packer').startup(function()
 
       local lspconfig = require'lspconfig'
 
-      lspconfig.sumneko_lua.setup({
-        capabilities = capabilities,
-        lua = {
-          path = "/usr/bin/lua-language-server",
-        }
-      })
+      -- lspconfig.sumneko_lua.setup({
+      --   capabilities = capabilities,
+      --   lua = {
+      --     path = "/usr/bin/lua-language-server",
+      --   }
+      -- })
 
       lspconfig.bashls.setup({ capabilities = capabilities })
       lspconfig.r_language_server.setup({ capabilities = capabilities })
-      lspconfig.julials.setup({ capabilities = capabilities })
+      -- lspconfig.julials.setup({ capabilities = capabilities })
       lspconfig.clangd.setup({ capabilities = capabilities })
       -- lspconfig.rust_analyzer.setup({ capabilities = capabilities })
     end,
@@ -155,62 +152,6 @@ return require('packer').startup(function()
     'simrat39/rust-tools.nvim',
     config = function()
       require('rust-tools').setup({})
-    end,
-  })
-
-  use({
-    'mfussenegger/nvim-dap',
-    config = function ()
-      local dap = require('dap')
-
-      dap.adapters.lldb = {
-        type = 'executable',
-        command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
-        name = 'lldb'
-      }
-
-      dap.configurations.cpp = {
-        {
-          name = 'Launch',
-          type = 'lldb',
-          request = 'launch',
-          program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-          end,
-          cwd = '${workspaceFolder}',
-          stopOnEntry = false,
-          args = {},
-
-          -- 💀
-          -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
-          --
-          --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-          --
-          -- Otherwise you might get the following error:
-          --
-          --    Error on launch: Failed to attach to the target process
-          --
-          -- But you should be aware of the implications:
-          -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-          -- runInTerminal = false,
-        },
-      }
-
-      -- If you want to use this for Rust and C, add something like this:
-
-      dap.configurations.c = dap.configurations.cpp
-      dap.configurations.rust = dap.configurations.cpp
-    end,
-  })
-
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
-
-  use({
-    'mickael-menu/zk-nvim',
-    config = function()
-      require('zk').setup({
-        picker = 'telescope',
-      })
     end,
   })
 
@@ -251,17 +192,6 @@ return require('packer').startup(function()
     end,
   })
 
--- use({
---   'code-biscuits/nvim-biscuits',
---   config = function()
---     require('nvim-biscuits').setup({
---       toggle_keybind = "<leader>cb",
---       cursor_line_only = false,
---       show_on_start = false, -- defaults to false
---     })
---   end
--- })
-
 use({
   'ThePrimeagen/harpoon',
   config = function()
@@ -283,48 +213,48 @@ use({
   use 'vim-pandoc/vim-rmarkdown'
 
 --  -- -- Completion
-  use({
-    'L3MON4D3/LuaSnip',
-    config = function()
-      local ls = require("luasnip")
-      local types = require("luasnip.util.types")
-
-      ls.config.set_config({
-        history = true,
-        updateevents = "TextChanged,TextChangedI",
-        enable_autosnippets = true,
-        ext_opts = {
-          [types.choiceNode] = {
-            active = {
-              virt_text = { { "<-", "Error" } },
-            },
-          },
-        },
-      })
-      -- requires nvim 0.7
-      -- -- keymaps (before k, j, l: but they don't work)
-      -- vim.keymap.set({"i", "s"}, "<c-t>", function()
-      --   if ls.expand_or_jumpable() then
-      --     ls.expand_or_jump()
-      --   end
-      -- end, {silent = true})
-      --
-      -- vim.keymap.set({"i", "s"}, "<c-y>", function()
-      --   if ls.jumpable(-1) then
-      --     ls.jump(-1)
-      --   end
-      -- end, {silent = true})
-      --
-      -- vim.keymap.set({"i", "s"}, "<c-u>", function()
-      --   if ls.choice_active() then
-      --     ls.change_choice(1)
-      --   end
-      -- end)
-
-      -- vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
-
-    end,
-  })
+  -- use({
+  --   'L3MON4D3/LuaSnip',
+  --   config = function()
+  --     local ls = require("luasnip")
+  --     local types = require("luasnip.util.types")
+  --
+  --     ls.config.set_config({
+  --       history = true,
+  --       updateevents = "TextChanged,TextChangedI",
+  --       enable_autosnippets = true,
+  --       ext_opts = {
+  --         [types.choiceNode] = {
+  --           active = {
+  --             virt_text = { { "<-", "Error" } },
+  --           },
+  --         },
+  --       },
+  --     })
+  --     -- requires nvim 0.7
+  --     -- -- keymaps (before k, j, l: but they don't work)
+  --     -- vim.keymap.set({"i", "s"}, "<c-t>", function()
+  --     --   if ls.expand_or_jumpable() then
+  --     --     ls.expand_or_jump()
+  --     --   end
+  --     -- end, {silent = true})
+  --     --
+  --     -- vim.keymap.set({"i", "s"}, "<c-y>", function()
+  --     --   if ls.jumpable(-1) then
+  --     --     ls.jump(-1)
+  --     --   end
+  --     -- end, {silent = true})
+  --     --
+  --     -- vim.keymap.set({"i", "s"}, "<c-u>", function()
+  --     --   if ls.choice_active() then
+  --     --     ls.change_choice(1)
+  --     --   end
+  --     -- end)
+  --
+  --     -- vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
+  --
+  --   end,
+  -- })
 
 --  -- -- Utilites
   use({
@@ -334,18 +264,6 @@ use({
     end,
   })
 
-  -- use({
-  --   'phaazon/hop.nvim',
-  --   branch = 'v1', -- optional but strongly recommended
-  --   config = function()
-  --     -- you can configure Hop the way you like here; see :h hop-config
-  --     require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-  --   end
-  -- })
-
-  use ({'mfussenegger/nvim-treehopper'})
-
---  use 'editorconfig/editorconfig-vim'
   use({
     'windwp/nvim-autopairs',
     config = function ()
@@ -371,8 +289,6 @@ use({
   })
   use 'tpope/vim-surround'
   use 'godlygeek/tabular'
---  use 'qpkorr/vim-bufkill'
-  use 'famiu/bufdelete.nvim'
   use 'mbbill/undotree'
 --
   -- Which-key
@@ -405,16 +321,6 @@ use({
     config = function()
       require'plenary'
       require'neogit'.setup()
-    end,
-  })
-
---  use 'preservim/nerdtree'
---  use 'kyazdani42/nvim-tree.lua'
-  use({
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require'nvim-tree'.setup()
     end,
   })
 

@@ -48,11 +48,6 @@ util.map('i', '<C-l>',   [[ pumvisible() ? "\<C-y>" : "\<C-l>"]],  {expr = true 
 -- util.map('n', 's', '<cmd>HopChar1<CR>', {noremap = false})
 -- util.map('v', 's', '<cmd>HopChar1<CR>', {noremap = false})
 
--- nvim-treehopper
--- do not try to replace `:` with `<cmd>` here. does not work
-util.map('o', 'm', ':<C-U>lua require("tsht").nodes()<CR>', {noremap = false})
-util.map('v', 'm', ':lua require("tsht").nodes()<CR>')
-
 -- Alt-- to insert <-
 -- util.map('i', '<A-->', '<esc>bea <- ')
 util.map('i', '<A-->', '<-')
@@ -70,12 +65,6 @@ wk.register({
     b = {
       name = '+buffers', -- optional group name
       b = {'<cmd>Telescope buffers<CR>', 'List buffers'}, -- create a binding with label
-      d = {'<cmd>Bdelete<CR>', 'Delete buffer'}, -- create a binding with label
-      -- d = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap=false, buffer = 123 }, -- additional options for creating the keymap
-      -- n = { "New File" }, -- just a label. don't create any mapping
-      -- e = "Edit File", -- same as above
-      -- ["1"] = "which_key_ignore",  -- special label to hide it in the popup
-      -- b = { function() print("bar") end, "Foobar" } -- you can also pass functions!
     },
     c = {
       name = '+code (LSP)',
@@ -148,15 +137,12 @@ wk.register({
       h = {'<cmd>Telescope help_tags<CR>', 'Search vim help'},
       l = {'<cmd>Telescope current_buffer_fuzzy_find<CR>', 'Search line in buffer'},
       o = {'<cmd>Telescope quickfix<CR>', 'Search the quickfix list'},
-      s = {'<Plug>(easymotion-overwin-f2)', 'EasyMotion (2 chars)', noremap = false},
     },
     t = {
       name = '+toggles',
-      m = {'<cmd>MinimapToggle<CR>', 'Toggle minimap'},
       w = {'<cmd>set wrap!<CR>', 'Toggle line wrap'},
       s = {'<cmd>set spell!<CR>', 'Toggle spell checking'},
       u = {'<cmd>UndotreeToggle<CR>', 'Toggle Undotree'},
-      t = {'<cmd>ToggleTerm<CR>', 'Toggle Term'},
     },
     w = {
       name = '+windows',
@@ -166,13 +152,6 @@ wk.register({
       d = {'<C-w>q', 'Close window'},
       w = {'<cmd>Windows<CR>', 'List windows'},
       o = {'<cmd>only<CR>', 'Only window'}
-    },
-    z = {
-      name = '+Zettelkasten',
-      n = {'<Cmd>ZkNew { title = vim.fn.input("Title: ") }<CR>', 'New Note'},
-      o = {"<Cmd>ZkNotes { sort = { 'modified' } }<CR>", 'Search Notes'},
-      t = {"<Cmd>ZkTags<CR>", 'Search Tag'},
-      f = {"<Cmd>'<,'>ZkMatch<CR>", 'Search Selected', mode = 'v'},
     },
     S = {
       name = '+Spell',
