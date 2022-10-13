@@ -53,7 +53,14 @@ return require('packer').startup(function()
         sources = {
           { name = 'nvim_lsp' },
           { name = 'buffer' },
-          { name = 'path' },
+          {
+            name = 'path',
+            option = {
+              get_cwd = function(params) -- complete files from WD
+                return vim.fn.getcwd(params.context.bufnr)
+              end,
+            },
+          },
           { name = 'nvim-lua' },
         }
       })
