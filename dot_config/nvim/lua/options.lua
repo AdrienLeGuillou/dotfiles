@@ -54,6 +54,14 @@ vim.o.wrap = false                    -- Disable line wrap
 vim.o.ls = 0                          -- Last status height
 vim.o.ch = 0                          -- Command height
 
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = false,
+  update_in_insert = false,
+  severity_sort = false,
+})
+
 -- bug with telescope, needs `:e` for folds to kick in see https://github.com/nvim-treesitter/nvim-treesitter/issues/1337
 -- vim.o.foldmethod = 'expr'             -- Use treesitter to fold
 -- vim.o.foldexpr = 'nvim_treesitrer#foldexpr()'

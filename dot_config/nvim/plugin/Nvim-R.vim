@@ -26,45 +26,6 @@ let R_hl_term = 0
 let R_user_maps_only = 1
 
 function! s:customNvimRMappings()
-    " nmap <buffer> <localleader>xs <Plug>RStart
-    " nmap <buffer> <localleader>xk :RKill <CR>
-    " nmap <buffer> <localleader>xi :RStop <CR>
-    " " map  <silent><buffer> <localleader>xr :call g:SendCmdToR(`"startup::restart()")<CR>
-    " nmap <buffer> <localleader>xc <Plug>RClearAll
-    " nmap <buffer> <localleader>xf <Plug>RClearConsole
-    " map  <silent><buffer> <localleader>mm :call g:SendCmdToR("drake::r_make()")<CR>
-    " map  <silent><buffer> <localleader>mc :call g:SendCmdToR("drake::clear()")<CR>
-    " nmap <buffer> <localleader><localleader> <Plug>RDSendLine
-    " vmap <buffer> <localleader><localleader> <Plug>RDSendSelection
-    " nmap <buffer> <localleader>d <Plug>RDSendLine
-    " vmap <buffer> <localleader>d <Plug>RDSendSelection
-    " vmap <buffer> <localleader>D <Plug>RSendSelAndInsertOutput
-    " nmap <buffer> <localleader>f <Plug>RDSendFunction
-    " nmap <buffer> <localleader>b <Plug>RSendFile
-    " nmap <buffer> <localleader>oo <Plug>ROpenLists
-    " nmap <buffer> <localleader>od <Plug>RCloseLists
-    " nmap <buffer> <localleader>ou <Plug>RUpdateObjBrowser
-    " nmap <buffer> <localleader>hh <Plug>RHelp
-    " " nmap <buffer> <localleader>hd <Plug>RObjectStr
-    " nmap <silent><buffer> <localleader>hd :call RAction("dplyr::glimpse")<CR>
-    " map  <silent><buffer> <localleader>ha :call g:SendCmdToR("print(ls.str(), max.lvl = Inf)")<CR>
-    " nmap <buffer> <localleader>he <Plug>RObjectPr
-    " "imap <buffer> <Leader>sr <Plug>RStart
-    " "vmap <buffer> <Leader>sr <Plug>RStart
-    " " Devtools
-    " map  <silent><buffer> <localleader>pd :call g:SendCmdToR("devtools::document()")<CR>
-    " map  <silent><buffer> <localleader>pv :call g:SendCmdToR("devtools::build_vignettes()")<CR>
-    " map  <silent><buffer> <localleader>pT :call g:SendCmdToR("devtools::check()")<CR>
-    " map  <silent><buffer> <localleader>pt :call g:SendCmdToR("devtools::test()")<CR>
-    " map  <silent><buffer> <localleader>pl :call g:SendCmdToR("devtools::load_all()")<CR>
-    "
-    " " Renv
-    " map  <silent><buffer> <localleader>ri :call g:SendCmdToR("renv::init()")<CR>
-    " map  <silent><buffer> <localleader>re :call g:SendCmdToR("renv::install(c('languageserver', 'devtools'))")<CR>
-    " map  <silent><buffer> <localleader>ru :call g:SendCmdToR("renv::update(prompt=F)")<CR>
-    " map  <silent><buffer> <localleader>rs :call g:SendCmdToR("renv::snapshot(prompt=F)")<CR>
-    " map  <silent><buffer> <localleader>rr :call g:SendCmdToR("renv::restore(prompt=F)")<CR>
-
     " Replace x$y$z by x[["y"]][["z"]]
     nmap <silent><buffer> <localleader>ss :s/\$\([a-zA-Z._0-9]*\)/[["\1"]]/ge<CR>
     vmap <silent><buffer> <localleader>ss :'<,'>s/\$\([a-zA-Z._0-9]*\)/[["\1"]]/ge<CR>
@@ -83,7 +44,7 @@ function! s:customNvimRMappings()
 
     " Renv
     map  <silent><buffer> <localleader>ri <Cmd>lua require("iron.core").send("r", {[[renv::init()]]})<CR>
-    map  <silent><buffer> <localleader>re <Cmd>lua require("iron.core").send("r", {[[renv::install(c('languageserver', 'devtools'))]]})<CR>
+    map  <silent><buffer> <localleader>re <Cmd>lua require("iron.core").send("r", {[[renv::install(c('reditorsupport/languageserver', 'devtools'))]]})<CR>
     map  <silent><buffer> <localleader>ru <Cmd>lua require("iron.core").send("r", {[[renv::update(prompt=F)]]})<CR>
     map  <silent><buffer> <localleader>rs <Cmd>lua require("iron.core").send("r", {[[renv::snapshot(prompt=F)]]})<CR>
     map  <silent><buffer> <localleader>rr <Cmd>lua require("iron.core").send("r", {[[renv::restore(prompt=F)]]})<CR>
