@@ -4,13 +4,22 @@ return require('packer').startup(function()
 
 --  -- Simple plugins can be specified as strings
 -- Theme
+  -- use({
+  --   'gruvbox-community/gruvbox',
+  --   config = function()
+  --     vim.o.termguicolors = true
+  --     vim.o.background = 'light'
+  --     vim.g.gruvbox_contrast_dark  = 'medium'
+  --     vim.g.gruvbox_contrast_light = 'medium'
+  --     vim.cmd([[colorscheme gruvbox]])
+  --   end,
+  -- })
+
   use({
-    'gruvbox-community/gruvbox',
+    "ellisonleao/gruvbox.nvim",
     config = function()
       vim.o.termguicolors = true
       vim.o.background = 'light'
-      vim.g.gruvbox_contrast_dark  = 'medium'
-      vim.g.gruvbox_contrast_light = 'medium'
       vim.cmd([[colorscheme gruvbox]])
     end,
   })
@@ -57,7 +66,8 @@ return require('packer').startup(function()
             name = 'path',
             option = {
               get_cwd = function(params) -- complete files from WD
-                return vim.fn.getcwd(params.context.bufnr)
+                -- return vim.fn.getcwd(params.context.bufnr)
+                return vim.fn.getcwd(0)
               end,
             },
           },
