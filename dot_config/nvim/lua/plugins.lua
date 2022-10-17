@@ -4,22 +4,13 @@ return require('packer').startup(function()
 
 --  -- Simple plugins can be specified as strings
 -- Theme
-  -- use({
-  --   'gruvbox-community/gruvbox',
-  --   config = function()
-  --     vim.o.termguicolors = true
-  --     vim.o.background = 'light'
-  --     vim.g.gruvbox_contrast_dark  = 'medium'
-  --     vim.g.gruvbox_contrast_light = 'medium'
-  --     vim.cmd([[colorscheme gruvbox]])
-  --   end,
-  -- })
-
   use({
-    "ellisonleao/gruvbox.nvim",
+    'gruvbox-community/gruvbox',
     config = function()
       vim.o.termguicolors = true
       vim.o.background = 'light'
+      vim.g.gruvbox_contrast_dark  = 'medium'
+      vim.g.gruvbox_contrast_light = 'medium'
       vim.cmd([[colorscheme gruvbox]])
     end,
   })
@@ -80,7 +71,7 @@ return require('packer').startup(function()
   use({
     'neovim/nvim-lspconfig',
     config = function()
-      local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local lspconfig = require'lspconfig'
 
