@@ -69,11 +69,18 @@ vim.diagnostic.config({
 --------------------- AUTOCMD ------------------------------
 -- Cleanup file on save
 -- vim.cmd [[ au BufWritePre * lua require('util').cleanup() ]]
-local group = vim.api.nvim_create_augroup("AutoCleanup", {clear = true})
+local au_cleanup = vim.api.nvim_create_augroup("AutoCleanup", {clear = true})
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = require('util').cleanup,
-  group = group
+  group = au_cleanup
+})
+
+local au_pandoc = vim.api.nvim_create_augroup("Pandoc", {clear = true})
+vim.api.nvim_create_autocmd({"BufEnter"}, {
+  pattern = "*.md",
+  command = "set syntax=markdown.pandoc",
+  group = au_pandoc
 })
 -- Comment strings
 -- vim.cmd [[ au FileType cpp setlocal commentstring=//\ %s ]]
