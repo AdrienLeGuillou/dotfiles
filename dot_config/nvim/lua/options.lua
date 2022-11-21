@@ -57,9 +57,9 @@ vim.o.ch = 0                          -- Command height
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,
-  underline = false,
+  underline = true,
   update_in_insert = false,
-  severity_sort = false,
+  severity_sort = true,
 })
 
 -- bug with telescope, needs `:e` for folds to kick in see https://github.com/nvim-treesitter/nvim-treesitter/issues/1337
