@@ -258,16 +258,6 @@ use({
 
   -- use 'mhinz/vim-signify'
   use 'tpope/vim-fugitive'
-  use({
-    'TimUntersberger/neogit',
-    requires = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      require'plenary'
-      require'neogit'.setup()
-    end,
-  })
 
 -- mkdir
 use {
