@@ -20,8 +20,8 @@ paru -S --needed \
     hunspell-fr \
     mako \
     libnotify \
-    slurp \
     grim \
+    flameshot \
     swayidle \
     swaylock \
     waybar \
@@ -34,7 +34,6 @@ paru -S --needed \
     rofi-lbonn-wayland-git \
     wl-clipboard \
     oh-my-zsh-git \
-    ranger \
     atool \
     trash-cli \
     p7zip \
@@ -58,13 +57,13 @@ paru -S --needed \
     python-adblock \
     featherpad \
     firefox \
-    zathura-pdf-mupdf \
     vlc \
     megasync-bin \
     pamixer \
     lximage-qt \
     darktable \
     intel-compute-runtime \
+    amd-opencl \
     clinfo \
     gvfs-mtp \
     adwaita-icon-theme \
