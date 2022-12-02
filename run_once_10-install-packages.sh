@@ -82,6 +82,9 @@ paru -S --needed \
     gcc-fortran \
     libgit2 \
     ufw \
+    rustup \
+    rust-analyzer \
+    bash-language-server \
     tk
 
 sudo systemctl enable auto-cpufreq.service
@@ -91,3 +94,6 @@ sudo ufw enable
 sudo ufw allow Transmission
 sudo chsh -s /bin/zsh adrien
 lensfun-update-data
+
+rustup default stable
+rustup component add rust-src
