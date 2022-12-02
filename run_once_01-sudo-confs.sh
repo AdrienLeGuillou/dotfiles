@@ -1,16 +1,17 @@
 #!/bin/sh
 
+sudo usermod -a -G input,video,audio,storage,disk,kvm adrien
+
 sudo mkdir -p /etc/systemd/logind.conf.d/
 echo 'HandlePowerKey=ignore' | sudo tee /etc/systemd/logind.conf.d/40-powerbutton.conf
 
-echo '[zram0]
-zram-fraction = 0.5' | sudo tee /etc/systemd/zram-generator.conf
-
+# echo '[zram0]
+# zram-fraction = 0.5' | sudo tee /etc/systemd/zram-generator.conf
 
 sudo mkdir -p /etc/NetworkManager/dispatcher.d
 
 echo '#!/bin/sh
-case "$2" in 
+case "$2" in
     up)
         timedatectl set-timezone "$(curl --fail https://ipapi.co/timezone)"
     ;;

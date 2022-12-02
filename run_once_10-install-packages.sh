@@ -16,6 +16,7 @@ paru -S --needed \
     alacritty \
     foot \
     foot-terminfo \
+    zsh \
     zsh-completions \
     hunspell-en_us \
     hunspell-fr \
@@ -86,4 +87,5 @@ sudo systemctl enable fstrim.timer
 sudo systemctl enable ufw.service
 sudo ufw enable
 sudo ufw allow Transmission
+sudo chsh -s /bin/zsh adrien
 lensfun-update-data
