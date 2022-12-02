@@ -62,7 +62,7 @@ paru -S --needed \
     lximage-qt \
     darktable \
     intel-compute-runtime \
-    amd-opencl \
+    opencl-amd \
     clinfo \
     gvfs-mtp \
     adwaita-icon-theme \
