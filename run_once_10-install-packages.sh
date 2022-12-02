@@ -59,7 +59,6 @@ paru -S --needed \
     firefox \
     vlc \
     megasync-bin \
-    pamixer \
     lximage-qt \
     darktable \
     intel-compute-runtime \
@@ -68,8 +67,8 @@ paru -S --needed \
     gvfs-mtp \
     adwaita-icon-theme \
     pipewire-pulse \
+    pamixer \
     pavucontrol \
-    playerctl-git \
     pacman-contrib \
     transmission-cli \
     transmission-qt \
