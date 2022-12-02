@@ -14,6 +14,7 @@ paru -S --needed \
     otf-font-awesome \
     noto-fonts \
     sway \
+    wev \
     alacritty \
     foot \
     foot-terminfo \
