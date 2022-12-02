@@ -3,6 +3,7 @@
 paru
 
 paru -S --needed \
+    neovim \
     reflector \
     auto-cpufreq \
     man-db \
