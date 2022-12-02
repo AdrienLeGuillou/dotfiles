@@ -15,6 +15,7 @@ paru -S --needed \
     sway \
     alacritty \
     foot \
+    foot-terminfo \
     zsh-completions \
     hunspell-en_us \
     hunspell-fr \
@@ -77,6 +78,7 @@ paru -S --needed \
     openblas \
     gcc-fortran \
     libgit2 \
+    ufw \
     tk
 
 sudo systemctl enable auto-cpufreq.service

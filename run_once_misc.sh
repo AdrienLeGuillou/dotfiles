@@ -4,5 +4,5 @@ xdg-user-dirs-update
 
 if [ ! -f "Pictures/wallpaper" ]
 then
-    touch Pictures/wallpaper
+    touch ~/Pictures/wallpaper
 fi
