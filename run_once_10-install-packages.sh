@@ -13,6 +13,7 @@ paru -S --needed \
     ttf-unifont \
     otf-font-awesome \
     noto-fonts \
+    autologin \
     sway \
     wev \
     alacritty \
@@ -97,3 +98,7 @@ lensfun-update-data
 
 rustup default stable
 rustup component add rust-src
+
+# setup autologin
+sudo sed -i "s|ExecStart=autologin.*|ExecStart=autologin adrien zsh --login -c ~/.local/bin/sway|" /usr/lib/systemd/system/autologin.service
+sudo systemctl enable autologin.service
