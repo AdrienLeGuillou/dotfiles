@@ -78,8 +78,6 @@ paru -S --needed \
     lximage-qt \
     darktable \
     displaycal \
-    intel-compute-runtime \
-    opencl-amd \
     clinfo \
     gvfs-mtp \
     adwaita-icon-theme \
@@ -99,7 +97,15 @@ paru -S --needed \
     rustup \
     rust-analyzer \
     bash-language-server \
-    tk
+    tk \
+      #inspiron 14 specific
+    opencl-amd \
+    amdvlk \
+    libva-mesa-driver \
+    mesa-vdpau \
+      # inspiron 15 specific
+    intel-media-driver \
+    intel-compute-runtime
 
 sudo systemctl enable auto-cpufreq.service
 sudo systemctl enable fstrim.timer
@@ -117,4 +123,5 @@ rustup component add rust-src
 # sudo systemctl enable autologin.service
 
 # install f5 vpn. Usually checks don't work
+# beware, qt5-webkit is super long to build, but only needed once roughly
 paru -S --mflags "--skipchecksums --skippgpcheck" f5epi f5vpn f5fpc
