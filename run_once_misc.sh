@@ -6,3 +6,5 @@ if [ ! -f "Pictures/wallpaper" ]
 then
     touch ~/Pictures/wallpaper
 fi
+
+mkdir ~/Documents/journal

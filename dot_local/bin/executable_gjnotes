@@ -1,0 +1,343 @@
+#!/bin/sh
+
+set -e # error if a command as non 0 exit
+set -u # error if undefined variable
+
+PROGRAM="${0##*/}"
+COMMAND="$1"
+VERSION="0.1"
+
+# Read config file
+. "$HOME/.config/gjnotes/config"
+
+# Set default values
+NOTES_DIR="${NOTES_DIR:-$HOME/GitJournal}"
+NOTES_DIR="${NOTES_DIR%/}" # Ensure it finishes without "/"
+
+NOTES_EDITOR="${NOTES_EDITOR:-${EDITOR:-vi}}"
+
+# Source helper functions
+#DIR="$(dirname "$(readlink -f "$0")")"
+#. "$DIR/lib-$PROGRAM"
+
+die() {
+	echo "$@" >&2
+	exit 1
+}
+
+timestamp() {
+    echo $(date +"%FT%T%:z")
+}
+
+
+update_yaml_modified() {
+    sed -i "/^---\$/,/^---\$/ s/modified:.*\$/modified: $(timestamp)/" "$1" 
+}
+
+new_note_template() {
+    local TIME=$(timestamp) TITLE=$1 TYPE=$2
+
+    echo "---"
+    echo "created: $TIME"
+    echo "modified: $TIME"
+
+    if [ ! -z "$TITLE" ]
+    then
+        echo "title: $TITLE"
+    fi
+
+    if [ "$TYPE"  = "c" ]
+    then
+        echo "type: Checklist"
+    elif [ "$TYPE"  = "j" ]
+    then
+        echo "type: Journal"
+    fi
+
+    echo "---\n"
+
+    if [ "$TYPE" = "c" ]; then
+        echo "- [ ] "; fi
+}
+
+utils_git_commit() {
+    local COMMIT_MSG="at_$(timestamp)"
+    cmd_git add . 
+    cmd_git commit -m "$COMMIT_MSG"
+}
+
+utils_git_pull() {
+    cmd_git pull -r
+}
+
+utils_git_push() {
+    cmd_git push
+}
+
+utils_git_status() {
+    # count the number of uncommited changes
+    cmd_git status --porcelain | wc -l
+}
+
+cmd_version() {
+    echo "$PROGRAM: $VERSION"
+}
+
+cmd_new() {
+    local OPTS TYPE="m" TITLE='' FILE_NAME='' FILE_DIR=''
+    local DIE_MSG="Usage: $PROGRAM $COMMAND [TITLE] [--note-type,-t TYPE]"
+
+
+    # Options management
+    OPTS=$(getopt -n "$PROGRAM" -o t: --long note-type:  -- "$@") || 
+        die "$DIE_MSG"
+
+	eval set -- "$OPTS"
+
+	while true; do case $1 in
+		-t|--note-type) 
+            if [ "$2" = "m" ] || [ "$2" = "markdown" ]
+            then
+                TYPE="m"
+            elif [ "$2" = "c" ] || [ "$2" = "checklist" ]
+            then
+                TYPE="c"
+            elif [ "$2" = "j" ] || [ "$2" = "journal" ]
+            then
+                TYPE="j"
+            else
+                die "Unsupported type, see help"
+            fi
+
+            shift 2 ;;
+
+		--) shift; break ;;
+	esac done
+
+    # Actions
+    if [ "$TYPE" = "j" ]
+    then
+        TITLE="$(date +"%F-%T" | sed 's/:/-/g')"
+    elif [ $# -ne 0 ]
+    then
+        TITLE="$1"
+    elif [ ! -t 0 ]
+    then
+        read TITLE
+    fi
+
+    [ -z "$TITLE" ] && die "Missing note title \n$DIE_MSG"
+
+    FILE_NAME="${TITLE%.md}.md"
+    FILE_DIR="${FILE_NAME%/*}"
+
+    [ "$FILE_DIR" = "$FILE_NAME" ] && FILE_DIR=''
+
+    # If parent does not exists, creat them
+    if [ "$FILE_DIR" != '' ] && [ ! -d "$NOTES_DIR/$FILE_DIR" ] 
+    then
+        mkdir -p "$NOTES_DIR/$FILE_DIR" 
+    fi
+
+    touch "$NOTES_DIR/$FILE_NAME"
+
+    new_note_template "$TITLE" "$TYPE" > "$NOTES_DIR/$FILE_NAME"
+
+    echo "$FILE_NAME"
+}
+
+cmd_remove() {
+    local OPTS NOTE='' RECURSIVE=0 CONFIRMED='N'
+    local DIE_MSG="Usage: $PROGRAM $COMMAND [TITLE] [--note-type,-t TYPE]"
+
+    # Options management
+    OPTS=$(getopt -n "$PROGRAM" -o ry --long recursive,no-confirm  -- "$@") ||
+        die "$DIE_MSG"
+
+	eval set -- "$OPTS"
+
+	while true; do case $1 in
+		-r|--recursive) 
+            RECURSIVE=1 
+            shift ;;
+		-y|--no-confirm) 
+            CONFIRMED='y' 
+            shift ;;
+		--) shift; break ;;
+	esac done
+
+    # Actions
+    if [ $# -ne 0 ]
+    then
+        NOTE="$1"
+    elif [ ! -t 0 ]
+    then
+        read TITLE
+    fi
+
+    [ -z "$NOTE" ] && die "Missing note to remove \n$DIE_MSG"
+
+    if [ "$CONFIRMED" = 'N' ]
+    then
+        # Force read from tty, so it works when piping
+        read -p "Do you want to delete \"$NOTE\" [y/N] " CONFIRMED </dev/tty
+    fi
+
+
+    if [ "$CONFIRMED" = 'y' ] || [ "$CONFIRMED" = 'Y' ]
+    then
+        rm "$NOTES_DIR/$NOTE"
+    else
+        echo "Aborting '$NOTE' deletion"
+    fi
+}
+
+cmd_rm() {
+    local CURR_WD=$(pwd)
+    cd "$NOTES_DIR/"
+    rm $@
+    cd "$CURR_WD"
+}
+
+cmd_git() {
+    local CURR_WD=$(pwd)
+    cd "$NOTES_DIR/"
+
+    git $@
+
+    cd "$CURR_WD"
+}
+
+
+cmd_list() {
+    local OPTS TREE=0
+    local DIE_MSG="Usage: $PROGRAM $COMMAND [--tree,-t]"
+
+    # Options management
+    OPTS=$(getopt -n "$PROGRAM" -o t --long tree -- "$@") || die "$DIE_MSG"
+
+	eval set -- "$OPTS"
+
+	while true; do case $1 in
+		-t|--tree) TREE=1; shift ;;
+		--) shift; break ;;
+	esac done
+
+    # Actions
+    if [ $TREE -eq 1 ] 
+    then 
+        tree "$NOTES_DIR" 
+    else
+        find "$NOTES_DIR" -iname "*.md" | \
+        sed "s,$NOTES_DIR/,,"
+    fi
+}
+
+cmd_edit() {
+    local OPTS NOTE='' NOTE_PATH='' MODIFIED=0
+    local DIE_MSG="Usage: $PROGRAM $COMMAND [--editor,-e EDITOR]"
+
+    # Options management
+    OPTS=$(getopt -n "$PROGRAM" -o e: --long editor: -- "$@") || die "$DIE_MSG"
+
+	eval set -- "$OPTS"
+
+	while true; do case $1 in
+		-e|--editor) NOTES_EDITOR="$2"; shift 2 ;;
+		--) shift; break ;;
+	esac done
+
+    # If no argument is provided, read from STDIN
+    if [ $# -ne 0 ]
+    then
+        NOTE="$1"
+    elif [ ! -t 0 ]
+    then
+        read NOTE
+    fi
+
+    [ -z "$NOTE" ] && die "Missing note name \n$DIE_MSG"
+
+    NOTE_PATH="$NOTES_DIR/$NOTE"
+
+    if [ ! -f "$NOTE_PATH" ]
+    then
+       die "\"$NOTE\" is not an existing note" 
+       exit 1
+    fi
+
+    # get time of last modification
+    MODIFIED="$(stat -c %Y "$NOTE_PATH")"
+
+    $NOTES_EDITOR "$NOTE_PATH"
+    
+    # Check if the file was actually modified
+    if [ "$MODIFIED" -ne "$(stat -c %Y "$NOTE_PATH")" ]
+    then
+        update_yaml_modified "$NOTE_PATH"
+    fi
+}
+
+cmd_fzf() {
+    local OPTS FULL_PATH=0 
+    local DIE_MSG="Usage: $PROGRAM $COMMAND [--full-path,-f]"
+
+    OPTS=$(getopt -n "$PROGRAM" -o f --long full-path -- "$@") || die "$DIE_MSG"
+
+	eval set -- "$OPTS"
+
+	while true; do case $1 in
+		-f|--full-path) FULL_PATH=1; shift ;;
+		--) shift; break ;;
+	esac done
+
+    export FZF_DEFAULT_OPTS="
+    --height=30%
+    --layout=reverse
+    --prompt=\"Note: \"
+    --preview=\"sed -n '/^---$/,/^---$/!p' $NOTES_DIR/{}\"" 
+
+    NOTE=$(cmd_list | fzf)
+
+    if [ "$FULL_PATH" -eq "1" ]
+    then
+        NOTE="$NOTES_DIR/$NOTE"
+    fi
+
+    echo "$NOTE"
+}
+
+cmd_sync() {
+    local N_CHANGES=$(utils_git_status)
+
+    if [ "$N_CHANGES" -ne 0 ] 
+    then
+        utils_git_commit
+    fi
+
+    utils_git_pull
+    utils_git_push
+}
+
+cmd_usage() {
+    echo "I am lazy, there is no doc yet"
+
+}
+
+case "$1" in 
+    new) shift;                 cmd_new "$@" ;;
+    edit) shift;                cmd_edit "$@" ;;
+    fzf) shift;                 cmd_fzf "$@" ;;
+    remove) shift;              cmd_remove "$@" ;;
+    rm) shift;                  cmd_rm "$@" ;;
+    copy) shift;                cmd_copy "$@" ;;
+    list) shift;                cmd_list "$@" ;; # tree or list
+    search) shift;              cmd_search "$@" ;; # potentially inside of notes
+    git) shift;                 cmd_git "$@" ;;
+    sync) shift;                cmd_sync "$@" ;;
+    version|--version) shift;   cmd_version ;;
+    help|--help) shift;         cmd_usage ;;
+    *)                          cmd_usage ;;
+esac
+
+exit 0

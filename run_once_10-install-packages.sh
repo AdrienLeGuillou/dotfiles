@@ -4,13 +4,18 @@ paru
 
 paru -S --needed \
     neovim \
+    lazygit \
     reflector \
+    borg \
     auto-cpufreq \
     man-db \
     man-pages \
     ttf-hack \
     nerd-fonts-hack \
     ttf-unifont \
+    ttf-caladea \
+    ttf-carlito \
+    ttf-noto \
     otf-font-awesome \
     noto-fonts \
     autologin \
@@ -35,6 +40,9 @@ paru -S --needed \
     xdg-desktop-portal-wlr \
     lxqt-policykit \
     xorg-xhost \
+    pacman-cleanup-hook \
+    qdirstat \
+    fwupd \
     htop \
     rofi-lbonn-wayland-git \
     wl-clipboard \
@@ -42,6 +50,8 @@ paru -S --needed \
     atool \
     trash-cli \
     p7zip \
+    evince \
+    libreoffice-fresh \
     unrar \
     file-roller \
     bat \
@@ -64,8 +74,10 @@ paru -S --needed \
     firefox \
     vlc \
     megasync-bin \
+    zotero-bin \
     lximage-qt \
     darktable \
+    displaycal \
     intel-compute-runtime \
     opencl-amd \
     clinfo \
@@ -79,6 +91,7 @@ paru -S --needed \
     transmission-qt \
     ccls \
     r \
+    radian \
     openblas \
     gcc-fortran \
     libgit2 \
@@ -102,3 +115,6 @@ rustup component add rust-src
 # setup autologin
 sudo sed -i "s|ExecStart=autologin.*|ExecStart=autologin adrien zsh --login -c ~/.local/bin/sway|" /usr/lib/systemd/system/autologin.service
 sudo systemctl enable autologin.service
+
+# install f5 vpn. Usually checks don't work
+paru -S --mflags "--skipchecksums --skippgpcheck" f5epi f5vpn f5fpc
