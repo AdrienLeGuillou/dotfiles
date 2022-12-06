@@ -15,7 +15,7 @@ paru -S --needed \
     ttf-unifont \
     ttf-caladea \
     ttf-carlito \
-    ttf-noto \
+    noto-fonts \
     otf-font-awesome \
     noto-fonts \
     autologin \
@@ -112,9 +112,9 @@ lensfun-update-data
 rustup default stable
 rustup component add rust-src
 
-# setup autologin
-sudo sed -i "s|ExecStart=autologin.*|ExecStart=autologin adrien zsh --login -c ~/.local/bin/sway|" /usr/lib/systemd/system/autologin.service
-sudo systemctl enable autologin.service
+# setup autologin - DO ONLY IF ENCRYPTED DRIVE
+# sudo sed -i "s|ExecStart=autologin.*|ExecStart=autologin adrien zsh --login -c ~/.local/bin/sway|" /usr/lib/systemd/system/autologin.service
+# sudo systemctl enable autologin.service
 
 # install f5 vpn. Usually checks don't work
 paru -S --mflags "--skipchecksums --skippgpcheck" f5epi f5vpn f5fpc
