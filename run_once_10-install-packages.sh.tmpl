@@ -88,6 +88,18 @@ paru -S --needed \
     transmission-cli \
     transmission-qt \
     ccls \
+    # packages specific to setups
+{{- if eq .chezmoi.hostname "Gallarus" }}
+    intel-media-driver \
+    intel-compute-runtime\
+{{- else if eq .chezmoi.hostname "Gallarus14"}}
+    opencl-amd \
+    amdvlk \
+    libva-mesa-driver \
+    mesa-vdpau \
+{{- else if eq .chezmoi.hostname "GallarusC720"}}
+
+{{ end }}
     r \
     radian \
     openblas \
@@ -98,14 +110,7 @@ paru -S --needed \
     rust-analyzer \
     bash-language-server \
     tk \
-      #inspiron 14 specific
-    opencl-amd \
-    amdvlk \
-    libva-mesa-driver \
-    mesa-vdpau \
-      # inspiron 15 specific
-    intel-media-driver \
-    intel-compute-runtime
+    vulkan-tools
 
 sudo systemctl enable auto-cpufreq.service
 sudo systemctl enable fstrim.timer
