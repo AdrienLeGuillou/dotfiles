@@ -91,15 +91,15 @@ paru -S --needed \
     transmission-qt \
     ccls \
     vulkan-tools \
-{{if eq .chezmoi.hostname "Gallarus" }}
+{{- if eq .chezmoi.hostname "Gallarus" }}
     intel-media-driver \
     intel-compute-runtime\
-{{else if eq .chezmoi.hostname "Gallarus14"}}
+{{- else if eq .chezmoi.hostname "Gallarus14"}}
     opencl-amd \
     amdvlk \
     libva-mesa-driver \
     mesa-vdpau \
-{{else if eq .chezmoi.hostname "GallarusC720"}}
+{{- else if eq .chezmoi.hostname "GallarusC720"}}
 {{ end }}
     r \
     radian \
@@ -110,8 +110,7 @@ paru -S --needed \
     rustup \
     rust-analyzer \
     bash-language-server \
-    tk \
-    arch4edu-keyring
+    tk
 
 sudo systemctl enable auto-cpufreq.service
 sudo systemctl enable fstrim.timer
@@ -131,4 +130,6 @@ rustup component add rust-src
 # sudo systemctl enable autologin.service
 
 ## # install f5 vpn. Usually checks don't work
+## paru -S arch4edu-keyring
+## paru
 ## paru -S --mflags "--skipchecksums --skippgpcheck" f5epi f5vpn f5fpc
