@@ -2,13 +2,13 @@
 
 ### Variables
 
-{{- if eq .chezmoi.hostname "Gallarus" }}
+{{- if eq .chezmoi.hostname "Gallarus"}}
 set $touchpad '1739:52392:DELL097C:00_06CB:CCA8_Touchpad'
 {{- else if eq .chezmoi.hostname "GallarusC720"}}
 set $touchpad '0:0:Cypress_APA_Trackpad_(cyapa)'
 {{- else if eq .chezmoi.hostname "Gallarus14"}}
 set $touchpad '1267:12770:DLL0B46:01_04F3:31E2_Touchpad'
-{{ end }}
+{{end}}
 
 set $keyboard '1:1:AT_Translated_Set_2_keyboard'
 
@@ -293,16 +293,15 @@ include /etc/sway/config.d/*
 exec kanshi # display profiles
 exec mako # notification deamon
 
-{{- if eq .chezmoi.hostname "Gallarus" }}
+{{if eq .chezmoi.hostname "Gallarus" }}
 exec firefox
 exec megasync_wayland
 # exec blueman-applet # bluetooth
-{{- else if eq .chezmoi.hostname "Gallarus14"}}
+{{else if eq .chezmoi.hostname "Gallarus14"}}
 exec firefox
 exec megasync_wayland
-{{- else if eq .chezmoi.hostname "GallarusC720"}}
+{{else if eq .chezmoi.hostname "GallarusC720"}}
 
-{{ end -}}
+{{end}}
 
-# exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec lxqt-policykit-agent

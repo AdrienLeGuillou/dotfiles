@@ -90,17 +90,16 @@ paru -S --needed \
     transmission-cli \
     transmission-qt \
     ccls \
-    # packages specific to setups
-{{- if eq .chezmoi.hostname "Gallarus" }}
+    vulkan-tools \
+{{if eq .chezmoi.hostname "Gallarus" }}
     intel-media-driver \
     intel-compute-runtime\
-{{- else if eq .chezmoi.hostname "Gallarus14"}}
+{{else if eq .chezmoi.hostname "Gallarus14"}}
     opencl-amd \
     amdvlk \
     libva-mesa-driver \
     mesa-vdpau \
-{{- else if eq .chezmoi.hostname "GallarusC720"}}
-
+{{else if eq .chezmoi.hostname "GallarusC720"}}
 {{ end }}
     r \
     radian \
@@ -112,7 +111,7 @@ paru -S --needed \
     rust-analyzer \
     bash-language-server \
     tk \
-    vulkan-tools
+    arch4edu-keyring
 
 sudo systemctl enable auto-cpufreq.service
 sudo systemctl enable fstrim.timer
@@ -130,5 +129,16 @@ rustup component add rust-src
 # sudo systemctl enable autologin.service
 
 # install f5 vpn. Usually checks don't work
-# beware, qt5-webkit is super long to build, but only needed once roughly
+#
+# needs arch4edu to get bin for qt5-webkit (otherwise 2h compile)
+sudo sh -c "echo '
+[arch4edu]
+Server = https://at.arch4edu.mirror.kescher.at/$arch
+Server = https://mirror.lesviallon.fr/arch4edu/$arch
+Server = https://pkg.fef.moe/arch4edu/$arch
+Server = https://de.arch4edu.mirror.kescher.at/$arch
+Server = https://arch4edu.keybase.pub/$arch
+' >> /etc/pacman.conf"
+
+paru
 paru -S --mflags "--skipchecksums --skippgpcheck" f5epi f5vpn f5fpc
