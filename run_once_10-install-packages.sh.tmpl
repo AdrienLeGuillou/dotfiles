@@ -115,10 +115,12 @@ paru -S --needed \
 
 sudo systemctl enable auto-cpufreq.service
 sudo systemctl enable fstrim.timer
+
 sudo systemctl enable ufw.service
+sudo systemctl start ufw.service
 sudo ufw enable
 sudo ufw allow Transmission
-sudo chsh -s /bin/zsh adrien
+
 lensfun-update-data
 
 rustup default stable
@@ -129,16 +131,4 @@ rustup component add rust-src
 # sudo systemctl enable autologin.service
 
 # install f5 vpn. Usually checks don't work
-#
-# needs arch4edu to get bin for qt5-webkit (otherwise 2h compile)
-sudo sh -c "echo '
-[arch4edu]
-Server = https://at.arch4edu.mirror.kescher.at/$arch
-Server = https://mirror.lesviallon.fr/arch4edu/$arch
-Server = https://pkg.fef.moe/arch4edu/$arch
-Server = https://de.arch4edu.mirror.kescher.at/$arch
-Server = https://arch4edu.keybase.pub/$arch
-' >> /etc/pacman.conf"
-
-paru
 paru -S --mflags "--skipchecksums --skippgpcheck" f5epi f5vpn f5fpc
