@@ -4,16 +4,7 @@ return require('packer').startup(function()
 
 --  -- Simple plugins can be specified as strings
 -- Theme
-  use({
-    'gruvbox-community/gruvbox',
-    config = function()
-      vim.o.termguicolors = true
-      vim.o.background = 'light'
-      vim.g.gruvbox_contrast_dark  = 'medium'
-      vim.g.gruvbox_contrast_light = 'medium'
-      vim.cmd([[colorscheme gruvbox]])
-    end,
-  })
+  use'gruvbox-community/gruvbox'
 
   use {
     'hrsh7th/nvim-cmp',
@@ -80,17 +71,7 @@ return require('packer').startup(function()
     end,
   })
 
-  use({
-    'hoob3rt/lualine.nvim',
-    config = function()
-      require('lualine').setup{
-        options = {
-          theme = 'gruvbox_light',
-          globalstatus = false,
-        },
-      }
-    end,
-  })
+  use'hoob3rt/lualine.nvim'
 
  -- use 'Yggdroot/indentLine'
   use({
@@ -140,8 +121,18 @@ return require('packer').startup(function()
   use({
     'simrat39/rust-tools.nvim',
     config = function()
-      require('rust-tools').setup({})
+      require('rust-tools').setup({
+        -- remove when PR 307 on rust-tools is closed
+        server = {
+          settings = {
+            ["rust-analyzer"] = {
+              inlayHints = { locationLinks = false },
+            },
+          },
+        },
+      })
     end,
+        -- end remove
   })
 
   use({
@@ -180,13 +171,6 @@ return require('packer').startup(function()
       vim.wo.foldexpr = [[nvim_treesitter#foldexpr()]]
     end,
   })
-
-use({
-  'ThePrimeagen/harpoon',
-  config = function()
-    require("harpoon").setup()
-  end
-})
 
 --  -- -- Tmux
   use 'christoomey/vim-tmux-navigator'

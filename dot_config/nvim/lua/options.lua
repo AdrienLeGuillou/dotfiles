@@ -39,7 +39,7 @@ vim.o.termguicolors = true            -- True color support
 vim.o.updatetime = 100                -- Delay before swap file is saved
 vim.o.wildmode = 'longest:full,full'  -- Command-line completion mode
 vim.o.title = true                    -- File name as terminal title
-vim.o.scrolloff = 10                  -- Make it so there are always ten lines below my cursor
+vim.o.scrolloff = 0                   -- Make it so there are always zero lines below my cursor
 vim.o.textwidth = 80                  -- Size of a line
 vim.o.foldlevelstart = 99             -- Start with all folds open
 vim.o.cmdheight = 1                   -- Height of the command bar
@@ -87,4 +87,5 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
 -- vim.cmd [[ au FileType abc setlocal commentstring=%\ %s ]]
 --
 
-
+ ---------------------- NETRW --------------------------------------------------
+vim.g['netrw_keepdir'] = 0

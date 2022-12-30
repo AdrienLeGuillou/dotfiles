@@ -294,11 +294,9 @@ exec kanshi # display profiles
 exec mako # notification deamon
 
 {{if eq .chezmoi.hostname "Gallarus" }}
-exec firefox
 exec megasync_wayland
 # exec blueman-applet # bluetooth
 {{else if eq .chezmoi.hostname "Gallarus14"}}
-exec firefox
 exec megasync_wayland
 {{else if eq .chezmoi.hostname "GallarusC720"}}
 
