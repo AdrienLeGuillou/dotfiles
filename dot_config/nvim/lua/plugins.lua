@@ -185,6 +185,8 @@ return require('packer').startup(function()
   use 'vim-pandoc/vim-pandoc-syntax'
   use 'vim-pandoc/vim-rmarkdown'
 
+  use 'epwalsh/obsidian.nvim'
+
 --  -- -- Utilites
   use({
     "numToStr/Comment.nvim",

@@ -50,8 +50,14 @@ require('lualine').setup{
   }
 }
 
---
-
+-- -- Obsidian
+-- require("obsidian").setup({
+--   dir = "~/Documents/Obsidian-Notes",
+--   disable_frontmatter = true,
+--   completion = {
+--     nvim_cmp = true, -- if using nvim-cmp, otherwise set to false
+--   }
+-- })
 
 vim.schedule(function ()
   require('plugins')
