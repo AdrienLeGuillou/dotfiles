@@ -74,6 +74,21 @@ input $touchpad {
 }
 
 bindsym $mod+F9 exec swaymsg input $touchpad events toggle enabled disabled
+
+#
+# Gestures
+#
+# Allow switching between workspaces with left and right swipes
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
+
+# Allow container movements by pinching them
+bindgesture pinch:inward+up move up
+bindgesture pinch:inward+down move down
+bindgesture pinch:inward+left move left
+bindgesture pinch:inward+right move right
+
+
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
