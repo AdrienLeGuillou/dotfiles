@@ -121,18 +121,8 @@ return require('packer').startup(function()
   use({
     'simrat39/rust-tools.nvim',
     config = function()
-      require('rust-tools').setup({
-        -- remove when PR 307 on rust-tools is closed
-        server = {
-          settings = {
-            ["rust-analyzer"] = {
-              inlayHints = { locationLinks = false },
-            },
-          },
-        },
-      })
+      require('rust-tools').setup()
     end,
-        -- end remove
   })
 
   use({
