@@ -1,14 +1,17 @@
-return require('packer').startup(function()
-  -- Packer can manage itself as an optional plugin
-  use'wbthomason/packer.nvim'
-
---  -- Simple plugins can be specified as strings
--- Theme
-  use'gruvbox-community/gruvbox'
-
-  use {
+return {
+  {
+    'gruvbox-community/gruvbox',
+    lazy = false,
+    priority = 1000,
+    config = function ()
+      vim.g.gruvbox_contrast_dark  = 'medium'
+      vim.g.gruvbox_contrast_light = 'medium'
+      vim.cmd([[colorscheme gruvbox]])
+    end,
+  },
+  {
     'hrsh7th/nvim-cmp',
-    requires = {
+    dependencies = {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
@@ -57,43 +60,76 @@ return require('packer').startup(function()
         }
       })
     end,
-  }
-
-  use({
+  },
+  {
+    'akinsho/nvim-toggleterm.lua',
+    config = function()
+      require('toggleterm').setup({
+        size = 20,
+        open_mapping = [[<C-\>]],
+        hide_numbers = true,
+        start_in_insert = true,
+        insert_mappings = true,
+        shade_filetypes = {},
+        persist_size = true,
+        direction = 'float', -- 'horizontal'
+        shade_terminals = false,
+      })
+    end,
+  },
+  {
+    "folke/which-key.nvim",
+    event = "VimEnter",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup({
+        require("config.keys")
+      })
+    end,
+  },
+  'tpope/vim-surround',
+  'godlygeek/tabular',
+  'mbbill/undotree',
+  {
+    'lewis6991/gitsigns.nvim',
+    config = true,
+  },
+  {
     'neovim/nvim-lspconfig',
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
       local lspconfig = require'lspconfig'
-
       lspconfig.bashls.setup({ capabilities = capabilities })
       lspconfig.r_language_server.setup({ capabilities = capabilities })
     end,
-  })
-
-  use'hoob3rt/lualine.nvim'
-
- -- use 'Yggdroot/indentLine'
-  use({
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('indent_blankline').setup {
-        char = '·',
-        buftype_exclude = {'terminal'},
-        filetype_exclude = {'help', 'man', 'rbrowser', 'rdoc'},
-        use_treesitter = false,
-        show_first_indent_level = true,
-        show_trailing_blankline_indent = true,
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    config = {
+      options = {
+        theme = 'gruvbox_light',
+        globalstatus = false,
       }
-    end,
-  })
-
-  use({
+    },
+  },
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    config = {
+      char = '·',
+      buftype_exclude = {'terminal'},
+      filetype_exclude = {'help', 'man', 'rbrowser', 'rdoc'},
+      use_treesitter = false,
+      show_first_indent_level = true,
+      show_trailing_blankline_indent = true,
+    },
+  },
+  {
     "nvim-telescope/telescope.nvim",
-    requires = {
+    dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzy-native.nvim",
-      {"nvim-telescope/telescope-fzf-native.nvim", run = 'make'},
+      {"nvim-telescope/telescope-fzf-native.nvim", build = 'make'},
       "nvim-telescope/telescope-file-browser.nvim",
       "ThePrimeagen/harpoon",
     },
@@ -115,27 +151,18 @@ return require('packer').startup(function()
         },
       })
     end,
-  })
-
-
-  use({
+  },
+  {
     'simrat39/rust-tools.nvim',
-    config = function()
-      require('rust-tools').setup()
-    end,
-  })
-
-  use({
-    'nvim-treesitter/nvim-treesitter-context',
-    config = function()
-      require'treesitter-context'.setup()
-    end,
-  })
-
-  use({
+    config = true,
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    build = ':TSUpdate',
     config = function()
+      vim.o.foldmethod = "expr"
+      vim.wo.foldexpr = [[nvim_treesitter#foldexpr()]]
+
       require'nvim-treesitter.configs'.setup {
         ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
         highlight = {
@@ -156,100 +183,44 @@ return require('packer').startup(function()
           },
         },
       }
-
-      vim.o.foldmethod = "expr"
-      vim.wo.foldexpr = [[nvim_treesitter#foldexpr()]]
     end,
-  })
-
---  -- -- Tmux
-  use 'christoomey/vim-tmux-navigator'
-
-  -- -- MarkDown
-  use({
+  },
+  'christoomey/vim-tmux-navigator',
+  'vim-pandoc/vim-pandoc-syntax',
+  'vim-pandoc/vim-rmarkdown',
+  {
     'vim-pandoc/vim-pandoc',
     config = function()
       vim.g['pandoc#syntax#conceal#use'] = 0
     end,
-  })
-  use 'vim-pandoc/vim-pandoc-syntax'
-  use 'vim-pandoc/vim-rmarkdown'
-
-  use 'epwalsh/obsidian.nvim'
-
---  -- -- Utilites
-  use({
+  },
+  {
     "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-    end,
-  })
-
-  use({
+    config = true,
+  },
+  {
     'windwp/nvim-autopairs',
-    config = function ()
-      require('nvim-autopairs').setup({ enable_check_bracket_line = false })
-    end,
-  })
-  use({
-    'akinsho/nvim-toggleterm.lua', tag = '*',
-    config = function ()
-      require('toggleterm').setup({
-        size = 20,
-        open_mapping = [[<C-\>]],
-        hide_numbers = true,
-        start_in_insert = true,
-        insert_mappings = true,
-        shade_filetypes = {},
-        persist_size = true,
-        direction = 'float', -- 'horizontal'
-        shade_terminals = false,
-      })
-    end,
-    after = 'which-key.nvim'
-  })
-  use 'tpope/vim-surround'
-  use 'godlygeek/tabular'
-  use 'mbbill/undotree'
---
-  -- Which-key
-  use({
-    "folke/which-key.nvim",
-    event = "VimEnter",
-    config = function()
-      require("config.keys")
-    end,
-  })
---
-  -- Git
-  use({
+    config = { enable_check_bracket_line = false },
+  },
+  'tpope/vim-surround',
+  'godlygeek/tabular',
+  'mbbill/undotree',
+
+  {
     'lewis6991/gitsigns.nvim',
-    requires = {
+    dependencies = {
       'nvim-lua/plenary.nvim'
     },
-    config = function()
-      require('gitsigns').setup()
-    end
-  })
-
-  -- use 'mhinz/vim-signify'
-  use 'tpope/vim-fugitive'
-
--- mkdir
-use {
+    config = true,
+  },
+  'tpope/vim-fugitive',
   'jghauser/mkdir.nvim',
-  config = function()
-    require('mkdir')
-  end
-}
 
   -- R
-  -- use 'jalvesaq/Nvim-R'
-  use({
+  {
     'hkupty/iron.nvim',
     config = function()
       local iron = require('iron.core')
-
       iron.setup {
         config = {
           highlight_last = false,
@@ -269,19 +240,16 @@ use {
         -- Iron doesn't set keymaps by default anymore. Set them here
         -- or use `should_map_plug = true` and map from you vim files
         keymaps = {
-          -- send_motion = "<localleader>sc",
           visual_send = "<localleader><localleader>",
           send_line = "<localleader><localleader>",
-          -- repeat_cmd = "<localleader>s.",
-          -- cr = "<localleader>s<cr>",
           interrupt = "<localleader>xi",
           exit = "<localleader>xk",
           clear = "<localleader>xl",
         }
       }
     end,
-  })
+  },
   -- Lua dev
-  use 'folke/lua-dev.nvim'
-  use 'bfredl/nvim-luadev'
-end)
+  'folke/lua-dev.nvim',
+  'bfredl/nvim-luadev',
+}

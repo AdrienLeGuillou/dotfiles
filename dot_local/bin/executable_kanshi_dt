@@ -1,0 +1,3 @@
+#!/bin/bash
+
+kanshi -c ~/.config/kanshi/config_dt
