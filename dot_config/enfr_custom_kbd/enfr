@@ -12,5 +12,6 @@ xkb_symbols "basic" {
     key <AD07> { [     u,         U,     ugrave,           Ugrave ] };
     key <AD08> { [     i,         I, ucircumflex,     Ucircumflex ] };
     key <AD05> { [     t,         T, ecircumflex,     ecircumflex ] };
+    key <LSGT> { [     backslash, bar ] };
 };
 
