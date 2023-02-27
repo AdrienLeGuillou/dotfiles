@@ -190,3 +190,6 @@ wk.register({
   },
 })
 
+-- toggleterm
+util.map('n', '<C-\\>', '<cmd>ToggleTerm<CR>')
+util.map('i', '<ESC><C-\\>', '<cmd>ToggleTerm<CR>')
