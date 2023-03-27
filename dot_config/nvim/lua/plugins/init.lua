@@ -249,6 +249,10 @@ return {
       }
     end,
   },
+  {
+    "johmsalas/text-case.nvim",
+    config = true,
+  },
   -- Lua dev
   'folke/lua-dev.nvim',
   'bfredl/nvim-luadev',
