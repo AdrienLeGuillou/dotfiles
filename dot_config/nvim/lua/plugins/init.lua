@@ -62,6 +62,24 @@ return {
     end,
   },
   {
+    'alexghergh/nvim-tmux-navigation',
+    config = function()
+      local nvim_tmux_nav = require('nvim-tmux-navigation')
+      nvim_tmux_nav.setup {
+        disable_when_zoomed = false, -- defaults to false
+        keybindings = {
+          left = "<A-h>",
+          down = "<A-j>",
+          up = "<A-k>",
+          right = "<A-l>",
+          -- last_active = "<A-\\>",
+          -- next = "<A-Space>",
+        }
+      }
+    end
+  },
+
+  {
     'akinsho/nvim-toggleterm.lua',
     config = function()
       require('toggleterm').setup({
