@@ -203,7 +203,6 @@ return {
       }
     end,
   },
-  'christoomey/vim-tmux-navigator',
   'vim-pandoc/vim-pandoc-syntax',
   'vim-pandoc/vim-rmarkdown',
   {
