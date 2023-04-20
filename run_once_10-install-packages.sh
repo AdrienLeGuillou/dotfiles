@@ -92,6 +92,7 @@ paru -S --needed \
     pipewire-pulse \
     pamixer \
     pavucontrol \
+    sof-firmware \
     pacman-contrib \
     transmission-cli \
     transmission-qt \

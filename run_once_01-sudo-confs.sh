@@ -17,7 +17,6 @@ case "$2" in
         timedatectl set-timezone "$(curl --fail https://ipapi.co/timezone)"
     ;;
 esac' | sudo tee /etc/NetworkManager/dispatcher.d/09-timezone
-
 sudo timedatectl set-ntp true
 
 # # needs arch4edu to get bin for qt5-webkit (otherwise 2h compile)
