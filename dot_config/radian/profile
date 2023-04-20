@@ -1,3 +1,9 @@
 options(radian.color_scheme = "perldoc")
 options(radian.editing_mode = "vi")
 options(radian.auto_match = FALSE)
+options(radian.indent_lines = TRUE)
+
+# custom prompt for different modes
+options(radian.prompt = "\033[0;34mr$>\033[0m \n")
+options(radian.shell_prompt = "\033[0;31m#!>\033[0m \n")
+options(radian.browse_prompt = "\033[0;33mBrowse[{}]>\033[0m \n")
