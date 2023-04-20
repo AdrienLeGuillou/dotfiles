@@ -3,16 +3,6 @@ profile {
 }
 
 profile {
-    output "Dell Inc. DELL P190S CHRYK0BSCXYL" mode 1280x1024 position 320,0
-    output eDP-1 position 0,1024
-}
-
-profile {
-    output "Philips Consumer Electronics Company 227E4LH AU01233006646" mode 1920x1080 position 0,0
-    output eDP-1 position 0,1080
-}
-
-profile {
-    output "Dell Inc. DELL U2520D JQLM923" mode 2048x1080 position 0,0
-    output eDP-1 position 64,1080
+    output "Dell Inc. DELL U2520D JQLM923" mode 2560x1440 position 0,0
+    output eDP-1 position 320,1440
 }
