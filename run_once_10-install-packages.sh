@@ -97,16 +97,8 @@ paru -S --needed \
     transmission-qt \
     ccls \
     vulkan-tools \
-{{- if eq .chezmoi.hostname "Gallarus" }}
     intel-media-driver \
     intel-compute-runtime\
-{{- else if eq .chezmoi.hostname "Gallarus14"}}
-    opencl-amd \
-    amdvlk \
-    libva-mesa-driver \
-    mesa-vdpau \
-{{- else if eq .chezmoi.hostname "GallarusC720"}}
-{{ end }}
     r \
     radian \
     glpk \
@@ -131,10 +123,6 @@ lensfun-update-data
 
 rustup default stable
 rustup component add rust-src
-
-# setup autologin - DO ONLY IF ENCRYPTED DRIVE
-# sudo sed -i "s|ExecStart=autologin.*|ExecStart=autologin adrien zsh --login -c ~/.local/bin/sway|" /usr/lib/systemd/system/autologin.service
-# sudo systemctl enable autologin.service
 
 ## # install f5 vpn. Usually checks don't work
 ## paru -S arch4edu-keyring

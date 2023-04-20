@@ -4,10 +4,8 @@
 
 {{- if eq .chezmoi.hostname "Gallarus"}}
 set $touchpad '1739:52392:DELL097C:00_06CB:CCA8_Touchpad'
-{{- else if eq .chezmoi.hostname "GallarusC720"}}
-set $touchpad '0:0:Cypress_APA_Trackpad_(cyapa)'
-{{- else if eq .chezmoi.hostname "Gallarus14"}}
-set $touchpad '1267:12770:DLL0B46:01_04F3:31E2_Touchpad'
+{{- else if eq .chezmoi.hostname "GallarusXPS13"}}
+set $touchpad '1160:4141:VEN_0488:00_0488:102D_Touchpad'
 {{end}}
 
 set $keyboard '1:1:AT_Translated_Set_2_keyboard'
@@ -308,13 +306,7 @@ include /etc/sway/config.d/*
 exec kanshi # display profiles
 exec mako # notification deamon
 
-{{if eq .chezmoi.hostname "Gallarus" }}
 exec megasync_wayland
 # exec blueman-applet # bluetooth
-{{else if eq .chezmoi.hostname "Gallarus14"}}
-exec megasync_wayland
-{{else if eq .chezmoi.hostname "GallarusC720"}}
-
-{{end}}
 
 exec lxqt-policykit-agent
