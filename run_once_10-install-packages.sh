@@ -116,6 +116,8 @@ sudo systemctl enable fstrim.timer
 sudo systemctl enable ufw.service
 sudo systemctl start ufw.service
 sudo ufw enable
+sudo ufw allow 1714:1764/udp #kde connect
+sudo ufw allow 1714:1764/tcp #kde connect
 sudo ufw allow Transmission
 
 lensfun-update-data
