@@ -9,14 +9,12 @@ paru -S --needed \
     borg \
     man-db \
     man-pages \
-    ttf-hack \
-    nerd-fonts-hack \
+    ttf-hack-nerd \
     ttf-unifont \
     ttf-caladea \
     ttf-carlito \
     noto-fonts \
     otf-font-awesome \
-    noto-fonts \
     autologin \
     sway \
     wev \
