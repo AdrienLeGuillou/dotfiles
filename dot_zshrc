@@ -13,6 +13,8 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/config
 export ZK_NOTEBOOK_DIR=$HOME/Documents/zettelkasten
 export RUSTC_WRAPPER=sccache
 
+export WINIT_X11_SCALE_FACTOR=1
+
 # Path to your oh-my-zsh installation.
 #export ZSH="/home/${USER}/.oh-my-zsh"
 export ZSH="/usr/share/oh-my-zsh"

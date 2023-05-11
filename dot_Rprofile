@@ -7,8 +7,8 @@ local({
 if (interactive()) {
   options(
     max.print = 200,
-    show.signif.stars = FALSE,
-    browser = "qutebrowser"
+    #browser = "chromium",
+    show.signif.stars = FALSE
   )
 
   q <- function(save="no", ...) {
