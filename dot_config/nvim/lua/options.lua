@@ -62,6 +62,9 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
+-- filetypes
+vim.filetype.add({extension = {wgsl = "wgsl"}})
+
 -- bug with telescope, needs `:e` for folds to kick in see https://github.com/nvim-treesitter/nvim-treesitter/issues/1337
 -- vim.o.foldmethod = 'expr'             -- Use treesitter to fold
 -- vim.o.foldexpr = 'nvim_treesitrer#foldexpr()'
@@ -85,7 +88,15 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
 -- Comment strings
 -- vim.cmd [[ au FileType cpp setlocal commentstring=//\ %s ]]
 -- vim.cmd [[ au FileType abc setlocal commentstring=%\ %s ]]
---
+local au_term = vim.api.nvim_create_augroup("term", {clear = true})
+vim.api.nvim_create_autocmd({"TermOpen"}, {
+  pattern = "*",
+  command = "setlocal nonumber norelativenumber",
+  group = au_term
+})
 
  ---------------------- NETRW --------------------------------------------------
 vim.g['netrw_keepdir'] = 0
+
+
+vim.filetype.add({extension = {wgsl = "wgsl"}})

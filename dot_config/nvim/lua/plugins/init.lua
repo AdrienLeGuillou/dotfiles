@@ -1,14 +1,36 @@
 return {
-  {
-    'gruvbox-community/gruvbox',
-    lazy = false,
-    priority = 1000,
-    config = function ()
-      vim.g.gruvbox_contrast_dark  = 'medium'
-      vim.g.gruvbox_contrast_light = 'medium'
-      vim.cmd([[colorscheme gruvbox]])
-    end,
-  },
+	{
+		"ellisonleao/gruvbox.nvim",
+		priority = 1000,
+		lazy = false,
+		config = function ()
+			-- setup must be called before loading the colorscheme
+			-- Default options:
+			require("gruvbox").setup({
+				undercurl = true,
+				underline = true,
+				bold = true,
+				italic = {
+					strings = true,
+					comments = true,
+					operators = false,
+					folds = true,
+				},
+				strikethrough = true,
+				invert_selection = false,
+				invert_signs = false,
+				invert_tabline = false,
+				invert_intend_guides = false,
+				inverse = true, -- invert background for search, diffs, statuslines and errors
+				contrast = "", -- can be "hard", "soft" or empty string
+				palette_overrides = {},
+				overrides = {},
+				dim_inactive = false,
+				transparent_mode = false,
+			})
+			vim.cmd("colorscheme gruvbox")
+		end,
+	},
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
@@ -125,7 +147,13 @@ return {
       local lspconfig = require'lspconfig'
       lspconfig.bashls.setup({ capabilities = capabilities })
       lspconfig.r_language_server.setup({ capabilities = capabilities })
+      lspconfig.wgsl_analyzer.setup({ capabilities = capabilities })
     end,
+  },
+  {
+    "williamboman/mason.nvim",
+    config = true,
+    build = ":MasonUpdate" -- :MasonUpdate updates registry contents
   },
   {
     'nvim-lualine/lualine.nvim',
