@@ -70,6 +70,7 @@ paru -S --needed \
 
 sudo systemctl enable fstrim.timer
 
+sudo systemctl enable bluetooth.service
 sudo systemctl enable ufw.service
 sudo systemctl start ufw.service
 sudo ufw enable
