@@ -34,6 +34,7 @@ paru -S --needed \
     dust \
     exa \
     bat \
+    gitui \
     tmux \
     tmuxp \
     openssh \
