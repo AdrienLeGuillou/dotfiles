@@ -51,6 +51,11 @@ paru -S --needed \
     displaycal \
     clinfo \
     sof-firmware \
+    alsa-firmware \
+    alsa-utils \
+    alsa-tools \
+    pavucontrol \
+    dkms \
     pacman-contrib \
     transmission-gtk \
     vulkan-tools \
