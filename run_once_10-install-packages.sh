@@ -4,9 +4,7 @@ paru
 
 paru -S --needed \
     neovim \
-    lazygit \
     reflector \
-    borg \
     man-db \
     man-pages \
     ttf-hack-nerd \
@@ -15,86 +13,45 @@ paru -S --needed \
     ttf-carlito \
     noto-fonts \
     otf-font-awesome \
-    autologin \
-    sway \
-    wev \
     alacritty \
-    foot \
-    foot-terminfo \
     zsh \
     zsh-completions \
     rsync \
     hunspell-en_us \
     hunspell-fr \
-    mako \
-    libnotify \
-    grim \
-    flameshot \
-    swaybg \
-    swayidle \
-    swaylock \
-    waybar \
     fscrypt \
-    xorg-xwayland \
-    xdg-user-dirs \
-    xdg-desktop-portal-wlr \
-    lxqt-policykit \
-    xorg-xhost \
     pacman-cleanup-hook \
-    qdirstat \
     fwupd \
     htop \
     cpupower \
-    rofi-lbonn-wayland-git \
-    wl-clipboard \
     oh-my-zsh-git \
-    atool \
-    trash-cli \
     p7zip \
-    evince \
     libreoffice-fresh \
-    unrar \
-    file-roller \
     bat \
     fd \
     ripgrep \
     fzf \
+    dust \
+    exa \
+    bat \
     tmux \
     tmuxp \
     openssh \
     autojump \
-    light \
     spotifyd \
     openssl-1.1 \
-    spotify-tui-bin \
-    kanshi \
-    wdisplays \
-    qt5-wayland \
-    thunar \
     megasync-bin \
     pam_mount \
-    qutebrowser \
-    python-adblock \
-    featherpad \
     firefox \
+    chromium \
     vlc \
-    megasync-bin \
     zotero-bin \
-    lximage-qt \
-    oxygen-icons \
     darktable \
     displaycal \
     clinfo \
-    gvfs-mtp \
-    adwaita-icon-theme \
-    pipewire-pulse \
-    pamixer \
-    pavucontrol \
     sof-firmware \
     pacman-contrib \
-    transmission-cli \
-    transmission-qt \
-    ccls \
+    transmission-gtk \
     vulkan-tools \
     intel-media-driver \
     intel-compute-runtime\

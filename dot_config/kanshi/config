@@ -1,8 +1,0 @@
-profile {
-    output eDP-1 position 0,0
-}
-
-profile {
-    output "Dell Inc. DELL U2520D JQLM923" mode 2048x1080 position 0,0
-    output eDP-1 position 64,1080
-}

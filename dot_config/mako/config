@@ -1,9 +1,0 @@
-default-timeout=5000
-
-# appearance
-font=Hack 11
-text-color=#EBDBB2
-background-color=#282828
-border-size=1
-border-color=#D65D0E
-
