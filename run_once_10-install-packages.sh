@@ -14,6 +14,8 @@ paru -S --needed \
     noto-fonts \
     otf-font-awesome \
     alacritty \
+    xclip \
+    obsidian \
     zsh \
     zsh-completions \
     rsync \
