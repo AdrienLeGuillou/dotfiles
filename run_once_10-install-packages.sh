@@ -14,7 +14,7 @@ paru -S --needed \
     noto-fonts \
     otf-font-awesome \
     alacritty \
-    xclip \
+    wl-clipboard \
     obsidian \
     zsh \
     zsh-completions \
@@ -42,7 +42,6 @@ paru -S --needed \
     openssh \
     autojump \
     spotifyd \
-    openssl-1.1 \
     megasync-bin \
     pam_mount \
     firefox \
@@ -50,12 +49,9 @@ paru -S --needed \
     vlc \
     zotero-bin \
     darktable \
+    krita \
     displaycal \
     clinfo \
-    sof-firmware \
-    alsa-firmware \
-    alsa-utils \
-    alsa-tools \
     pavucontrol \
     dkms \
     pacman-contrib \
@@ -68,9 +64,9 @@ paru -S --needed \
     glpk \
     imagemagick \
     openblas \
+    openblas64 \
     gcc-fortran \
     libgit2 \
-    ufw \
     rustup \
     rust-analyzer \
     bash-language-server \
