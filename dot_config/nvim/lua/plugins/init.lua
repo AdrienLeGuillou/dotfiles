@@ -148,6 +148,7 @@ return {
       lspconfig.bashls.setup({ capabilities = capabilities })
       lspconfig.r_language_server.setup({ capabilities = capabilities })
       lspconfig.wgsl_analyzer.setup({ capabilities = capabilities })
+      lspconfig.pylsp.setup({ capabilities = capabilities })
     end,
   },
   {
@@ -215,7 +216,7 @@ return {
       vim.wo.foldexpr = [[nvim_treesitter#foldexpr()]]
 
       require'nvim-treesitter.configs'.setup {
-        ensure_installed = {"r", "rust", "bash", "lua"},
+        ensure_installed = {"r", "rust", "bash", "lua", "python"},
         highlight = {
           enable = true,              -- false will disable the whole extension
           -- disable = { "c", "rust" },  -- list of language that will be disabled
