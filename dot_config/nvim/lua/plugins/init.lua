@@ -286,7 +286,8 @@ return {
               command = {"zsh"}
             },
             r = require("iron.fts.r").radian,
-          },
+            python = require("iron.fts.python").python,
+         },
         },
         -- Iron doesn't set keymaps by default anymore. Set them here
         -- or use `should_map_plug = true` and map from you vim files
