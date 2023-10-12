@@ -167,6 +167,7 @@ return {
   },
   {
     'lukas-reineke/indent-blankline.nvim',
+    version = 'v2.20.8',
     config = {
       char = '·',
       buftype_exclude = {'terminal'},
