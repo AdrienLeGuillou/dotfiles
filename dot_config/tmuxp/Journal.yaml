@@ -1,0 +1,15 @@
+session_name: Journal
+windows:
+- focus: 'true'
+  layout: ce42,174x48,0,0,5
+  options: {}
+  panes:
+  - pane
+  start_directory: /home/adrien/Documents/Misc/solani
+  window_name: Solani
+- layout: ce43,174x48,0,0,6
+  options: {}
+  panes:
+  - focus: 'true'
+  start_directory: /home/adrien
+  window_name: spotifyd
