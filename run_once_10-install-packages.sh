@@ -14,6 +14,8 @@ paru -S --needed \
     noto-fonts \
     otf-font-awesome \
     alacritty \
+    foot \
+    foot-terminfo \
     wl-clipboard \
     obsidian \
     zsh \
