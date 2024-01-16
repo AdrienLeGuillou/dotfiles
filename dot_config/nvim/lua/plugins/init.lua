@@ -206,8 +206,9 @@ return {
     end,
   },
   {
-    'simrat39/rust-tools.nvim',
-    config = true,
+    'mrcjkb/rustaceanvim',
+    version = '^3', -- Recommended
+    ft = { 'rust' },
   },
   {
     'nvim-treesitter/nvim-treesitter',

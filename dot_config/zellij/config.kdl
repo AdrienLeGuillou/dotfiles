@@ -1,5 +1,6 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds {
+    unbind "Ctrl b"
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
@@ -178,9 +179,9 @@ keybinds {
     shared_except "move" "locked" {
         bind "Ctrl h" { SwitchToMode "Move"; }
     }
-    shared_except "tmux" "locked" {
-        bind "Ctrl b" { SwitchToMode "Tmux"; }
-    }
+//    shared_except "tmux" "locked" {
+//        bind "Ctrl b" { SwitchToMode "Tmux"; }
+//    }
 }
 
 plugins {
