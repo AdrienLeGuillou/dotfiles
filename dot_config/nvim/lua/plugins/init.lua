@@ -91,6 +91,30 @@ return {
               end
             end, { "i", "s" }),
 
+            ["<Tab>"] = cmp.mapping(function(fallback)
+              if cmp.visible() then
+                cmp.select_next_item()
+                -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+                -- that way you will only jump inside the snippet region
+              elseif luasnip.expand_or_locally_jumpable() then
+                luasnip.expand_or_jump()
+              -- elseif has_words_before() then
+              --   cmp.complete()
+              else
+                fallback()
+              end
+            end, { "i", "s" }),
+
+            ["<S-Tab>"] = cmp.mapping(function(fallback)
+              if cmp.visible() then
+                cmp.select_prev_item()
+              elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+              else
+                fallback()
+              end
+            end, { "i", "s" }),
+
         },
         preselect = cmp.PreselectMode.None,
         sources = {
@@ -184,6 +208,24 @@ return {
       lspconfig.pylsp.setup({ capabilities = capabilities })
     end,
   },
+
+  {
+    'nvim-tree/nvim-tree.lua',
+    config = function()
+      -- disable netrw at the very start of your init.lua
+      vim.g.loaded_netrw = 1
+      vim.g.loaded_netrwPlugin = 1
+
+      -- optionally enable 24-bit colour
+      vim.opt.termguicolors = true
+
+      -- empty setup using defaults
+      require("nvim-tree").setup()
+		end,
+
+  },
+
+
   {
     "williamboman/mason.nvim",
     config = true,
