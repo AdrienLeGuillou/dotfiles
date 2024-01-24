@@ -126,7 +126,6 @@ wk.register({
     },
     t = {
       name = '+toggles',
-      f = {'<cmd>NvimtreeToggle<CR>', 'Toggle NvimTree'},
       w = {'<cmd>set wrap!<CR>', 'Toggle line wrap'},
       s = {'<cmd>set spell!<CR>', 'Toggle spell checking'},
       u = {'<cmd>UndotreeToggle<CR>', 'Toggle Undotree'},
