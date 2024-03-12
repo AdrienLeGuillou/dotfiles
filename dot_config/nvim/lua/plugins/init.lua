@@ -67,10 +67,12 @@ return {
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lua',
       'saadparwaiz1/cmp_luasnip',
+      "R-nvim/cmp-r"
     },
     config = function()
       local luasnip = require("luasnip")
       local cmp = require("cmp")
+
       cmp.setup({
         mapping = {
           ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -130,6 +132,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'buffer' },
           { name = 'luasnip' },
+          { name = 'cmp_r' },
           {
             name = 'path',
             option = {
@@ -147,6 +150,9 @@ return {
           end
         },
       })
+
+      require("cmp_r").setup({ })
+
     end,
   },
   {
@@ -316,7 +322,16 @@ return {
       vim.wo.foldexpr = [[nvim_treesitter#foldexpr()]]
 
       require'nvim-treesitter.configs'.setup {
-        ensure_installed = {"r", "rust", "bash", "lua", "python"},
+        ensure_installed = {
+          "r",
+          "markdown",
+          "markdown_inline",
+          "rnoweb",
+          "rust",
+          "bash",
+          "lua",
+          "python"
+        },
         highlight = {
           enable = true,              -- false will disable the whole extension
           -- disable = { "c", "rust" },  -- list of language that will be disabled
@@ -368,38 +383,61 @@ return {
   'jghauser/mkdir.nvim',
 
   -- R
+  -- {
+  --   'hkupty/iron.nvim',
+  --   config = function()
+  --     local iron = require('iron.core')
+  --     iron.setup {
+  --       config = {
+  --         highlight_last = false,
+  --         -- repl_open_cmd = require("iron.view").split.vertical.botright(95),
+  --         repl_open_cmd = require("iron.view").right(85),
+  --         scratch_repl = false,
+  --         -- should_map_plug = false,
+  --         visibility = require("iron.visibility").toggle, -- toggle, focus, single
+  --         close_window_on_exit = true,
+  --         repl_definition = {
+  --           sh = {
+  --             command = {"zsh"}
+  --           },
+  --           r = require("iron.fts.r").radian,
+  --           python = require("iron.fts.python").python,
+  --        },
+  --       },
+  --       -- Iron doesn't set keymaps by default anymore. Set them here
+  --       -- or use `should_map_plug = true` and map from you vim files
+  --       keymaps = {
+  --         visual_send = "<localleader><localleader>",
+  --         send_line = "<localleader><localleader>",
+  --         interrupt = "<localleader>xi",
+  --         exit = "<localleader>xk",
+  --         clear = "<localleader>xl",
+  --       }
+  --     }
+  --   end,
+  -- },
   {
-    'hkupty/iron.nvim',
+    "R-nvim/R.nvim",
     config = function()
-      local iron = require('iron.core')
-      iron.setup {
-        config = {
-          highlight_last = false,
-          -- repl_open_cmd = require("iron.view").split.vertical.botright(95),
-          repl_open_cmd = require("iron.view").right(85),
-          scratch_repl = false,
-          -- should_map_plug = false,
-          visibility = require("iron.visibility").toggle, -- toggle, focus, single
-          close_window_on_exit = true,
-          repl_definition = {
-            sh = {
-              command = {"zsh"}
-            },
-            r = require("iron.fts.r").radian,
-            python = require("iron.fts.python").python,
-         },
-        },
-        -- Iron doesn't set keymaps by default anymore. Set them here
-        -- or use `should_map_plug = true` and map from you vim files
-        keymaps = {
-          visual_send = "<localleader><localleader>",
-          send_line = "<localleader><localleader>",
-          interrupt = "<localleader>xi",
-          exit = "<localleader>xk",
-          clear = "<localleader>xl",
-        }
+      local opts = {
+        R_args = {"--quiet", "--no-save"},
+        R_app = "radian",
+        hook = {
+          after_config = function ()
+            -- This function will be called at the FileType event
+            -- of files supported by R.nvim. This is an
+            -- opportunity to create mappings local to buffers.
+            if vim.o.syntax ~= "rbrowser" then
+              vim.api.nvim_buf_set_keymap(0, "n", "<localleader><localleader>", "<Plug>RDSendLine", {})
+              vim.api.nvim_buf_set_keymap(0, "v", "<localleader><localleader>", "<Plug>RDSendSelection", {})
+            end
+          end
+        }, R_cmd = "R",
       }
+      require("r").setup(opts)
+      vim.g.rout_follow_colorscheme = true
     end,
+    lazy = false,
   },
   {
     "johmsalas/text-case.nvim",
