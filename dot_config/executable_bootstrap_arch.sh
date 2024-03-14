@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Use paru-bin
-sudo pacman -S --needed base-devel
+sudo pacman -S --needed --noconfirm base-devel
 
 git clone https://aur.archlinux.org/paru-bin.git
 cd paru-bin
@@ -9,13 +9,13 @@ makepkg -si
 cd ..
 rm -rf paru-bin
 
-paru -S archlinux-keyring
+paru -S --noconfirm  archlinux-keyring
 paru
 
 read -p "Press Enter to continue" </dev/tty
 
 # install packages
-paru -S --needed \
+paru -S --needed --noconfirm  \
     neovim \
     reflector \
     man-db \
@@ -84,6 +84,7 @@ paru -S --needed \
     rustup \
     rust-analyzer \
     bash-language-server \
+    ufw \
     tk
 
 
@@ -108,7 +109,7 @@ rustup component add rust-src
 read -p "Press Enter to continue" </dev/tty
 
 # install f5 vpn. Usually checks don't work
-paru -S arch4edu-keyring
+paru -S --noconfirm  arch4edu-keyring
 paru
 paru -S --mflags "--skipchecksums --skippgpcheck" f5epi f5vpn f5fpc
 
