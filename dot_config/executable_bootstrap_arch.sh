@@ -85,7 +85,8 @@ paru -S --needed --noconfirm  \
     rust-analyzer \
     bash-language-server \
     ufw \
-    tk
+    tk \
+    fprintd
 
 
 read -p "Press Enter to continue" </dev/tty
