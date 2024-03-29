@@ -429,6 +429,7 @@ return {
     "R-nvim/R.nvim",
     config = function()
       local opts = {
+        user_maps_only = true,
         R_args = {"--quiet", "--no-save"},
         R_app = "radian",
         hook = {
@@ -437,8 +438,29 @@ return {
             -- of files supported by R.nvim. This is an
             -- opportunity to create mappings local to buffers.
             if vim.o.syntax ~= "rbrowser" then
+              vim.api.nvim_buf_set_keymap(0, "n", "<localleader>rf", "<Plug>RStart", {})
+              vim.api.nvim_buf_set_keymap(0, "n", "<localleader>rk", "<Plug>RKill", {})
+              vim.api.nvim_buf_set_keymap(0, "n", "<localleader>ro", "<Plug>ROBToggle", {})
+              vim.api.nvim_buf_set_keymap(0, "n", "<localleader>rq", "<Cmd>lua require('r.send').cmd('quit(save = \"no\")')<CR>", {})
+
               vim.api.nvim_buf_set_keymap(0, "n", "<localleader><localleader>", "<Plug>RDSendLine", {})
               vim.api.nvim_buf_set_keymap(0, "v", "<localleader><localleader>", "<Plug>RDSendSelection", {})
+
+              vim.api.nvim_buf_set_keymap(0, "n", "<LocalLeader>mm", "<Cmd>lua require('r.send').cmd('targets::tar_make_future()')<CR>", {})
+              vim.api.nvim_buf_set_keymap(0, "n", "<LocalLeader>mc", "<Cmd>lua require('r.send').cmd('targets::tar_destroy()')<CR>", {})
+
+              vim.api.nvim_buf_set_keymap(0, "n", "<LocalLeader>pd", "<Cmd>lua require('r.send').cmd('devtools::document()')<CR>", {})
+              vim.api.nvim_buf_set_keymap(0, "n", "<LocalLeader>pv", "<Cmd>lua require('r.send').cmd('devtools::build_vignettes()')<CR>", {})
+              vim.api.nvim_buf_set_keymap(0, "n", "<LocalLeader>pT", "<Cmd>lua require('r.send').cmd('devtools::check()')<CR>", {})
+              vim.api.nvim_buf_set_keymap(0, "n", "<LocalLeader>pt", "<Cmd>lua require('r.send').cmd('devtools::test()')<CR>", {})
+              vim.api.nvim_buf_set_keymap(0, "n", "<LocalLeader>pl", "<Cmd>lua require('r.send').cmd('devtools::load_all()')<CR>", {})
+
+              --Renv
+              vim.api.nvim_buf_set_keymap(0, "n", "<localleader>ri", "<Cmd>lua require('r.send').cmd('renv::init(bare=TRUE)')<CR>", {})
+              vim.api.nvim_buf_set_keymap(0, "n", "<localleader>re", "<Cmd>lua require('r.send').cmd('renv::install(c(\"devtools\", \"languageserver\"))')<CR>", {})
+              vim.api.nvim_buf_set_keymap(0, "n", "<localleader>ru", "<Cmd>lua require('r.send').cmd('renv::update(prompt=F)')<CR>", {})
+              vim.api.nvim_buf_set_keymap(0, "n", "<localleader>rs", "<Cmd>lua require('r.send').cmd('renv::snapshot(prompt=F)')<CR>", {})
+              vim.api.nvim_buf_set_keymap(0, "n", "<localleader>rr", "<Cmd>lua require('r.send').cmd('renv::restore(prompt=F)')<CR>", {})
             end
           end
         }, R_cmd = "R",
