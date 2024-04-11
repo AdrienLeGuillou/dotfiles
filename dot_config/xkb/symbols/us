@@ -1,0 +1,17 @@
+partial alphanumeric_keys
+xkb_symbols "alg" {
+    name[Group1]= "ALG (us)";
+
+   include "us(altgr-intl)"
+
+    key <AC01> { [     a,         A,           a,               A ] };
+    key <AC02> { [     s,         S,      agrave,          Agrave ] };
+    key <AD03> { [     e,	      E,      eacute,          Eacute ] };
+    key <AD04> { [     r,	      R,      egrave,          Egrave ] };
+    key <AB03> { [     c,         C,    ccedilla,        Ccedilla ] };
+    key <AD07> { [     u,         U,      ugrave,          Ugrave ] };
+    key <AD08> { [     i,         I, ucircumflex,     Ucircumflex ] };
+    key <AD05> { [     t,         T, ecircumflex,     ecircumflex ] };
+    key <LSGT> { [     backslash, bar ] };
+};
+
