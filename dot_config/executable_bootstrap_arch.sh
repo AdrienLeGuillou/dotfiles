@@ -20,13 +20,11 @@ paru -S --needed --noconfirm  \
     reflector \
     man-db \
     man-pages \
-    ttf-hack-nerd \
     ttf-unifont \
     ttf-caladea \
     ttf-carlito \
     noto-fonts \
     otf-font-awesome \
-    alacritty \
     foot \
     foot-terminfo \
     wl-clipboard \
@@ -54,7 +52,6 @@ paru -S --needed --noconfirm  \
     gitui \
     tmux \
     openssh \
-    autojump \
     spotifyd \
     megasync-bin \
     pam_mount \
@@ -90,6 +87,10 @@ paru -S --needed --noconfirm  \
 
 
 read -p "Press Enter to continue" </dev/tty
+
+mkdir -p ~/.local/share/fonts
+curl -fLO https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf
+mv HackNerdFont-Regular.ttf ~/.local/share/fonts/
 
 # enable
 sudo systemctl enable fstrim.timer
