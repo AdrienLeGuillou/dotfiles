@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Use paru-bin
-sudo pacman -S --needed --noconfirm base-devel
+sudo pacman -S --needed --noconfirm base-devel git
 
 git clone https://aur.archlinux.org/paru-bin.git
 cd paru-bin
@@ -109,18 +109,13 @@ rustup component add rust-src
 
 read -p "Press Enter to continue" </dev/tty
 
-# install f5 vpn. Usually checks don't work
-paru -S --noconfirm  arch4edu-keyring
-paru
-paru -S --mflags "--skipchecksums --skippgpcheck" f5epi f5vpn f5fpc
+# # install f5 vpn. Usually checks don't work
+# paru -S --noconfirm  arch4edu-keyring
+# paru
+# paru -S --mflags "--skipchecksums --skippgpcheck" f5epi f5vpn f5fpc
 
 # change shell to ZSH
 sudo chsh -s /bin/zsh adrien
 
 # chezmoi -> use ssh
 chezmoi git remote set-url origin git@github.com:AdrienLeGuillou/dotfiles.git
-
-# install my custom keyboard
-cd ~/.config/enfr_custom_kbd
-./install_enfr.sh
-
