@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# chezmoi -> use ssh
+chezmoi git remote set-url origin git@github.com:AdrienLeGuillou/dotfiles.git
+
 # Use paru-bin
 sudo pacman -S --needed --noconfirm base-devel git
 
@@ -117,5 +120,3 @@ read -p "F5 - Press Enter to continue" </dev/tty
 # paru
 # paru -S --mflags "--skipchecksums --skippgpcheck" f5epi f5vpn f5fpc
 
-# chezmoi -> use ssh
-chezmoi git remote set-url origin git@github.com:AdrienLeGuillou/dotfiles.git
