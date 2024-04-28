@@ -16,17 +16,15 @@ read -p "Press Enter to continue" </dev/tty
 
 # install packages
 paru -S --needed --noconfirm  \
+    gnome-browser-connector \
     neovim \
     reflector \
     man-db \
     man-pages \
-    ttf-unifont \
     ttf-caladea \
     ttf-carlito \
     noto-fonts \
     otf-font-awesome \
-    foot \
-    foot-terminfo \
     wl-clipboard \
     obsidian \
     zsh \
@@ -39,7 +37,6 @@ paru -S --needed --noconfirm  \
     fwupd \
     htop \
     cpupower \
-    oh-my-zsh-git \
     p7zip \
     libreoffice-fresh \
     bat \
@@ -86,11 +83,14 @@ paru -S --needed --noconfirm  \
     fprintd
 
 
-read -p "Press Enter to continue" </dev/tty
+read -p "Fonts - Press Enter to continue" </dev/tty
 
 mkdir -p ~/.local/share/fonts
 curl -fLO https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf
 mv HackNerdFont-Regular.ttf ~/.local/share/fonts/
+
+read -p "Oh My Zsh - Press Enter to continue" </dev/tty
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # enable
 sudo systemctl enable fstrim.timer
@@ -108,15 +108,12 @@ lensfun-update-data
 rustup default stable
 rustup component add rust-src
 
-read -p "Press Enter to continue" </dev/tty
+read -p "F5 - Press Enter to continue" </dev/tty
 
 # # install f5 vpn. Usually checks don't work
 # paru -S --noconfirm  arch4edu-keyring
 # paru
 # paru -S --mflags "--skipchecksums --skippgpcheck" f5epi f5vpn f5fpc
-
-# change shell to ZSH
-sudo chsh -s /bin/zsh adrien
 
 # chezmoi -> use ssh
 chezmoi git remote set-url origin git@github.com:AdrienLeGuillou/dotfiles.git

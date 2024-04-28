@@ -13,8 +13,7 @@ export RUSTC_WRAPPER=sccache
 export WINIT_X11_SCALE_FACTOR=1
 
 # Path to your oh-my-zsh installation.
-#export ZSH="/home/${USER}/.oh-my-zsh"
-export ZSH="/usr/share/oh-my-zsh"
+export ZSH="/home/${USER}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -72,6 +71,7 @@ alias tmux="TERM=xterm-256color tmux"
 alias cm="chezmoi"
 alias cma="chezmoi apply -x encrypted,scripts"
 # alias R="radian"
+alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
 
 # Keybindings
 bindkey -v '^K' up-line-or-search
