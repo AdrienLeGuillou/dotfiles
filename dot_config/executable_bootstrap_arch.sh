@@ -16,6 +16,7 @@ read -p "Press Enter to continue" </dev/tty
 
 # install packages
 paru -S --needed --noconfirm  \
+    alecritty \
     gnome-browser-connector \
     neovim \
     reflector \
@@ -91,6 +92,7 @@ mv HackNerdFont-Regular.ttf ~/.local/share/fonts/
 
 read -p "Oh My Zsh - Press Enter to continue" </dev/tty
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mv ~/.zshrc.pre-oh-my-zsh .zshrc
 
 # enable
 sudo systemctl enable fstrim.timer
