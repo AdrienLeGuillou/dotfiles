@@ -19,7 +19,7 @@ read -p "Press Enter to continue" </dev/tty
 
 # install packages
 paru -S --needed --noconfirm  \
-    alecritty \
+    alacritty \
     gnome-browser-connector \
     neovim \
     reflector \
@@ -55,6 +55,8 @@ paru -S --needed --noconfirm  \
     openssh \
     spotifyd \
     megasync-bin \
+    proton-vpn-gtk-app \
+    zoom \
     pam_mount \
     firefox \
     chromium \
