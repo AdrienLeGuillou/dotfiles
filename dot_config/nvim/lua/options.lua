@@ -1,7 +1,7 @@
 local indent = 4
 
--- vim.g.iron_map_defaults = 0
--- vim.g.iron_map_extended = 0
+vim.g.iron_map_defaults = 0
+vim.g.iron_map_extended = 0
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
