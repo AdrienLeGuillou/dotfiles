@@ -150,23 +150,23 @@ wk.register({
   },
 
 
-  -- ['<localleader>'] = {
-  --   ['<localleader>'] = {
-  --     '<cmd>lua require("iron").core.send_line()<CR>j', 'Send Line',
-  --   },
-  --   ['<space>'] = {
-  --     '<cmd>IronFocus<CR>',
-  --     'Focus on REPL',
-  --   },
-  --   x = {
-  --     name = '+REPL',
-  --     x = {'<cmd>IronRepl<CR>', 'IronRepl'},
-  --     r = {
-  --       '<cmd>lua require("iron").core.repl_restart()<CR>',
-  --       'Restart REPL'
-  --     },
-  --   },
-  -- },
+  ['<localleader>'] = {
+    -- ['<localleader>'] = {
+    --   '<cmd>lua require("iron").core.send_line()<CR>j', 'Send Line',
+    -- },
+    -- ['<space>'] = {
+    --   '<cmd>IronFocus<CR>',
+    --   'Focus on REPL',
+    -- },
+    x = {
+      name = '+REPL',
+      x = {'<cmd>IronRepl<CR>', 'IronRepl'},
+      -- r = {
+      --   '<cmd>lua require("iron").core.repl_restart()<CR>',
+      --   'Restart REPL'
+      -- },
+    },
+  },
 })
 
 -- toggleterm

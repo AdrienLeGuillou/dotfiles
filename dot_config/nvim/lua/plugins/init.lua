@@ -399,7 +399,7 @@ return {
       iron.setup {
         config = {
           highlight_last = false,
-          repl_open_cmd = require("iron.view").split.vertical.botright(95),
+          repl_open_cmd = require("iron.view").split.vertical.botright(85),
           -- repl_open_cmd = require("iron.view").right(85),
           scratch_repl = false,
           -- should_map_plug = false,
