@@ -246,9 +246,13 @@ return {
       -- empty setup using defaults
       require("nvim-tree").setup()
 		end,
-
   },
-
+  {
+    "stevearc/oil.nvim",
+    config = function()
+      require("oil").setup()
+    end,
+  },
   {
     "folke/neodev.nvim",
     opts = {},
