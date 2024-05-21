@@ -1,0 +1,8 @@
+#  sudo ./bin/gof5_linux_amd64 --session=<session_key> --server=vpn.emory.edu
+# disableDNS: true
+dns:
+- .emory.edu
+# with the following section commented (all traffic routed through vpn):
+# get the correct address with `ssh rsph -vvv`
+routes:
+- 170.140.183.110
