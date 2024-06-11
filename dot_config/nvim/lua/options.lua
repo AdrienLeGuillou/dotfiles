@@ -54,6 +54,9 @@ vim.o.wrap = false                    -- Disable line wrap
 vim.o.ls = 0                          -- Last status height
 vim.o.ch = 0                          -- Command height
 
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,
