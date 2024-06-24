@@ -8,13 +8,13 @@ HostName gitlab.com
     IdentityFile ~/.ssh/gh_rsa
     User AdrienLeGuillou
     AddKeysToAgent yes
-Host hyak_mox
+Host mox
     User aleguil
     HostName mox.hyak.uw.edu
     ControlPath ~/.ssh/master-%r@%h:%p
     ControlMaster auto
     ControlPersist yes
-Host hyak_klone
+Host klone
     User aleguil
     HostName klone.hyak.uw.edu
     ControlPath ~/.ssh/master-%r@%h:%p
