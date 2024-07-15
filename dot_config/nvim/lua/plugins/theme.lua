@@ -33,7 +33,7 @@ return {
 	},
   {
     'nvim-lualine/lualine.nvim',
-    config = {
+    opts = {
       options = {
         theme = 'gruvbox_light',
         globalstatus = false,

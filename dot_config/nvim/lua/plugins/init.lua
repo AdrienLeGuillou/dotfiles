@@ -22,7 +22,7 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     version = 'v2.20.8',
-    config = {
+    opts = {
       char = '·',
       buftype_exclude = {'terminal'},
       filetype_exclude = {'help', 'man', 'rbrowser', 'rdoc'},
@@ -33,7 +33,7 @@ return {
   },
   {
     'windwp/nvim-autopairs',
-    config = { enable_check_bracket_line = false },
+    opts = { enable_check_bracket_line = false },
   },
   'godlygeek/tabular',
   'mbbill/undotree',
