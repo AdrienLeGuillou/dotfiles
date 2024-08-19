@@ -9,6 +9,7 @@ return {
       lspconfig.wgsl_analyzer.setup({ capabilities = capabilities })
       lspconfig.pylsp.setup({ capabilities = capabilities })
       lspconfig.clangd.setup({ capabilities = capabilities })
+      lspconfig.zls.setup({ capabilities = capabilities })
     end,
   },
 }

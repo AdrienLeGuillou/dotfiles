@@ -9,6 +9,7 @@ return {
       require'nvim-treesitter.configs'.setup {
         ensure_installed = {
           "r",
+          "zig",
           "markdown",
           "markdown_inline",
           "rnoweb",
