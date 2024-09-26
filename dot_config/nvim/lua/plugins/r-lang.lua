@@ -17,6 +17,7 @@ return {
               command = { "zsh" },
             },
             r = require("iron.fts.r").radian,
+            -- r = require("iron.fts.r").r,
             python = require("iron.fts.python").python,
           },
         },
