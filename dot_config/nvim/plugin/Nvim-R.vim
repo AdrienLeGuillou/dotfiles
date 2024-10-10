@@ -43,7 +43,7 @@ function! s:customNvimRMappings()
 
     " Renv
     map  <silent><buffer> <localleader>ri <Cmd>lua require("iron.core").send("r", {[[renv::init(bare = TRUE)]]})<CR>
-    map  <silent><buffer> <localleader>re <Cmd>lua require("iron.core").send("r", {[[renv::install(c('languageserver', 'devtools'))]]})<CR>
+    map  <silent><buffer> <localleader>re <Cmd>lua require("iron.core").send("r", {[[renv::install(c('languageserver', 'devtools', 'pak'))]]})<CR>
     map  <silent><buffer> <localleader>ru <Cmd>lua require("iron.core").send("r", {[[renv::update(prompt=F)]]})<CR>
     map  <silent><buffer> <localleader>rs <Cmd>lua require("iron.core").send("r", {[[renv::snapshot(prompt=F)]]})<CR>
     map  <silent><buffer> <localleader>rr <Cmd>lua require("iron.core").send("r", {[[renv::restore(prompt=F)]]})<CR>
