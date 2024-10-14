@@ -7,7 +7,7 @@ local({
 if (interactive()) {
   options(
     max.print = 200,
-    browser = "wl-copy",
+    browser = "firefox",
     show.signif.stars = FALSE
   )
 
