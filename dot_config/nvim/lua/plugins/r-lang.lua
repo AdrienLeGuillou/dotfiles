@@ -16,7 +16,11 @@ return {
             sh = {
               command = { "zsh" },
             },
-            r = require("iron.fts.r").radian,
+            r = {
+              command = { "R", "--no-save" },
+              format = require("iron.fts.common").bracketed_paste,
+            },
+            -- r = require("iron.fts.r").radian,
             -- r = require("iron.fts.r").r,
             python = require("iron.fts.python").python,
           },
