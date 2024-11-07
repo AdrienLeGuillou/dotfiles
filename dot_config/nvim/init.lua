@@ -24,3 +24,4 @@ require('options')
 -- Colorscheme config
 vim.o.termguicolors = true
 vim.o.background = 'light'
+-- vim.o.background = 'dark'
