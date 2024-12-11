@@ -71,7 +71,7 @@ alias tmux="TERM=xterm-256color tmux"
 alias cm="chezmoi"
 alias cma="chezmoi apply -x encrypted,scripts"
 # alias R="radian"
-alias lazyvim='NVIM_APPNAME="lazyvim" nvim'
+alias uvim='NVIM_APPNAME="uvim" ~/neovim/bin/nvim'
 
 # Keybindings
 bindkey -v '^K' up-line-or-search
