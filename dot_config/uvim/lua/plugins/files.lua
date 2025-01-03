@@ -11,5 +11,11 @@ return {
     }
   },
   'jghauser/mkdir.nvim',
+  {
+    'mbbill/undotree',
+    keys = {
+      { "<leader>tu", "<cmd>UndotreeToggle<CR>", desc = "Toggle Undotree"},
+    }
+  },
   -- 'mbbill/undotree',
 }

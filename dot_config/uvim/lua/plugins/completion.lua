@@ -35,6 +35,8 @@ return {
 
       cmp.setup({
         mapping = cmp.mapping.preset.insert({
+          ['<Tab>'] = cmp.mapping.select_next_item(),
+          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
           ['<C-j>'] = cmp.mapping.select_next_item(),
           ['<C-k>'] = cmp.mapping.select_prev_item(),
           ['<C-l>'] = cmp.mapping.confirm({ select = true }),
@@ -63,6 +65,18 @@ return {
 
       cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline({
+          ['<Tab>'] = {
+            c = function(fallback)
+              if cmp.visible() then cmp.select_next_item() else fallback()
+              end
+            end,
+          },
+          ['<S-Tab>'] = {
+            c = function(fallback)
+              if cmp.visible() then cmp.select_prev_item() else fallback()
+              end
+            end,
+          },
           ['<C-j>'] = {
             c = function(fallback)
               if cmp.visible() then cmp.select_next_item() else fallback()

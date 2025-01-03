@@ -52,8 +52,8 @@ return {
               vim.keymap.set("n", "<LocalLeader>ri", "<Cmd>lua require('r.send').cmd([[renv::init(bare = TRUE)]])<CR>")
               vim.keymap.set("n", "<LocalLeader>re", "<Cmd>lua require('r.send').cmd([[renv::install(c('languageserver', 'devtools', 'pak'))]])<CR>")
               vim.keymap.set("n", "<LocalLeader>ru", "<Cmd>lua require('r.send').cmd([[renv::update(prompt=F)]])<CR>")
-              vim.keymap.set("n", "<LocalLeader>rr", "<Cmd>lua require('r.send').cmd([[renv::snapshot(prompt=F)]])<CR>")
-              vim.keymap.set("n", "<LocalLeader>rs", "<Cmd>lua require('r.send').cmd([[renv::restore(prompt=F)]])<CR>")
+              vim.keymap.set("n", "<LocalLeader>rs", "<Cmd>lua require('r.send').cmd([[renv::snapshot(prompt=F)]])<CR>")
+              vim.keymap.set("n", "<LocalLeader>rr", "<Cmd>lua require('r.send').cmd([[renv::restore(prompt=F)]])<CR>")
 
           end
         },

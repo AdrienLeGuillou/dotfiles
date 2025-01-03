@@ -21,16 +21,25 @@ wk.add({
   { "<leader>ww",    "<cmd>Windows<CR>",         desc = "List windows" },
   { "<leader>wo",    "<cmd>only<CR>",            desc = "Only window" },
 
+  {"<leader>b", group = "Buffers"},
+
   { "<leader>s",     group = "Search" },
   {"<leader>sc", "<cmd>nohl<CR>", desc = "Clear highlight"},
 
   {"<leader>d", group = "Diagnostics (LSP)"},
-  {"<leader>de", "<cmd>lua vim.diagnostic.enable()<CR>", desc = "Enable"},
-  {"<leader>dd", "<cmd>lua vim.diagnostic.disable()<CR>", desc = "Disable"},
+  {"<leader>de", "<cmd>lua vim.diagnostic.enable(true)<CR>", desc = "Enable"},
+  {"<leader>dd", "<cmd>lua vim.diagnostic.enable(false)<CR>", desc = "Disable"},
   {"<leader>dh", "<cmd>lua vim.diagnostic.hide()<CR>", desc = "Hide"},
   {"<leader>ds", "<cmd>lua vim.diagnostic.show()<CR>", desc = "Show"},
   {"<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "View diagnostic"},
   {"<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", desc = "Next diagnostic"},
   {"<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", desc = "Previous diagnostic"},
 
+  {"<leader>i", group = "Insert"},
+  {"<leader>id", "<cmd>lua require('utils').fill_dash() <CR>", desc = "Insert dashes"},
+  {"<leader>iT", "<cmd>read !date<CR>", desc = "Insert timestamp"},
+
+  {"<leader>t", group = "Toggles"},
+  {"<leader>tw", "<cmd>set wrap!<CR>", desc = "Toggle line wrap"},
+  {"<leader>ts", "<cmd>set spell!<CR>", desc = "Toggle spell checking"},
 })

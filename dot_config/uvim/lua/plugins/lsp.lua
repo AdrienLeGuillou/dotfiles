@@ -36,7 +36,18 @@ return {
       end
     end,
     keys = {
-      { "<leader>cf", vim.lsp.buf.format, desc = "LSP Format" },
+      { "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<CR>",           desc = "Definition" },
+      { "<leader>cf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", desc = "Format" },
+      { "<leader>ch", "<cmd>lua vim.lsp.buf.hover()<CR>",                desc = "Hover" },
+      { "<leader>ci", "<cmd>lua vim.lsp.buf.implementation()<CR>",       desc = "Go to implementation" },
+      { "<leader>cs", "<cmd>lua vim.lsp.buf.signature_help()<CR>",       desc = "Signature help" },
+      { "<leader>ct", "<cmd>lua vim.lsp.buf.type_definition()<CR>",      desc = "Implementation" },
+      { "<leader>cr", "<cmd>lua vim.lsp.buf.references()<CR>",           desc = "References" },
+      { "<leader>cl", "<cmd>lua vim.lsp.buf.document_symbol()<CR>",      desc = "Document symbol" },
+      { "<leader>cw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>",     desc = "Workspace symbol" },
+      { "<leader>ce", "<cmd>lua vim.lsp.buf.declaration()<CR>",          desc = "Declaration" },
+      { "<leader>cp", "<cmd>lua vim.lsp.buf.code_action()<CR>",          desc = "Code action" },
+      { "<leader>cR", "<cmd>lua vim.lsp.buf.rename()<CR>",               desc = "Rename" },
     }
   },
- }
+}
