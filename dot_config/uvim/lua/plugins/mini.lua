@@ -6,6 +6,7 @@ return {
       require("mini.pairs").setup()
       require("mini.surround").setup()
       require('mini.icons').setup()
+      require('mini.align').setup()
       MiniIcons.mock_nvim_web_devicons()
       require('mini.trailspace').setup()
     end,

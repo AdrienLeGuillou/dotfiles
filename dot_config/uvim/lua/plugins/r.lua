@@ -57,9 +57,6 @@ return {
           vim.keymap.set("n", "<LocalLeader>ru", "<Cmd>lua require('r.send').cmd([[renv::update(prompt=F)]])<CR>")
           vim.keymap.set("n", "<LocalLeader>rs", "<Cmd>lua require('r.send').cmd([[renv::snapshot(prompt=F)]])<CR>")
           vim.keymap.set("n", "<LocalLeader>rr", "<Cmd>lua require('r.send').cmd([[renv::restore(prompt=F)]])<CR>")
-
-          -- Editor
-          vim.keymap.set("i", "<A-->", "<-")
         end
       },
     },

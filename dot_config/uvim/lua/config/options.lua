@@ -5,6 +5,7 @@ vim.g.maplocalleader = ","
 -- Lexicographical order
 -- Set only if changes
 local indent = 4
+vim.opt.timeoutlen = 500
 vim.opt.autoindent = true                     -- Auto indent
 vim.opt.clipboard = 'unnamedplus'             -- Use the system clipboard
 vim.opt.colorcolumn = '81'                    -- Margin AFTER the max width
