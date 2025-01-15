@@ -13,3 +13,10 @@ require("config.keys")
 
 vim.opt.background = "light"
 vim.cmd.colorscheme("gruvbox")
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "README",
+  callback = function()
+    vim.cmd.set("ft=markdown")
+  end,
+})
