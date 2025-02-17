@@ -12,7 +12,7 @@ require("config.lazy")
 require("config.keys")
 
 vim.opt.background = "light"
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("gruvbox")
 
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "README",
