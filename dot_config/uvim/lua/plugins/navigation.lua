@@ -7,6 +7,10 @@ return {
       { "<A-j>", "<CMD>NvimTmuxNavigateDown<CR>", mode = {"n", "t"} },
       { "<A-k>", "<CMD>NvimTmuxNavigateUp<CR>", mode = {"n", "t"} },
       { "<A-l>", "<CMD>NvimTmuxNavigateRight<CR>", mode = {"n", "t"} },
+      { "<A-h>", "<ESC><CMD>NvimTmuxNavigateLeft<CR>", mode = {"i"} },
+      { "<A-j>", "<ESC><CMD>NvimTmuxNavigateDown<CR>", mode = {"i"} },
+      { "<A-k>", "<ESC><CMD>NvimTmuxNavigateUp<CR>", mode = {"i"} },
+      { "<A-l>", "<ESC><CMD>NvimTmuxNavigateRight<CR>", mode = {"i"} },
     }
   },
 }
