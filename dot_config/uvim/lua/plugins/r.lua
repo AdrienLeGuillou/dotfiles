@@ -36,6 +36,25 @@ return {
           clear = "<localleader>xl",
         },
       })
+
+      vim.keymap.set("n", "<LocalLeader><space>", "<Cmd>IronFocus<CR>")
+
+      vim.keymap.set("n", "<LocalLeader>mm", "<Cmd>lua require('iron.core').send('r', {[[targets::tar_make()]]})<CR>")
+      vim.keymap.set("n", "<LocalLeader>mc", "<Cmd>lua require('iron.core').send('r', {[[targets::tar_destroy()]]})<CR>")
+
+      -- Devtools
+      vim.keymap.set("n", "<LocalLeader>pd", "<Cmd>lua require('iron.core').send('r', {[[devtools::document()]]})<CR>")
+      vim.keymap.set("n", "<LocalLeader>pv", "<Cmd>lua require('iron.core').send('r', {[[devtools::build_vignettes()]]})<CR>")
+      vim.keymap.set("n", "<LocalLeader>pT", "<Cmd>lua require('iron.core').send('r', {[[devtools::check()]]})<CR>")
+      vim.keymap.set("n", "<LocalLeader>pt", "<Cmd>lua require('iron.core').send('r', {[[devtools::test()]]})<CR>")
+      vim.keymap.set("n", "<LocalLeader>pl", "<Cmd>lua require('iron.core').send('r', {[[devtools::load_all()]]})<CR>")
+
+      -- Renv
+      vim.keymap.set("n", "<LocalLeader>ri", "<Cmd>lua require('iron.core').send('r', {[[renv::init(bare = TRUE)]]})<CR>")
+      vim.keymap.set("n", "<LocalLeader>re", "<Cmd>lua require('iron.core').send('r', {[[renv::install(c('languageserver', 'devtools', 'pak'))]]})<CR>")
+      vim.keymap.set("n", "<LocalLeader>ru", "<Cmd>lua require('iron.core').send('r', {[[renv::update(prompt=F)]]})<CR>")
+      vim.keymap.set("n", "<LocalLeader>rs", "<Cmd>lua require('iron.core').send('r', {[[renv::snapshot(prompt=F)]]})<CR>")
+      vim.keymap.set("n", "<LocalLeader>rr", "<Cmd>lua require('iron.core').send('r', {[[renv::restore(prompt=F)]]})<CR>")
     end,
   },
   -- {
