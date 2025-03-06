@@ -41,8 +41,8 @@ return {
       end)
     end,
     keys = {
-      { "<leader>sh", "<cmd>lua require('telescope.builtin').help_tags<CR",  desc = "Search Help" },
-      { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files<CR", desc = "Find Files" },
+      { "<leader>sh", "<cmd>Telescope help_tags<CR>",  desc = "Search Help" },
+      { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find Files" },
       { "<leader>fF", "<cmd>lua require('telescope.builtin').find_files({hidden = true, no_ignore = true})<CR>", desc = "Open file (Show All)" },
       { "<leader>se", "<cmd>Telescope command_history:<CR>", desc = "Search command history"},
       { "<leader>sf", "<cmd>Telescope live_grep<CR>", desc = "Search line in files"},
