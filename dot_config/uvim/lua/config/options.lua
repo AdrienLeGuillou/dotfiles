@@ -23,14 +23,15 @@ vim.opt.inccommand = 'split'                  -- Show the result of the command 
 vim.opt.incsearch = true                      -- Makes search act like search in modern browsers
 vim.opt.laststatus = 0                        -- Only one status line
 vim.opt.mouse = 'n'                           -- Mouse only in normal mode
-vim.opt.number = true                         -- Print line number
+vim.opt.number = false                        -- Print line number
 vim.opt.relativenumber = true                 -- Relative line numbers
+vim.opt.numberwidth = 2                       -- 2 width line number
+vim.opt.signcolumn = 'yes:1'                  -- show sign in a single column (use "number" to overlay the numbers)
 vim.opt.shada = { "!", "'1000", "<50", "s10", "h" }
 vim.opt.shiftround = true                     -- Round indent
 vim.opt.shiftwidth = indent                   -- Size of an indent
 vim.opt.shortmess:append('c')                 -- no msg on no match
 vim.opt.sidescrolloff = 0                     -- Columns of context
-vim.opt.signcolumn = 'number'                 -- show sign instead of number
 vim.opt.smartcase = true                      -- ... unless there is a capital letter in the query
 vim.opt.smartindent = true                    -- Auto indent
 vim.opt.splitbelow = true                     -- Put new windows below current
