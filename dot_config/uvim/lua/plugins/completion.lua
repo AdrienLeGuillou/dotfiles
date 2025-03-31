@@ -49,12 +49,18 @@ return {
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = {
-        preset = 'default',
         ['<Tab>'] = { 'select_next', 'fallback' },
         ['<S-Tab>'] = { 'select_prev', 'fallback' },
         ['<C-j>'] = { 'select_next', 'fallback' },
         ['<C-k>'] = { 'select_prev', 'fallback' },
         ['<C-l>'] = { 'select_and_accept', 'fallback' },
+      },
+      cmdline = {
+        completion = {
+          menu = { auto_show = true },
+          list = { selection = { preselect = false} },
+        },
+        keymap = { preset = "inherit"  }
       },
 
       appearance = {
@@ -64,7 +70,10 @@ return {
       },
 
       -- (Default) Only show the documentation popup when manually triggered
-      completion = { documentation = { auto_show = false } },
+      completion = {
+        documentation = { auto_show = false },
+        list = { selection = { preselect = false} },
+      },
 
       snippets = { preset = 'luasnip' },
 
