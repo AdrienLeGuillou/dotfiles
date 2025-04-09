@@ -1,7 +1,7 @@
 return {
-
   {
     "hkupty/iron.nvim",
+    enabled = true,
     config = function()
       local iron = require("iron.core")
       iron.setup({
@@ -38,6 +38,7 @@ return {
       })
 
       vim.keymap.set("n", "<LocalLeader><space>", "<Cmd>IronFocus<CR>")
+      vim.keymap.set("n", "<LocalLeader>h", "<Cmd>IronHide<CR>")
 
       vim.keymap.set("n", "<LocalLeader>mm", "<Cmd>lua require('iron.core').send('r', {[[targets::tar_make()]]})<CR>")
       vim.keymap.set("n", "<LocalLeader>mc", "<Cmd>lua require('iron.core').send('r', {[[targets::tar_destroy()]]})<CR>")
