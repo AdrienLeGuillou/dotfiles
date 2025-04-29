@@ -1,44 +1,22 @@
 return {
+  {
+    -- dir = "~/Documents/Misc-Projects/tokyonight.nvim",
+    -- dev = true,
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 	{
-		"ellisonleao/gruvbox.nvim",
+    -- dir = "~/Documents/Misc-Projects/gruvbox.nvim",
+    -- dev = true,
+		-- "AdrienLeGuillou/gruvbox.nvim",
+    "ellisonleao/gruvbox.nvim",
 		priority = 1000,
 		lazy = false,
-		config = function ()
-			-- setup must be called before loading the colorscheme
-			-- Default options:
-			require("gruvbox").setup({
-				undercurl = true,
-				underline = true,
-				bold = true,
-				italic = {
-					strings = true,
-					comments = true,
-					operators = false,
-					folds = true,
-				},
-				strikethrough = true,
-				invert_selection = false,
-				invert_signs = false,
-				invert_tabline = false,
-				invert_intend_guides = false,
-				inverse = true, -- invert background for search, diffs, statuslines and errors
-				contrast = "", -- can be "hard", "soft" or empty string
-				palette_overrides = {},
-				overrides = {},
-				dim_inactive = false,
-				transparent_mode = false,
-			})
-			vim.cmd("colorscheme gruvbox")
-		end,
+    opts = { }
 	},
-  {
-    'nvim-lualine/lualine.nvim',
-    opts = {
-      options = {
-        theme = 'gruvbox_light',
-        -- theme = 'gruvbox_dark',
-        globalstatus = false,
-      }
-    },
-  },
+  'shaunsingh/nord.nvim',
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  "rebelot/kanagawa.nvim",
 }

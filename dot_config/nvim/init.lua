@@ -1,27 +1,22 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+-- Things I may want to try at some point:
+--
+-- * :set cuc -- cursor column. Could be usefull for align. Contextual
+-- * Highlight on yank augroup (apparently on kickstart)
+-- * mini.nvim
+-- * snacks.nvim
+-- * help ins-completion
+-- * quickfix list
 
+require("config.options")
+require("config.lazy")
+require("config.keys")
 
--- Set leaderkey early
---   must happened before `lazy.nvim`
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ','
+vim.opt.background = "light"
+vim.cmd.colorscheme("gruvbox")
 
-require('lazy').setup('plugins')
-
-require('options')
-
--- Colorscheme config
-vim.o.termguicolors = true
-vim.o.background = 'light'
--- vim.o.background = 'dark'
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "README",
+  callback = function()
+    vim.cmd.set("ft=markdown")
+  end,
+})
