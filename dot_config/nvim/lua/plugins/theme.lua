@@ -7,16 +7,21 @@ return {
     priority = 1000,
     opts = {},
   },
-	{
+  {
     -- dir = "~/Documents/Misc-Projects/gruvbox.nvim",
     -- dev = true,
-		-- "AdrienLeGuillou/gruvbox.nvim",
+    -- "AdrienLeGuillou/gruvbox.nvim",
     "ellisonleao/gruvbox.nvim",
-		priority = 1000,
-		lazy = false,
+    priority = 1000,
+    lazy = false,
     opts = { }
-	},
+  },
   'shaunsingh/nord.nvim',
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  {
+    "webhooked/kanso.nvim",
+    lazy = false,
+    priority = 1000,
+  },
   "rebelot/kanagawa.nvim",
 }
