@@ -7,8 +7,9 @@ return {
 
   {
     "williamboman/mason-lspconfig.nvim",
+    lazy = false,
     dependencies = {
-      "neovim/nvim-lspconfig",
+      {"neovim/nvim-lspconfig", lazy = false},
       { "williamboman/mason.nvim", opts = {} },
     },
     keys = {
@@ -24,7 +25,7 @@ return {
       { "<leader>ce", "<cmd>lua vim.lsp.buf.declaration()<CR>",          desc = "Declaration" },
       { "<leader>cp", "<cmd>lua vim.lsp.buf.code_action()<CR>",          desc = "Code action" },
       { "<leader>cR", "<cmd>lua vim.lsp.buf.rename()<CR>",               desc = "Rename" },
-    }
+    },
   },
 
   -- {

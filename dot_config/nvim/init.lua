@@ -20,3 +20,5 @@ vim.api.nvim_create_autocmd("BufEnter", {
     vim.cmd.set("ft=markdown")
   end,
 })
+
+vim.lsp.enable("r_language_server")

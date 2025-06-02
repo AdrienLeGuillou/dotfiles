@@ -4,7 +4,7 @@ return {
     build = ":TSUpdate",
     opts = {
       ensure_installed = {
-        "c", "lua", "r",
+        "c", "lua", "r", "rust",
         "vim", "vimdoc", "query",
         "markdown", "markdown_inline"
       },
