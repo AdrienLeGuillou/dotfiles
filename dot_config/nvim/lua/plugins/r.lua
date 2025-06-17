@@ -52,7 +52,7 @@ return {
 
       -- Renv
       vim.keymap.set("n", "<LocalLeader>ri", "<Cmd>lua require('iron.core').send('r', {[[renv::init(bare = TRUE)]]})<CR>")
-      vim.keymap.set("n", "<LocalLeader>re", "<Cmd>lua require('iron.core').send('r', {[[renv::install(c('languageserver', 'devtools', 'pak'))]]})<CR>")
+      vim.keymap.set("n", "<LocalLeader>re", "<Cmd>lua require('iron.core').send('r', {[[renv::install(c('languageserver', 'devtools'))]]})<CR>")
       vim.keymap.set("n", "<LocalLeader>ru", "<Cmd>lua require('iron.core').send('r', {[[renv::update(prompt=F)]]})<CR>")
       vim.keymap.set("n", "<LocalLeader>rs", "<Cmd>lua require('iron.core').send('r', {[[renv::snapshot(prompt=F)]]})<CR>")
       vim.keymap.set("n", "<LocalLeader>rr", "<Cmd>lua require('iron.core').send('r', {[[renv::restore(prompt=F)]]})<CR>")
