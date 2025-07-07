@@ -21,4 +21,13 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
+-- r_language_server config -- disable default formatting to use `air` instead
+--   (must install air with :MasonInstall air)
+require("lspconfig").r_language_server.setup({
+    on_attach = function(client, _)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    end,
+})
+vim.lsp.enable("air")
 vim.lsp.enable("r_language_server")
