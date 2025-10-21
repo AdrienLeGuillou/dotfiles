@@ -17,5 +17,10 @@ return {
       incremental_selection = { enable = true, },
     },
   },
-  "nvim-treesitter/nvim-treesitter-context",
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    keys = {
+      { "<leader>tc", "<cmd>TSContext toggle<CR>", desc = "TSContext" },
+    },
+  }
 }
