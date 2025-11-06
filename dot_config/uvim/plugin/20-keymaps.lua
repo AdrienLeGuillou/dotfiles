@@ -47,3 +47,6 @@ vim.keymap.set('n', "<leader>cw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>",
 vim.keymap.set('n', "<leader>ce", "<cmd>lua vim.lsp.buf.declaration()<CR>",          { desc = "Declaration" })
 vim.keymap.set('n', "<leader>cp", "<cmd>lua vim.lsp.buf.code_action()<CR>",          { desc = "Code action" })
 vim.keymap.set('n', "<leader>cR", "<cmd>lua vim.lsp.buf.rename()<CR>",               { desc = "Rename" })
+
+
+vim.keymap.set({ "", "!", "t" }, "<C-\\>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Term" })
