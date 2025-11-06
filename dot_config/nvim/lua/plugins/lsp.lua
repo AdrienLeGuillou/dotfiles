@@ -1,32 +1,49 @@
 return {
-  -- {
-  --   "williamboman/mason.nvim",
-  --   opts = {},
-  -- },
-  --
-
   {
-    "williamboman/mason-lspconfig.nvim",
-    lazy = false,
+    "williamboman/mason.nvim",
     dependencies = {
       {"neovim/nvim-lspconfig", lazy = false},
-      { "williamboman/mason.nvim", opts = {} },
     },
-    keys = {
-      { "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<CR>",           desc = "Definition" },
-      { "<leader>cf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", desc = "Format" },
-      { "<leader>ch", "<cmd>lua vim.lsp.buf.hover()<CR>",                desc = "Hover" },
-      { "<leader>ci", "<cmd>lua vim.lsp.buf.implementation()<CR>",       desc = "Go to implementation" },
-      { "<leader>cs", "<cmd>lua vim.lsp.buf.signature_help()<CR>",       desc = "Signature help" },
-      { "<leader>ct", "<cmd>lua vim.lsp.buf.type_definition()<CR>",      desc = "Implementation" },
-      { "<leader>cr", "<cmd>lua vim.lsp.buf.references()<CR>",           desc = "References" },
-      { "<leader>cl", "<cmd>lua vim.lsp.buf.document_symbol()<CR>",      desc = "Document symbol" },
-      { "<leader>cw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>",     desc = "Workspace symbol" },
-      { "<leader>ce", "<cmd>lua vim.lsp.buf.declaration()<CR>",          desc = "Declaration" },
-      { "<leader>cp", "<cmd>lua vim.lsp.buf.code_action()<CR>",          desc = "Code action" },
-      { "<leader>cR", "<cmd>lua vim.lsp.buf.rename()<CR>",               desc = "Rename" },
-    },
+    config = function()
+      require('mason').setup()
+
+      -- r_language_server config -- disable default formatting to use `air` instead
+      --   (must install air with :MasonInstall air)
+      vim.lsp.config(
+        "r_language_server", {
+          on_attach = function(client, _)
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end,
+        }
+      )
+      vim.lsp.enable("air")
+      vim.lsp.enable("r_language_server")
+    end,
   },
+
+  -- {
+  --   "williamboman/mason-lspconfig.nvim",
+  --   lazy = false,
+  --   dependencies = {
+  --     {"neovim/nvim-lspconfig", lazy = false},
+  --     { "williamboman/mason.nvim", opts = {} },
+  --   },
+  --   keys = {
+  --     { "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<CR>",           desc = "Definition" },
+  --     { "<leader>cf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", desc = "Format" },
+  --     { "<leader>ch", "<cmd>lua vim.lsp.buf.hover()<CR>",                desc = "Hover" },
+  --     { "<leader>ci", "<cmd>lua vim.lsp.buf.implementation()<CR>",       desc = "Go to implementation" },
+  --     { "<leader>cs", "<cmd>lua vim.lsp.buf.signature_help()<CR>",       desc = "Signature help" },
+  --     { "<leader>ct", "<cmd>lua vim.lsp.buf.type_definition()<CR>",      desc = "Implementation" },
+  --     { "<leader>cr", "<cmd>lua vim.lsp.buf.references()<CR>",           desc = "References" },
+  --     { "<leader>cl", "<cmd>lua vim.lsp.buf.document_symbol()<CR>",      desc = "Document symbol" },
+  --     { "<leader>cw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>",     desc = "Workspace symbol" },
+  --     { "<leader>ce", "<cmd>lua vim.lsp.buf.declaration()<CR>",          desc = "Declaration" },
+  --     { "<leader>cp", "<cmd>lua vim.lsp.buf.code_action()<CR>",          desc = "Code action" },
+  --     { "<leader>cR", "<cmd>lua vim.lsp.buf.rename()<CR>",               desc = "Rename" },
+  --   },
+  -- },
 
   -- {
   --   "neovim/nvim-lspconfig",

@@ -1,0 +1,59 @@
+local wk = require("which-key")
+
+-- -- Use CTRL-J/K as CTRL-N/P in Ins and Cmd modes
+-- vim.keymap.set({ "!" }, "<C-K>", "<C-P>")
+-- vim.keymap.set({ "!" }, "<C-J>", "<C-N>")
+
+wk.add({
+  { "<leader><tab>", "<C-^>",                    desc = "Alternate Buffer" },
+  { "<leader>c",     group = "Code" },
+
+  { "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<CR>",           desc = "Definition" },
+  { "<leader>cf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", desc = "Format" },
+  { "<leader>ch", "<cmd>lua vim.lsp.buf.hover()<CR>",                desc = "Hover" },
+  { "<leader>ci", "<cmd>lua vim.lsp.buf.implementation()<CR>",       desc = "Go to implementation" },
+  { "<leader>cs", "<cmd>lua vim.lsp.buf.signature_help()<CR>",       desc = "Signature help" },
+  { "<leader>ct", "<cmd>lua vim.lsp.buf.type_definition()<CR>",      desc = "Implementation" },
+  { "<leader>cr", "<cmd>lua vim.lsp.buf.references()<CR>",           desc = "References" },
+  { "<leader>cl", "<cmd>lua vim.lsp.buf.document_symbol()<CR>",      desc = "Document symbol" },
+  { "<leader>cw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>",     desc = "Workspace symbol" },
+  { "<leader>ce", "<cmd>lua vim.lsp.buf.declaration()<CR>",          desc = "Declaration" },
+  { "<leader>cp", "<cmd>lua vim.lsp.buf.code_action()<CR>",          desc = "Code action" },
+  { "<leader>cR", "<cmd>lua vim.lsp.buf.rename()<CR>",               desc = "Rename" },
+
+  { "<leader>qq",    "<cmd>confirm quitall<CR>", desc = "Confirm quit-all" },
+
+  { "<leader>f",     group = "File" },
+  { "<leader>fs",    "<CMD>w<CR>",               desc = "Save file" },
+  { "<leader>fd",    "<CMD>lua MiniFiles.open()<CR>", desc = "Directory" },
+
+  { "<leader>w",     group = "Windows" },
+  { "<leader>w/",    "<cmd>vs<CR>",              desc = "Vertical split" },
+  { "<leader>w-",    "<cmd>sv<CR>",              desc = "Horizontal split" },
+  { "<leader>w=",    "<C-w>=",                   desc = "Equalize windows" },
+  { "<leader>wd",    "<C-w>q",                   desc = "Close window" },
+  { "<leader>ww",    "<cmd>Windows<CR>",         desc = "List windows" },
+  { "<leader>wo",    "<cmd>only<CR>",            desc = "Only window" },
+
+  {"<leader>b", group = "Buffers"},
+
+  { "<leader>s",     group = "Search" },
+  {"<leader>sc", "<cmd>nohl<CR>", desc = "Clear highlight"},
+
+  {"<leader>d", group = "Diagnostics (LSP)"},
+  {"<leader>de", "<cmd>lua vim.diagnostic.enable(true)<CR>", desc = "Enable"},
+  {"<leader>dd", "<cmd>lua vim.diagnostic.enable(false)<CR>", desc = "Disable"},
+  {"<leader>dh", "<cmd>lua vim.diagnostic.hide()<CR>", desc = "Hide"},
+  {"<leader>ds", "<cmd>lua vim.diagnostic.show()<CR>", desc = "Show"},
+  {"<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "View diagnostic"},
+  {"<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", desc = "Next diagnostic"},
+  {"<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", desc = "Previous diagnostic"},
+
+  {"<leader>i", group = "Insert"},
+  {"<leader>id", "<cmd>lua require('utils').fill_dash() <CR>", desc = "Insert dashes"},
+  {"<leader>iT", "<cmd>read !date<CR>", desc = "Insert timestamp"},
+
+  {"<leader>t", group = "Toggles"},
+  {"<leader>tw", "<cmd>set wrap!<CR>", desc = "Toggle line wrap"},
+  {"<leader>ts", "<cmd>set spell!<CR>", desc = "Toggle spell checking"},
+})

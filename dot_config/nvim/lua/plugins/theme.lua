@@ -14,7 +14,11 @@ return {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
     lazy = false,
-    opts = { }
+    config = function()
+      require('gruvbox')
+      vim.cmd.colorscheme("gruvbox")
+    end,
+    -- opts = { }
   },
   'shaunsingh/nord.nvim',
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
