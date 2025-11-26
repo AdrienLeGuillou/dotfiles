@@ -29,9 +29,9 @@ vim.keymap.set('n', '<leader>w=', '<C-w>=', { desc = 'Equal Size' })
 
 vim.keymap.set('n', '<Leader>sc', '<CMD>nohl<CR>',  { desc = 'Clear' })
 vim.keymap.set('n', '<Leader>sh', '<CMD>Pick help<CR>',  { desc = 'Help' })
-vim.keymap.set('n', '<Leader>sg', '<CMD>Pick grep_live<CR>',  { desc = 'Grep live' })
-vim.keymap.set('n', '<Leader>sh', '<CMD>GrugFar<CR>',  { desc = 'Search & Replace' })
-vim.keymap.set('v', '<Leader>sh', ":<C-U>'<,'>GrugFar<CR>",  { desc = 'Search & Replace' })
+vim.keymap.set('n', '<Leader>sf', '<CMD>Pick grep_live<CR>',  { desc = 'Grep live' })
+vim.keymap.set('n', '<Leader>sg', '<CMD>GrugFar<CR>',  { desc = 'Search & Replace' })
+vim.keymap.set('v', '<Leader>sg', ":<C-U>'<,'>GrugFar<CR>",  { desc = 'Search & Replace' })
 
 vim.keymap.set('n', '<Leader>qq', '<CMD>confirm quitall<CR>',  { desc = 'Quit All' })
 
