@@ -17,8 +17,20 @@ return {
           end,
         }
       )
+
+      vim.lsp.config(
+        "pylsp", {
+          capabilities = {
+            window = {
+              workDoneProgress = false
+            }
+          }
+        }
+      )
       vim.lsp.enable("air")
       vim.lsp.enable("r_language_server")
+      vim.lsp.enable("clangd")
+      vim.lsp.enable("pylsp")
     end,
   },
 
