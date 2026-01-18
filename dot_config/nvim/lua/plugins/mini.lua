@@ -25,7 +25,7 @@ return {
       -- require('mini.bufremove').setup()
       -- require('mini.hipatterns')
       -- require('mini.jump').setup()
-      -- require('mini.jump2d').setup()
+      require('mini.jump2d').setup()
       -- require('mini.keymap').setup()
     end,
     init = function()
