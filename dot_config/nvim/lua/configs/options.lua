@@ -46,6 +46,10 @@ vim.opt.undofile = true                       -- ... but undofiles
 vim.opt.wildmode = { 'longest:full', 'full' } -- Command-line completion mode TODO: do I want that?
 vim.opt.wrap = false                          -- Disable line wrap
 
+vim.opt.endoffile = true
+vim.opt.endofline = true
+vim.opt.fixendofline = true
+
 -- AUCMD -----------------------------------------------------------------------
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "README",
