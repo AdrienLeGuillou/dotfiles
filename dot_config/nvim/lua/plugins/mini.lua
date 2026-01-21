@@ -33,7 +33,7 @@ return {
         pattern = "*",
         callback = function()
           MiniTrailspace.trim()
-          MiniTrailspace.trim_last_lines()
+          -- MiniTrailspace.trim_last_lines()
         end,
       })
     end,
