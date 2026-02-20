@@ -5,6 +5,7 @@ return {
     lazy = false,
     opts = {
       -- bigfile = {},
+      explorer = { enabled = false },
       -- gitbrowse = {},
       -- indent = {
       --   enabled = true,
@@ -29,6 +30,7 @@ return {
       { "<leader>sl", function() Snacks.picker.lines() end, desc = "Search in Buffer"},
       { "<leader>so", function() Snacks.picker.qflist() end, desc = "Search the quickfix list"},
       { "<leader>sh", function() Snacks.picker.help() end, desc = "Search Help"},
+      { "<leader>ft", function() Snacks.explorer.open() end, desc = "Explorer"},
     }
   }
 }
