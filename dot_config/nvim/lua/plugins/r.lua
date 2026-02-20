@@ -23,7 +23,7 @@ return {
             },
             -- r = require("iron.fts.r").radian,
             -- r = require("iron.fts.r").r,
-            python = require("iron.fts.python").python,
+            python = require("iron.fts.python").ipython,
           },
         },
         -- Iron doesn't set keymaps by default anymore. Set them here
