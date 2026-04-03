@@ -1,29 +1,39 @@
--- Things I may want to try at some point:
---
--- ToDo:
--- * treesitter
--- * folds using LSP or treesitter?
---
--- * :set cuc -- cursor column. Could be usefull for align. Contextual
--- * Highlight on yank augroup (apparently on kickstart)
--- * mini.nvim
--- * snacks.nvim
--- * help ins-completion
--- * quickfix list
-
--- Update pacakges with `:lua vim.pack.update()`
-vim.pack.add({
-  'https://github.com/nvim-mini/mini.nvim',
-})
-require('mini.deps').setup() -- to get `now` and `later`
-
--- Define config table to be able to pass data between scripts
 _G.Config = {}
-_G.Config.augrp = vim.api.nvim_create_augroup('custom-config', {})
 
-vim.api.nvim_create_autocmd('BufEnter', {
-    group = _G.Config.augrp,
-    pattern = 'README',
-    callback = function() vim.cmd.set("ft=markdown") end,
-    desc = "Set README as markdown filetype",
-})
+vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
+
+vim.cmd('colorscheme minisummer')
+
+local misc = require('mini.misc')
+Config.now = function(f) misc.safely('now', f) end
+Config.later = function(f) misc.safely('later', f) end
+Config.now_if_args = vim.fn.argc(-1) > 0 and Config.now or Config.later
+Config.on_event = function(ev, f) misc.safely('event:' .. ev, f) end
+Config.on_filetype = function(ft, f) misc.safely('filetype:' .. ft, f) end
+Config.leader_group_clues = {}
+
+-- Define custom autocommand group and helper to create an autocommand.
+-- Autocommands are Neovim's way to define actions that are executed on events
+-- (like creating a buffer, setting an option, etc.).
+--
+-- See also:
+-- - `:h autocommand`
+-- - `:h nvim_create_augroup()`
+-- - `:h nvim_create_autocmd()`
+local gr = vim.api.nvim_create_augroup('custom-config', {})
+Config.new_autocmd = function(event, pattern, callback, desc)
+  local opts = { group = gr, pattern = pattern, callback = callback, desc = desc }
+  vim.api.nvim_create_autocmd(event, opts)
+end
+
+-- Define custom `vim.pack.add()` hook helper. See `:h vim.pack-events`.
+-- Example usage: see 'plugin/40_plugins.lua'.
+Config.on_packchanged = function(plugin_name, kinds, callback, desc)
+  local f = function(ev)
+    local name, kind = ev.data.spec.name, ev.data.kind
+    if not (name == plugin_name and vim.tbl_contains(kinds, kind)) then return end
+    if not ev.data.active then vim.cmd.packadd(plugin_name) end
+    callback()
+  end
+  Config.new_autocmd('PackChanged', '*', f, desc)
+end
