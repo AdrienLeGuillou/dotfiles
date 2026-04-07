@@ -16,7 +16,7 @@ vim.keymap.set('n', '<leader>sc', '<cmd>nohl<CR>', { desc = 'Clear highlight'})
 
 table.insert(Config.leader_group_clues,
              { mode = 'n', keys = '<Leader>i', desc = '+Inserts' })
-vim.keymap.set('n', '<leader>id', '<cmd>lua require("utils").fill_dash() <CR>', { desc = 'Insert dashes' })
+vim.keymap.set('n', '<leader>id', '<cmd>lua Config.fill_dash() <CR>', { desc = 'Insert dashes' })
 vim.keymap.set('n', '<leader>iT', '<cmd>read !date<CR>', { desc = 'Insert timestamp' })
 
 table.insert(Config.leader_group_clues,
