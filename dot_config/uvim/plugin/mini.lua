@@ -33,7 +33,20 @@ Config.now(function()
   MiniIcons.mock_nvim_web_devicons()
   MiniIcons.tweak_lsp_kind()
   require('mini.notify').setup()
-  require('mini.statusline').setup()
+  require('mini.statusline').setup({
+    content = {
+      inactive = function()
+        local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+        local location = MiniStatusline.section_location({ trunc_width = 75 })
+
+        return MiniStatusline.combine_groups({
+          { hl = 'MiniStatuslineInactive', strings = { filename } },
+          '%=',
+          { hl = 'MiniStatuslineInactive', strings = { location } },
+        })
+      end,
+    },
+  })
 end)
 
 
