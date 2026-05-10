@@ -52,3 +52,5 @@ function Config.fill_dash()
   vim.api.nvim_buf_set_lines(0, cur_pos[1] - 1, cur_pos[1], false, line)
   vim.api.nvim_win_set_cursor(0, cur_pos)
 end
+
+require('vim._core.ui2').enable()

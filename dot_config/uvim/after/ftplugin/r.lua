@@ -6,6 +6,6 @@ vim.keymap.set({ "i" }, "<A-->", "<-", { buffer = true, desc = "Insert `<-`" })
 -- need split string to avoid ]] as end string
 vim.keymap.set({"n", "v"}, "<LocalLeader>ss", [[ :s/\$\([a-zA-Z._0-9]*\)/[["\1"] ]] .. [[ ]/ge<CR> ]])
 
-vim.cmd([[ TSBufEnable highlight ]])
-vim.cmd([[ TSBufEnable indent ]])
-vim.cmd([[ TSBufEnable incremental_selection ]])
+-- vim.cmd([[ TSBufEnable highlight ]])
+-- vim.cmd([[ TSBufEnable indent ]])
+-- vim.cmd([[ TSBufEnable incremental_selection ]])
