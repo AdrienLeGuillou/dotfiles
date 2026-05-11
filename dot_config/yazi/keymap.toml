@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on   = "<c-o>"
+run  = 'shell "xdg-open \"$@\"" --confirm'
+desc = "Open with xdg-open"
