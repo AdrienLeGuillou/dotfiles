@@ -9,7 +9,7 @@ fi
 
 INMYLOOP_PROMPT_CHAR="I"
 
-PROMPT='%{$fg[yellow]%}${PIXI_PROMPT}%{$reset_color%}%{$fg_bold[${host_color}]%}%m%{$reset_color%}%{$fg_bold[grey]%}]%{$reset_color%} %{$fg_bold[blue]%}%10c%{$reset_color%} $(git_prompt_info) $(git_remote_status)
+PROMPT='%{$fg[yellow]%}${PIXI_PROMPT}%{$reset_color%}%{$fg_bold[${host_color}]%}%m%{$reset_color%}%{$fg_bold[grey]%}]%{$reset_color%}%{$fg_bold[blue]%}%10c%{$reset_color%} $(git_prompt_info) $(git_remote_status)
 %{$reset_color%}%{$fg_bold[cyan]%}$INMYLOOP_PROMPT_CHAR >%{$reset_color%} '
 
 
