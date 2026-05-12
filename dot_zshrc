@@ -110,5 +110,10 @@ compinit
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init zsh)"
+
+# Pixi related
 export PATH="$HOME/.pixi/bin:$PATH"
 eval "$(pixi completion --shell zsh)"
+function pixi_activate() {
+  eval "$(pixi shell-hook --shell zsh --manifest-path ${1:-.})"
+}
