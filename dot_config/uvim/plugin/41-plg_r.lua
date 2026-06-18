@@ -1,4 +1,4 @@
-local later = MiniDeps.later
+local later = Config.later
 
 -- Iron REPL
 later(function()

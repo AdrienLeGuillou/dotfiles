@@ -1,7 +1,8 @@
 _G.Config.leader_group_clues = {
-  -- { mode = 'n', keys = '<Leader>b', desc = '+Buffer' },
+  { mode = 'n', keys = '<Leader>b', desc = '+Buffer' },
   { mode = 'n', keys = '<Leader>c', desc = '+Code (lsp)' },
   { mode = 'n', keys = '<Leader>f', desc = '+Files' },
+  { mode = 'n', keys = '<Leader>i', desc = '+Insert' },
   -- { mode = 'n', keys = '<Leader>g', desc = '+Git' },
   -- { mode = 'n', keys = '<Leader>l', desc = '+Language' },
   -- { mode = 'n', keys = '<Leader>m', desc = '+Map' },
@@ -13,6 +14,7 @@ _G.Config.leader_group_clues = {
 
   -- { mode = 'x', keys = '<Leader>g', desc = '+Git' },
   { mode = 'c', keys = '<Leader>c', desc = '+Code (lsp)' },
+  { mode = 'n', keys = '<Leader>t', desc = '+Toggles' },
 }
 
 vim.keymap.set('n', '<leader><tab>', '<C-^>',  { desc = 'Alternate Buffer' })
@@ -48,5 +50,12 @@ vim.keymap.set('n', "<leader>ce", "<cmd>lua vim.lsp.buf.declaration()<CR>",     
 vim.keymap.set('n', "<leader>cp", "<cmd>lua vim.lsp.buf.code_action()<CR>",          { desc = "Code action" })
 vim.keymap.set('n', "<leader>cR", "<cmd>lua vim.lsp.buf.rename()<CR>",               { desc = "Rename" })
 
+vim.keymap.set('n', '<leader>id', '<cmd>lua Config.fill_dash() <CR>', { desc = 'Insert dashes' })
+vim.keymap.set('n', '<leader>iT', '<cmd>read !date<CR>', { desc = 'Insert timestamp' })
 
 vim.keymap.set({ "", "!", "t" }, "<C-\\>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Term" })
+vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = 'Toggle line wrap' })
+vim.keymap.set('n', '<leader>ts', '<cmd>set spell!<CR>', { desc = 'Toggle spell checking' })
+
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")

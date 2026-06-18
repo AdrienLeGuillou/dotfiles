@@ -1,4 +1,4 @@
-local later, now = MiniDeps.later, MiniDeps.now
+local later, now = Config.later, Config.now
 
 -- Tmux Navigation
 later(function()

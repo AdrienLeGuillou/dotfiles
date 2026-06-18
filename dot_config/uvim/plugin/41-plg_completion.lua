@@ -1,4 +1,4 @@
-local later = MiniDeps.later
+local later = Config.later
 
 later(function()
   -- Note: use this to make a hook when package is installed
