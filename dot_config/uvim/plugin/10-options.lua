@@ -23,6 +23,7 @@ vim.opt.ignorecase = true                     -- Ignore case when searching...
 vim.opt.inccommand = 'split'                  -- Show the result of the command as it's typed
 vim.opt.incsearch = true                      -- Makes search act like search in modern browsers
 vim.opt.laststatus = 2                        -- Only one status line
+vim.opt.linebreak = true                      -- When `wrap`, break one whitespaces
 -- vim.opt.mouse = 'n'                           -- Mouse only in normal mode
 vim.opt.number = false                        -- Print line number
 vim.opt.relativenumber = true                 -- Relative line numbers

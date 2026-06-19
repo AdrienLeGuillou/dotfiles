@@ -57,5 +57,5 @@ vim.keymap.set({ "", "!", "t" }, "<C-\\>", "<cmd>ToggleTerm<CR>", { desc = "Togg
 vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = 'Toggle line wrap' })
 vim.keymap.set('n', '<leader>ts', '<cmd>set spell!<CR>', { desc = 'Toggle spell checking' })
 
-vim.keymap.set("n", "j", "gj")
-vim.keymap.set("n", "k", "gk")
+vim.keymap.set({'n', 'v'}, 'j', 'gj')
+vim.keymap.set({'n', 'v'}, 'k', 'gk')
