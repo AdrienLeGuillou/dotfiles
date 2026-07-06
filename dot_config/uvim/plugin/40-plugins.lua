@@ -1,18 +1,32 @@
 local later, now = Config.later, Config.now
 
--- Tmux Navigation
+-- Smart-splits
 later(function()
-  vim.pack.add({ 'https://github.com/alexghergh/nvim-tmux-navigation' })
-  local nvim_tmux_nav = require('nvim-tmux-navigation')
-  nvim_tmux_nav.setup({})
-  vim.keymap.set({'n', 't'}, '<A-h>', nvim_tmux_nav.NvimTmuxNavigateLeft)
-  vim.keymap.set({'n', 't'}, '<A-j>', nvim_tmux_nav.NvimTmuxNavigateDown)
-  vim.keymap.set({'n', 't'}, '<A-k>', nvim_tmux_nav.NvimTmuxNavigateUp)
-  vim.keymap.set({'n', 't'}, '<A-l>', nvim_tmux_nav.NvimTmuxNavigateRight)
-  vim.keymap.set('i', '<A-h>', '<ESC><CMD>NvimTmuxNavigateLeft<CR>')
-  vim.keymap.set('i', '<A-j>', '<ESC><CMD>NvimTmuxNavigateDown<CR>')
-  vim.keymap.set('i', '<A-k>', '<ESC><CMD>NvimTmuxNavigateUp<CR>')
-  vim.keymap.set('i', '<A-l>', '<ESC><CMD>NvimTmuxNavigateRight<CR>')
+vim.pack.add({ 'https://github.com/mrjones2014/smart-splits.nvim' })
+  require('smart-splits').setup()
+   -- moving between splits
+  vim.keymap.set({'n', 't'}, '<A-h>', "<CMD>lua require('smart-splits').move_cursor_left()<CR>")
+  vim.keymap.set({'n', 't'}, '<A-j>', "<CMD>lua require('smart-splits').move_cursor_down()<CR>")
+  vim.keymap.set({'n', 't'}, '<A-k>', "<CMD>lua require('smart-splits').move_cursor_up()<CR>")
+  vim.keymap.set({'n', 't'}, '<A-l>', "<CMD>lua require('smart-splits').move_cursor_right()<CR>")
+  vim.keymap.set('i', '<A-h>', "<ESC><CMD>lua require('smart-splits').move_cursor_left()<CR>")
+  vim.keymap.set('i', '<A-j>', "<ESC><CMD>lua require('smart-splits').move_cursor_down()<CR>")
+  vim.keymap.set('i', '<A-k>', "<ESC><CMD>lua require('smart-splits').move_cursor_up()<CR>")
+  vim.keymap.set('i', '<A-l>', "<ESC><CMD>lua require('smart-splits').move_cursor_right()<CR>")
+  -- Resize splits
+  vim.keymap.set({'n', 't'}, '<A-left>',  "<CMD>lua require('smart-splits').resize_left()<CR>")
+  vim.keymap.set({'n', 't'}, '<A-down>',  "<CMD>lua require('smart-splits').resize_down()<CR>")
+  vim.keymap.set({'n', 't'}, '<A-up>',    "<CMD>lua require('smart-splits').resize_up()<CR>")
+  vim.keymap.set({'n', 't'}, '<A-right>', "<CMD>lua require('smart-splits').resize_right()<CR>")
+
+  table.insert(Config.leader_group_clues,
+              { mode = 'n', keys = '<Leader>w', desc = '+Windows' })
+  vim.keymap.set('n', '<leader>w/', '<cmd>vs<CR>', { desc = 'Vertical split' })
+  vim.keymap.set('n', '<leader>w-', '<cmd>split<CR>', { desc = 'Horizontal split' })
+  vim.keymap.set('n', '<leader>w=', '<C-w>=', { desc = 'Equalize windows' })
+  vim.keymap.set('n', '<leader>wd', '<C-w>q', { desc = 'Close window' })
+  vim.keymap.set('n', '<leader>ww', '<cmd>Windows<CR>', { desc = 'List windows' })
+  vim.keymap.set('n', '<leader>wo', '<cmd>only<CR>', { desc = 'Only window' })
 end)
 
 -- treesitter
