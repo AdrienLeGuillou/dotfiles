@@ -22,6 +22,8 @@ vim.keymap.set('n', '<leader><tab>', '<C-^>',  { desc = 'Alternate Buffer' })
 vim.keymap.set('n', '<Leader>ff', '<CMD>Pick files<CR>',  { desc = 'Find' })
 vim.keymap.set('n', '<Leader>fs', '<CMD>w<CR>',  { desc = 'Save' })
 vim.keymap.set('n', '<leader>fd', '<CMD>lua MiniFiles.open()<CR>', { desc = 'Directory' })
+vim.keymap.set('n', '<leader>ft', '<CMD>NvimTreeToggle<CR>', { desc = 'Toggle file tree' })
+vim.keymap.set('n', '<leader>fu', '<CMD>Undotree<CR>', { desc = 'Toggle undotree' })
 
 vim.keymap.set('n', '<leader>w/', '<CMD>vs<CR>', { desc = 'Vertical Split' })
 vim.keymap.set('n', '<leader>w-', '<CMD>sv<CR>', { desc = 'Horizontal Split' })
@@ -56,6 +58,8 @@ vim.keymap.set('n', '<leader>iT', '<cmd>read !date<CR>', { desc = 'Insert timest
 vim.keymap.set({ "", "!", "t" }, "<C-\\>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Term" })
 vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = 'Toggle line wrap' })
 vim.keymap.set('n', '<leader>ts', '<cmd>set spell!<CR>', { desc = 'Toggle spell checking' })
+vim.keymap.set('n', '<leader>tm', '<cmd>RenderMarkdown toggle<CR>', { desc = 'Render markdown'})
+vim.keymap.set('n', '<leader>tc', '<cmd>CsvViewToggle<CR>', { desc = 'CSV View'})
 
 vim.keymap.set({'n', 'v'}, 'j', 'gj')
 vim.keymap.set({'n', 'v'}, 'k', 'gk')
