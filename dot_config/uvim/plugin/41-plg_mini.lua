@@ -7,6 +7,7 @@ end)
 
 later(function()
   require('mini.align').setup()
+  require('mini.surround').setup()
   -- require('mini.bracketed').setup()
   -- require('mini.bufremove').setup()
 
