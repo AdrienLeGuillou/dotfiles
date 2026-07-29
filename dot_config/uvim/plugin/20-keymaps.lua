@@ -63,7 +63,7 @@ vim.keymap.set('n', '<leader>w-', '<CMD>sv<CR>', { desc = 'Horizontal Split' })
 vim.keymap.set('n', '<leader>wd', '<CMD>q<CR>', { desc = 'Close' })
 vim.keymap.set('n', '<leader>wo', '<CMD>only<CR>', { desc = 'Only' })
 vim.keymap.set('n', '<leader>w=', '<C-w>=', { desc = 'Equal Size' })
-
+vim.keymap.set('n', '<leader>ww', '<cmd>Windows<CR>', { desc = 'List windows' })
 
 
 vim.keymap.set({'n', 'v'}, 'j', 'gj')

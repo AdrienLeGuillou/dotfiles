@@ -19,20 +19,7 @@ vim.pack.add({ 'https://github.com/mrjones2014/smart-splits.nvim' })
   vim.keymap.set({'n', 't'}, '<A-up>',    "<CMD>lua require('smart-splits').resize_up()<CR>")
   vim.keymap.set({'n', 't'}, '<A-right>', "<CMD>lua require('smart-splits').resize_right()<CR>")
 
-  table.insert(Config.leader_group_clues,
-              { mode = 'n', keys = '<Leader>w', desc = '+Windows' })
-  vim.keymap.set('n', '<leader>w/', '<cmd>vs<CR>', { desc = 'Vertical split' })
-  vim.keymap.set('n', '<leader>w-', '<cmd>split<CR>', { desc = 'Horizontal split' })
-  vim.keymap.set('n', '<leader>w=', '<C-w>=', { desc = 'Equalize windows' })
-  vim.keymap.set('n', '<leader>wd', '<C-w>q', { desc = 'Close window' })
-  vim.keymap.set('n', '<leader>ww', '<cmd>Windows<CR>', { desc = 'List windows' })
-  vim.keymap.set('n', '<leader>wo', '<cmd>only<CR>', { desc = 'Only window' })
-end)
-
--- treesitter
-later(function()
-  -- Note: use this to make a hook when package is installed but requires to be
-  -- loaded
+  -- treesitter
   local hooks = function(ev)
     local name, kind = ev.data.spec.name, ev.data.kind
     if name == 'nvim-treesitter' and (kind == 'install' or kind == 'update') then
@@ -49,6 +36,7 @@ later(function()
     callback = hooks,
     group = _G.Config.augrp
   })
+
   vim.pack.add({
     {
       src = 'https://github.com/nvim-treesitter/nvim-treesitter',
@@ -70,14 +58,8 @@ later(function()
     indent = { enable = true, },
     incremental_selection = { enable = true, },
   })
-end)
 
-later(function()
-  vim.pack.add({ 'https://github.com/hat0uma/csvview.nvim' })
-    require('csvview')
-end)
-
-later(function()
+  -- LSPs
   vim.pack.add({
     'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/mason-org/mason.nvim',
@@ -87,12 +69,17 @@ later(function()
   vim.lsp.enable('lua_ls')
   vim.lsp.enable('r_language_server')
   vim.lsp.enable('air')
-end)
 
-later(function()
+  -- Misc
+  vim.pack.add({ 'https://github.com/hat0uma/csvview.nvim' })
+  require('csvview')
+
   vim.pack.add({ 'https://github.com/MagicDuck/grug-far.nvim' })
   require('grug-far').setup()
+
+  vim.pack.add({ 'https://github.com/dlyongemallo/diffview-plus.nvim' })
 end)
+
 
 now(function()
   vim.pack.add({ 'https://github.com/akinsho/toggleterm.nvim' })
