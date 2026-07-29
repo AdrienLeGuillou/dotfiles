@@ -1,6 +1,7 @@
 _G.Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>b', desc = '+Buffer' },
   { mode = 'n', keys = '<Leader>c', desc = '+Code (lsp)' },
+  { mode = 'n', keys = '<Leader>d', desc = '+Diagnostics (lsp)' },
   { mode = 'n', keys = '<Leader>f', desc = '+Files' },
   { mode = 'n', keys = '<Leader>i', desc = '+Insert' },
   -- { mode = 'n', keys = '<Leader>g', desc = '+Git' },
@@ -33,6 +34,14 @@ vim.keymap.set('n', "<leader>cw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>",
 vim.keymap.set('n', "<leader>ce", "<cmd>lua vim.lsp.buf.declaration()<CR>",          { desc = "Declaration" })
 vim.keymap.set('n', "<leader>cp", "<cmd>lua vim.lsp.buf.code_action()<CR>",          { desc = "Code action" })
 vim.keymap.set('n', "<leader>cR", "<cmd>lua vim.lsp.buf.rename()<CR>",               { desc = "Rename" })
+
+vim.keymap.set('n', "<leader>de", "<cmd>lua vim.diagnostic.enable(true)<CR>", { desc = "Enable" })
+vim.keymap.set('n', "<leader>dd", "<cmd>lua vim.diagnostic.enable(false)<CR>", { desc = "Disable" })
+vim.keymap.set('n', "<leader>dh", "<cmd>lua vim.diagnostic.hide()<CR>", { desc = "Hide" })
+vim.keymap.set('n', "<leader>ds", "<cmd>lua vim.diagnostic.show()<CR>", { desc = "Show" })
+vim.keymap.set('n', "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "View diagnostic" })
+vim.keymap.set('n', "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Next diagnostic" })
+vim.keymap.set('n', "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Previous diagnostic" })
 
 vim.keymap.set('n', '<leader>id', '<cmd>lua Config.fill_dash() <CR>', { desc = 'Insert dashes' })
 vim.keymap.set('n', '<leader>iT', '<cmd>read !date<CR>', { desc = 'Insert timestamp' })
