@@ -88,4 +88,7 @@ end)
 
 Config.now_if_args(function()
   vim.pack.add({ 'https://github.com/MeanderingProgrammer/render-markdown.nvim' })
+  require('render-markdown').setup({ enabled = false })
+  vim.pack.add({ 'https://github.com/noisesfromspace/touchup.nvim' })
+  require("touchup").setup()
 end)
