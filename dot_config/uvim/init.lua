@@ -1,11 +1,9 @@
 _G.Config = {}
 
+require('vim._core.ui2').enable()
+
 vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
 vim.cmd('colorscheme minisummer')
-
--- vim.pack.add({ 'https://github.com/ellisonleao/gruvbox.nvim' })
--- require('gruvbox')
--- vim.cmd.colorscheme("gruvbox")
 
 local misc = require('mini.misc')
 Config.now = function(f) misc.safely('now', f) end
@@ -55,5 +53,3 @@ function Config.fill_dash()
   vim.api.nvim_buf_set_lines(0, cur_pos[1] - 1, cur_pos[1], false, line)
   vim.api.nvim_win_set_cursor(0, cur_pos)
 end
-
-require('vim._core.ui2').enable()
