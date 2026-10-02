@@ -1,0 +1,10 @@
+#!/bin/sh
+
+while :; do
+    ssh -o ConnectTimeout=3 -o BatchMode=yes c720p 'systemctl --no-ask-password stop nap-loop'
+    rc=$?
+    [ "$rc" -ne 255 ] && break
+    sleep 3
+done
+[ "$rc" -ne 0 ] && echo "connected, but stop returned $rc" >&2
+ssh c720p
