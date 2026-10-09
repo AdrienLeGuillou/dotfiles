@@ -113,4 +113,4 @@ eval "$(zoxide init zsh)"
 
 # Pixi related
 export PATH="$HOME/.pixi/bin:$PATH"
-alias pixi_activate='eval "$(pixi shell-hook --shell zsh)"'
+alias pa='eval "$(pixi shell-hook --shell zsh)"'
