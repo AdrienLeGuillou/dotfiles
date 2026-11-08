@@ -5,7 +5,7 @@ _G.Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>f', desc = '+Files' },
   { mode = 'n', keys = '<Leader>i', desc = '+Insert' },
   -- { mode = 'n', keys = '<Leader>g', desc = '+Git' },
-  -- { mode = 'n', keys = '<Leader>l', desc = '+Language' },
+  { mode = 'n', keys = '<Leader>l', desc = '+List' },
   -- { mode = 'n', keys = '<Leader>m', desc = '+Map' },
   -- { mode = 'n', keys = '<Leader>o', desc = '+Other' },
   { mode = 'n', keys = '<Leader>s', desc = '+Search' },
@@ -43,20 +43,29 @@ vim.keymap.set('n', "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", { 
 vim.keymap.set('n', "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Next diagnostic" })
 vim.keymap.set('n', "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Previous diagnostic" })
 
+-- vim.keymap.set('n', '<Leader>ff', '<CMD>Pick files<CR>',  { desc = 'Find' })
+vim.keymap.set('n', '<Leader>ff', '<CMD>lua Snacks.picker.files()<CR>',  { desc = 'Find' })
+vim.keymap.set('n', '<Leader>fs', '<CMD>w<CR>',  { desc = 'Save' })
+vim.keymap.set('n', '<leader>fd', '<CMD>lua MiniFiles.open()<CR>', { desc = 'Directory' })
+-- vim.keymap.set('n', '<leader>ft', '<CMD>NvimTreeToggle<CR>', { desc = 'Toggle file tree' })
+vim.keymap.set('n', '<leader>ft', '<CMD>lua Snacks.explorer()<CR>', { desc = 'Toggle file tree' })
+vim.keymap.set('n', '<leader>fu', '<CMD>Undotree<CR>', { desc = 'Toggle undotree' })
+
 vim.keymap.set('n', '<leader>id', '<cmd>lua Config.fill_dash() <CR>', { desc = 'Insert dashes' })
 vim.keymap.set('n', '<leader>iT', '<cmd>read !date<CR>', { desc = 'Insert timestamp' })
 
-vim.keymap.set('n', '<Leader>ff', '<CMD>Pick files<CR>',  { desc = 'Find' })
-vim.keymap.set('n', '<Leader>fs', '<CMD>w<CR>',  { desc = 'Save' })
-vim.keymap.set('n', '<leader>fd', '<CMD>lua MiniFiles.open()<CR>', { desc = 'Directory' })
-vim.keymap.set('n', '<leader>ft', '<CMD>NvimTreeToggle<CR>', { desc = 'Toggle file tree' })
-vim.keymap.set('n', '<leader>fu', '<CMD>Undotree<CR>', { desc = 'Toggle undotree' })
+vim.keymap.set('n', '<leader>lq', '<cmd>copen<CR>', { desc = 'Open qflist' })
+vim.keymap.set('n', '<leader>lQ', '<cmd>cclose<CR>', { desc = 'Open qflist' })
+vim.keymap.set('n', '<leader>ll', '<cmd>lopen<CR>', { desc = 'Open loclist' })
+vim.keymap.set('n', '<leader>lL', '<cmd>lclose<CR>', { desc = 'Open locqflist' })
 
 vim.keymap.set('n', '<Leader>qq', '<CMD>confirm quitall<CR>',  { desc = 'Quit All' })
 
 vim.keymap.set('n', '<Leader>sc', '<CMD>nohl<CR>',  { desc = 'Clear' })
-vim.keymap.set('n', '<Leader>sh', '<CMD>Pick help<CR>',  { desc = 'Help' })
-vim.keymap.set('n', '<Leader>sf', '<CMD>Pick grep_live<CR>',  { desc = 'Grep live' })
+-- vim.keymap.set('n', '<Leader>sh', '<CMD>Pick help<CR>',  { desc = 'Help' })
+vim.keymap.set('n', '<Leader>sh', '<CMD>lua Snacks.picker.help()<CR>',  { desc = 'Help' })
+-- vim.keymap.set('n', '<Leader>sf', '<CMD>Pick grep_live<CR>',  { desc = 'Grep live' })
+vim.keymap.set('n', '<Leader>sf', '<CMD>lua Snacks.picker.grep()<CR>',  { desc = 'Grep live' })
 vim.keymap.set('n', '<Leader>sg', '<CMD>GrugFar<CR>',  { desc = 'Search & Replace' })
 vim.keymap.set('v', '<Leader>sg', ":<C-U>'<,'>GrugFar<CR>",  { desc = 'Search & Replace' })
 
@@ -65,7 +74,8 @@ vim.keymap.set('n', '<leader>ts', '<cmd>set spell!<CR>', { desc = 'Toggle spell 
 vim.keymap.set('n', '<leader>tm', '<cmd>RenderMarkdown toggle<CR>', { desc = 'Render markdown'})
 vim.keymap.set('n', '<leader>tC', '<cmd>CsvViewToggle<CR>', { desc = 'CSV View'})
 vim.keymap.set('n', '<leader>tc', '<cmd>TSContext toggle<CR>', { desc = 'TS Context Toggle'})
-vim.keymap.set({ "", "!", "t" }, "<C-\\>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Term" })
+-- vim.keymap.set({ "", "!", "t" }, "<C-\\>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Term" })
+vim.keymap.set({ "", "!", "t" }, "<C-\\>", "<cmd>lua Snacks.terminal()<CR>", { desc = "Toggle Term" })
 
 vim.keymap.set('n', '<leader>w/', '<CMD>vs<CR>', { desc = 'Vertical Split' })
 vim.keymap.set('n', '<leader>w-', '<CMD>sv<CR>', { desc = 'Horizontal Split' })

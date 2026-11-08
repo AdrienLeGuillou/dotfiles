@@ -1,6 +1,5 @@
 local later = Config.later
 
--- Iron REPL
 later(function()
   local hooks = function(ev)
     local name, kind = ev.data.spec.name, ev.data.kind

@@ -81,11 +81,6 @@ vim.pack.add({ 'https://github.com/mrjones2014/smart-splits.nvim' })
 end)
 
 
-now(function()
-  vim.pack.add({ 'https://github.com/akinsho/toggleterm.nvim' })
-  require("toggleterm").setup()
-end)
-
 Config.now_if_args(function()
   vim.pack.add({ 'https://github.com/MeanderingProgrammer/render-markdown.nvim' })
   require('render-markdown').setup({ enabled = false })
