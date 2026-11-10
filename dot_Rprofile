@@ -1,8 +1,9 @@
 local({
   r <- getOption("repos")
-  r["CRAN"] <- "https://cloud.r-project.org/"
-  options(repos = r)
-  options(menu.graphics = FALSE)
+  options(
+    repos = c("CRAN" = "https://cloud.r-project.org/"),
+    menu.graphics = FALSE
+  )
 })
 
 if (interactive()) {
