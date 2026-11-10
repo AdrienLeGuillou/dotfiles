@@ -44,20 +44,34 @@ vim.pack.add({ 'https://github.com/mrjones2014/smart-splits.nvim' })
     },
     'https://github.com/nvim-treesitter/nvim-treesitter-context',
   })
-  require('nvim-treesitter').setup({
-    ensure_installed = {
-      'c', 'lua', 'r', 'rust',
-      'vim', 'vimdoc', 'query',
-      'markdown', 'markdown_inline'
-    },
-    auto_install = true,
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = false,
-    },
-    indent = { enable = true, },
-    incremental_selection = { enable = true, },
+
+  -- 1. Install parsers
+  require('nvim-treesitter').install({
+    'c', 'lua', 'r', 'rust',
+    'vim', 'vimdoc', 'query',
+    'markdown', 'markdown_inline'
   })
+
+  -- 2. Set up highlighting and indentation
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = { '<filetype>' },
+    callback = function() vim.treesitter.start() end,
+  })
+
+  -- require('nvim-treesitter').setup({
+  --   ensure_installed = {
+  --     'c', 'lua', 'r', 'rust',
+  --     'vim', 'vimdoc', 'query',
+  --     'markdown', 'markdown_inline'
+  --   },
+  --   auto_install = true,
+  --   highlight = {
+  --     enable = true,
+  --     additional_vim_regex_highlighting = false,
+  --   },
+  --   indent = { enable = true, },
+  --   incremental_selection = { enable = true, },
+  -- })
 
   -- LSPs
   vim.pack.add({
